@@ -1,0 +1,208 @@
+.background
+  height: 515px
+  width: 100%
+  position: absolute
+  top: 0
+  left: 0
+  z-index: 1
+  background:
+    color: #001f3e
+  &::before
+    position: absolute
+    content: ''
+    top: 0
+    right: 0
+    bottom: 0
+    left: 0
+    opacity: 0.5
+    background:
+      image: url('/images/background.jpg')
+      repeat: no-repeat
+      size: cover
+      position: center
+.profile
+  & > .container
+    margin:
+      bottom: 0
+
+.profile-wrapper
+  padding: 16px
+  img
+    max:
+      width: 100%
+  h1
+    margin:
+      top: 8px
+      bottom: 8px
+    font:
+      size: 34px
+  .greeting
+    .tagline
+      margin:
+        top: 8px
+        bottom: 4px
+    .subtagline
+      margin:
+        top: 4px
+        bottom: 12px
+      span
+        &:nth-child(even)
+          color: #1a77d4
+        &:last-child
+          display: none
+    hr
+      border:
+        top: 0
+        right: 0
+        bottom: 1px solid rgba(0, 0, 0, 0.25)
+        left: 0
+  .info
+    label, span
+      display: block
+    label
+      text:
+        transform: uppercase
+      font:
+        weight: bold
+        size: 0.8em
+    span
+      color: #a7a7a7
+
+.resume-wrapper
+  .resume
+    display: inline-block
+    border: 1px solid #cecece
+    color: #767676
+    text:
+      decoration: none
+      transform: uppercase
+    font:
+      weight: bold
+    padding:
+      top: 12px
+      right: 24px
+      bottom: 12px
+      left: 24px
+    box:
+      shadow: 0 0 0 0 rgba(0, 0, 0, 0.0), 0 0 0 0 rgba(0, 0, 0, 0.0)
+    transition: box-shadow 500ms
+    &:hover
+      box:
+        shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15)
+
+@media (min-width: 480px)
+  .profile-wrapper
+    display: grid
+    grid:
+      gap: 0 32px
+      template:
+        areas: "image me" "info info"  
+        columns: 160px 1fr
+    .image
+      grid-area: image
+    .greeting
+      position: relative
+      grid-area: me
+      padding:
+        top: 24px
+      &::before
+        position: absolute
+        top: 0
+        left: 0
+        content: 'Hello'
+        display: inline-block
+        background:
+          color: #1a77d4
+        color: white
+        padding: 4px 10px
+        font:
+          size: 14px
+          weight: bold
+        text:
+          transform: uppercase
+      &::after
+        content: ''
+        position: absolute
+        top: 24px
+        left: 5px
+        width: 0
+        height: 0
+        border:
+          style: solid
+          width: 0 0 8px 8px
+          color: transparent
+          left:
+            color: #1a77d4
+    h1
+      font:
+        size: 32px
+      &::before
+        content: "I'm "
+        font:
+          weight: normal
+    .info
+      display: flex
+      flex:
+        wrap: wrap
+      grid-area: info
+      p
+        flex: 1 1 auto
+        &:nth-child(odd)
+          min:
+            width: 188px
+          max:
+            width: 260px
+        &:nth-child(even)
+          width: 50%
+
+@media (min-width: 676px)
+  .profile-wrapper
+    grid:
+      gap: 0 32px
+      template:
+        areas: "image me" "image info"
+        columns: 170px 1fr
+    .info
+      p
+        &:nth-child(odd)
+          min:
+            width: 50%
+          max:
+            width: 50%
+
+@media (min-width: 720px)
+  .profile-wrapper
+    padding: 24px
+    grid:
+      gap: 0 34px
+      template:
+        areas: "image me" "image info" "image ."
+        columns: 210px 1fr
+    h1
+      font:
+        size: 38px
+    .info
+      display: block
+      p
+        width: auto
+        display: flex
+        &:nth-child(odd)
+          min:
+            width: 199px
+          max:
+            width: 100%
+        &:nth-child(even)
+          width: 100%
+      label
+        width: 100px
+        flex: 0 0 auto
+        display: inline-block
+      span
+        flex: 1 1 auto
+
+@media (min-width: 960px)
+  .profile-wrapper
+    grid:
+      gap: 0 60px
+      template:
+        columns: 210px 1fr

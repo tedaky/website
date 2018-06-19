@@ -1,0 +1,70 @@
+.social-wrapper
+  & > .container
+    margin:
+      top: 0
+.social
+  padding:
+    top: 0
+    right: 0
+    bottom: 0
+    left: 0
+  margin:
+    top: 0
+    right: 0
+    bottom: 0
+    left: 0
+  background:
+    color: #1a77d4
+  display: flex
+  flex:
+    wrap: wrap
+  list:
+    style:
+      type: none
+  justify:
+    content: center
+  .item
+    margin:
+      top: 8px
+      right: 8px
+      bottom: 8px
+      left: 8px
+  .link
+    display: block
+    padding:
+      top: 10px
+      right: 10px
+      bottom: 10px
+      left: 10px
+    border:
+      radius: 22px
+    background:
+      color: transparent
+    transition: background-color 500ms
+    &:hover
+      background:
+        color: rgba(0, 0, 0, 0.25)
+  .image
+    display: block
+    width: 24px
+    height: 24px
+
+@media (min-width: 480px)
+  .social
+    .item
+      margin:
+        top: 12px
+        right: 8px
+        bottom: 12px
+        left: 8px
+    .link
+      padding:
+        top: 10px
+        right: 10px
+        bottom: 10px
+        left: 10px
+      border:
+        radius: 24px
+    .image
+      width: 28px
+      height: 28px

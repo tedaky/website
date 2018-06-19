@@ -1,0 +1,46 @@
+{
+    "home": {
+        "link": "/",
+        "image": "/images/logo.png"
+    },
+    "navigation": [
+        {
+            "name": "About",
+            "link": "#profile"
+        },
+        {
+            "name": "Skills",
+            "link": "#skills",
+            "nest": [
+                {
+                    "name": "Project Management",
+                    "link": "#project-management"
+                },
+                {
+                    "name": "Software",
+                    "link": "#software"
+                },
+                {
+                    "name": "Description",
+                    "link": "#description"
+                },
+                {
+                    "name": "Frameworks",
+                    "link": "#frameworks"
+                },
+                {
+                    "name": "Languages",
+                    "link": "#languages"
+                }
+            ]
+        },
+        {
+            "name": "Education",
+            "link": "#education"
+        },
+        {
+            "name": "Experience",
+            "link": "#experience"
+        }
+    ]
+}

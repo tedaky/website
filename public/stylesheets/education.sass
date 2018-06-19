@@ -1,0 +1,134 @@
+.education
+  padding:
+    top: 10px
+    bottom: 10px
+    left: 0
+    right: 0
+  position: relative
+  list:
+    style:
+      type: none
+  &::before
+    width: 4px
+    content: ''
+    position: absolute
+    top: 10px
+    bottom: 10px
+    left: calc(50% - 2px)
+    background:
+      color: rgba(26, 119, 212, 0.25)
+
+.group
+  border:
+    top: 4px solid #1a77d4
+  display: flex
+  flex:
+    direction: column
+  position: relative
+  background:
+    color: rgba(255, 255, 255, 0.99)
+  margin:
+    bottom: 26px
+  padding:
+    top: 16px
+    right: 16px
+    bottom: 16px
+    left: 16px
+  box:
+    shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24)
+  &::before,
+  &::after
+    content: ''
+    position: absolute
+    width: 8px
+    height: 4px
+    background:
+      color: #1a77d4
+    left: calc(50% - 4px)
+  &::before
+    top: -8px
+    border:
+      top:
+        left:
+          radius: 4px
+        right:
+          radius: 4px
+  &::after
+    bottom: -4px
+    border:
+      bottom:
+        left:
+          radius: 4px
+        right:
+          radius: 4px
+  .school-name
+    order: 3
+  .time
+    order: 1
+  .study
+    order: 2
+  .cgpa
+    order: 4
+
+.school
+  &:last-child
+    .group
+      margin:
+        bottom: 0
+
+@media (min-width: 480px)
+  .education
+    display: grid
+    grid:
+      row:
+        gap: 16px
+      column:
+        gap: 56px
+      template:
+        columns: 1fr 1fr
+    position: relative
+    &::before
+      top: 30px
+      bottom: 70px
+  
+  .group 
+    margin:
+      bottom: 0
+    &::before
+      top: 30px
+      left: auto
+      right: -32px
+      height: 8px
+      border:
+        radius: 4px
+    &::after
+      width: 0
+      height: 0
+      border:
+        top: 20px solid transparent
+        bottom: 20px solid transparent
+      background:
+        color: transparent
+      bottom: auto
+      top: 15px
+      right: -10px
+      left: auto
+
+  .school
+    &:nth-child(odd)
+      .group
+        &::after
+          right: -10px
+          left: auto
+          border:
+            left: 10px solid white
+    &:nth-child(even)
+      .group
+        margin-top: 30px
+        &::before
+          left: -32px
+        &::after
+          left: -10px
+          right: auto
+          border:
+            right: 10px solid white

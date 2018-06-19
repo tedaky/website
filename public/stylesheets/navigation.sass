@@ -1,0 +1,70 @@
+.navigation
+  position: fixed
+  top: 0
+  left: 0
+  right: 0
+  z-index: 3
+  background:
+    color: #fff
+  .container
+    padding:
+      top: 0
+      bottom: 0
+      left: 26px
+      right: 26px
+    margin:
+      top: 0
+      right: auto
+      bottom: 0
+      left: auto
+    max:
+      width: 972px
+
+.nav
+  padding: 0
+  margin: 0
+  list:
+    style:
+      type: none
+  .nav
+    position: absolute
+    top: 100%
+    left: 0
+    display: none
+    background:
+      color: #fff
+    .nav-item
+      display: block
+.nav-item
+  display: inline-block
+  position: relative
+  padding:
+    top: 8px
+    bottom: 8px
+  &:hover
+    .nav
+      display: block
+  .nav
+    .nav-click
+      &:hover
+        &::after
+          right: 20px
+.nav-click
+  display: inline-block
+  padding: 8px 20px
+  white-space: nowrap
+  color: #5a5a5a
+  position: relative
+  text:
+    decoration: none
+.nav-item
+  .nav
+    .nav-click
+      &::after
+        content: ''
+        position: absolute
+        bottom: 0
+        left: 20px
+        right: calc(100% - 20px)
+        border:
+          bottom: 2px solid #1a77d4
