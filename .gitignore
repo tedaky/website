@@ -63,3 +63,5 @@ typings/
 # css and map
 *.css
 *.map
+
+.DS_Store
