@@ -1,0 +1,19 @@
+extends amp_layout
+
+block content
+  amp-sidebar(id='sidebar', layout='nodisplay', side='left')
+    amp-img(class='amp-close-image', src='https://ampbyexample.com/img/ic_close_black_18dp_2x.png', width='20', height='20', alt='close sidebar', on='tap:sidebar.close', role='button', tabindex='0')
+    ul
+      li
+        a(href='/') Home
+      li Nav item 1
+      li
+        amp-fit-text(width='220', height='20', layout='responsive' max-font-size='24') Nav item 2 - &lt;amp-fit-text&gt;
+      li
+        amp-fit-text(width='220', height='20', layout='responsive', max-font-size='24') Nav item 3 - &lt;amp-fit-text&gt; longer text
+      li Nav item 4 - Image
+        amp-img(class='amp-sidebar-image', src='https://ampbyexample.com/img/favicon.png', width='20', height='20', alt='an image')
+      li Nav item 5
+      li Nav item 6
+
+  button(on='tap:sidebar.toggle', class='ampstart-btn caps m2') Toggle sidebar

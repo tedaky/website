@@ -25,7 +25,7 @@
             skillsWrapper.appendChild(label);
 
             this.skills.reverse();
-            
+
             for (let i = this.skills.length; i > 0; --i) {
                 let container = etiedeken.element('div', ['container'], []);
                 container.id = this.skills[i-1].group.replace(' ', '-').toLowerCase();
@@ -40,7 +40,7 @@
                 skillsWrapper.appendChild(container);
             }
         });
-        
+
         etiedeken.loadDeferredStyles('/stylesheets/skills.css');
     };
 

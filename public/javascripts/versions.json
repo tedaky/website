@@ -1,0 +1,24 @@
+{
+    "versions": [
+        {
+            "name": "JavaScript ES6",
+            "link": "javascript-es6"
+        },
+        {
+            "name": "AMP",
+            "link": "amp"
+        },
+        {
+            "name": "AngularJS",
+            "link": "angularjs"
+        },
+        {
+            "name": "Angular",
+            "link": "angular"
+        },
+        {
+            "name": "React",
+            "link": "react"
+        }
+    ]
+}

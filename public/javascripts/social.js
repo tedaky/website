@@ -21,7 +21,7 @@
             let container = etiedeken.element('div', ['container'], []);
 
             this.social.reverse();
-            
+
             let socialContainer = etiedeken.element('ul', ['social'], []);
 
             for (let i = this.social.length; i > 0; --i) {
@@ -30,7 +30,7 @@
             container.appendChild(socialContainer);
             socialWrapper.appendChild(container);
         });
-        
+
         etiedeken.loadDeferredStyles('/stylesheets/social.css');
     };
 

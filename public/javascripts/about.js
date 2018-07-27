@@ -55,7 +55,7 @@
 
             const info = (about) => {
                 let container = etiedeken.element('div', ['info'], []);
-                
+
                 for (let i in about) {
                     let row = etiedeken.element('p', [], []);
                     let property = etiedeken.textElement('label', [], [], i);
@@ -84,7 +84,7 @@
             return container;
         };
 
-        const resume = (about) => {  
+        const resume = (about) => {
             let container = etiedeken.element('div', ['container', 'no-bg'], []);
             let resumeWrapper = etiedeken.element('p', ['resume-wrapper', 'text-center'], []);
             let resume = etiedeken.link(['btn', 'resume'], [], 'Download Resume', about.resume);
@@ -117,7 +117,7 @@
 
             document.body.insertBefore(background, profileWrapper);
         });
-        
+
         etiedeken.loadDeferredStyles('/stylesheets/about.css');
     };
 

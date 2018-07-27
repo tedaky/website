@@ -19,7 +19,7 @@
             }
             xhttp.open(method, url, true);
             xhttp.send();
-    
+
             return xhttp;
         },
 

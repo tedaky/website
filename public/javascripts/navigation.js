@@ -20,7 +20,7 @@
                 if (nav[i-1].nest) {
                     nav[i-1].nest.reverse();
                     let nestWrapper = etiedeken.element('ul', ['nav'], []);
-                    
+
                     for (let y = nav[i-1].nest.length; y > 0; --y) {
                         let curNestItem = navItem(nav[i-1].nest[y-1]);
                         nestWrapper.appendChild(curNestItem);
@@ -42,7 +42,7 @@
             this.navigation.reverse();
             navigationWrapper.appendChild(navigation(this.navigation));
         });
-        
+
         etiedeken.loadDeferredStyles('/stylesheets/navigation.css');
     };
 
