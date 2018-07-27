@@ -105,10 +105,32 @@
             return container;
         };
 
+        const sphere = () => {
+            let ballWrapper = etiedeken.element('div', ['ball-wrapper'], []);
+            let inner = etiedeken.element('div', ['inner'], []);
+            let wrap = etiedeken.element('div', ['wrap'], []);
+            let scene = etiedeken.element('div', ['scene'], []);
+            let wrapper = etiedeken.element('div', ['wrapper'], []);
+            let ball = etiedeken.element('ul', ['ball'], []);
+            for (let i = 20; i > 0; --i) {
+                let ring = etiedeken.element('li', ['ring'], []);
+                ball.appendChild(ring);
+            }
+
+            wrapper.appendChild(ball);
+            scene.appendChild(wrapper);
+            wrap.appendChild(scene);
+            inner.appendChild(wrap);
+            ballWrapper.appendChild(inner);
+
+            return ballWrapper;
+        };
+
         etiedeken.ajax('GET', '/javascripts/about.json', function() {
             let profileWrapper = document.getElementById('profile');
             let aboutWrapper = document.getElementById('about');
             let background = etiedeken.element('div', ['background'], []);
+            let sphereBackground = etiedeken.element('div', ['sphere'], []);
 
             profileWrapper.classList.add('profile');
             profileWrapper.appendChild(profile(this.about));
@@ -116,6 +138,8 @@
             aboutWrapper.appendChild(about(this.about));
 
             document.body.insertBefore(background, profileWrapper);
+            sphereBackground.appendChild(sphere());
+            document.body.insertBefore(sphereBackground, aboutWrapper);
         });
 
         etiedeken.loadDeferredStyles('/stylesheets/about.css');
