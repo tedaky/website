@@ -1,65 +1,101 @@
 ((window, document) => {
-    const setUpEtiedeken = (etiedeken) => {
+    class Setup {
+        constructor(etiedeken) {
+            this.etiedeken = etiedeken;
+        }
 
-        const navItem = (item) => {
-            let nav = etiedeken.element('li', ['nav-item'], []);
-            let text = etiedeken.link(['nav-click'], [], item.name, item.link, false);
+        navHome(item) {
+            let home = this.etiedeken.element('ul', ['nav'], []);
+
+            let nav = this.etiedeken.element('li', ['nav-item'], []);
+            let text = this.etiedeken.element('span', [], [], item.name);
+            let link = this.etiedeken.link(['nav-click'], [], [], item.link, false);
+
+            let logo = this.etiedeken.image([], [], item.image, item.name);
+            link.appendChild(logo);
+            link.appendChild(text);
+
+            nav.appendChild(link);
+
+            home.appendChild(nav);
+
+            return home;
+        }
+
+        navItem(item) {
+            let nav = this.etiedeken.element('li', ['nav-item'], []);
+            let text = this.etiedeken.link(['nav-click'], [], item.name, item.link, false);
 
             nav.appendChild(text);
 
             return nav;
-        };
+        }
 
-        const navigation = (nav) => {
-            let container = etiedeken.element('div', ['container', 'no-bg'], []);
+        navigating(home, nav) {
+            let container = this.etiedeken.element('div', ['container', 'no-bg'], []);
 
-            let mainWrapper = etiedeken.element('ul', ['nav'], []);
+            let homeWrapper = this.navHome(home);
+
+            let navWrapper = this.etiedeken.element('ul', ['nav'], []);
 
             for (let i = nav.length; i > 0; --i) {
-                let curItem = navItem(nav[i-1]);
+                let curItem = this.navItem(nav[i-1]);
                 if (nav[i-1].nest) {
                     nav[i-1].nest.reverse();
-                    let nestWrapper = etiedeken.element('ul', ['nav'], []);
+                    let nestWrapper = this.etiedeken.element('ul', ['nav'], []);
 
                     for (let y = nav[i-1].nest.length; y > 0; --y) {
-                        let curNestItem = navItem(nav[i-1].nest[y-1]);
+                        let curNestItem = this.navItem(nav[i-1].nest[y-1]);
                         nestWrapper.appendChild(curNestItem);
                     }
                     curItem.appendChild(nestWrapper);
                 }
-                mainWrapper.appendChild(curItem);
+                navWrapper.appendChild(curItem);
             }
 
-            container.appendChild(mainWrapper);
+            container.appendChild(homeWrapper);
+            container.appendChild(navWrapper);
 
             return container;
-        };
+        }
 
-        etiedeken.ajax('GET', '/javascripts/navigation.json', function() {
+        fulfiller(ajax) {
             let navigationWrapper = document.getElementById('navigation');
             navigationWrapper.classList.add('navigation');
 
-            this.navigation.reverse();
-            navigationWrapper.appendChild(navigation(this.navigation));
-        });
+            ajax.navigation.reverse();
 
-        etiedeken.loadDeferredStyles('/stylesheets/navigation.css');
-    };
+            navigationWrapper.appendChild(this.navigating(ajax.home, ajax.navigation));
+        }
 
-    const callEtiedeken = (window) => {
+        ajax(ajax) {
+            let self = this;
+            this.etiedeken.ajax('GET', ajax, function() {
+                self.fulfiller(this);
+            });
+        }
+
+        style(style) {
+            this.etiedeken.loadDeferredStyles(style);
+        }
+    }
+
+    const check = (window) => {
         if (window.etiedeken) {
             let etiedeken = window.etiedeken;
             window.requestAnimationFrame(() => {
-                setUpEtiedeken(etiedeken);
+                let load = new Setup(etiedeken);
+                load.ajax('/javascripts/navigation.json');
+                load.style('/stylesheets/navigation.css');
             });
         } else {
             window.requestAnimationFrame(() => {
-                callEtiedeken(window);
+                check(window);
             });
         }
     }
 
     window.requestAnimationFrame(() => {
-        callEtiedeken(window);
+        check(window);
     });
 })(window, document);

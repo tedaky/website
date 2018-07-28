@@ -1,26 +1,39 @@
 ((window, document) => {
-    const setUpEtiedeken = (etiedeken) => {
+    class Setup {
+        constructor(etiedeken) {
+            this.etiedeken = etiedeken;
+        }
+        fulfiller(ajax) {
+        }
 
-        etiedeken.ajax('GET', '/javascripts/experience.json', function() {
-        });
+        ajax(ajax) {
+            let self = this;
+            this.etiedeken.ajax('GET', ajax, function() {
+                self.fulfiller(this);
+            });
+        }
 
-        etiedeken.loadDeferredStyles('/stylesheets/experience.css');
-    };
+        style(style) {
+            this.etiedeken.loadDeferredStyles(style);
+        }
+    }
 
-    const callEtiedeken = (window) => {
+    const check = (window) => {
         if (window.etiedeken) {
             let etiedeken = window.etiedeken;
             window.requestAnimationFrame(() => {
-                setUpEtiedeken(etiedeken);
+                let load = new Setup(etiedeken);
+                load.ajax('/javascripts/experience.json');
+                load.style('/stylesheets/experience.css');
             });
         } else {
             window.requestAnimationFrame(() => {
-                callEtiedeken(window);
+                check(window);
             });
         }
     }
 
     window.requestAnimationFrame(() => {
-        callEtiedeken(window);
+        check(window);
     });
 })(window, document);

@@ -1,5 +1,6 @@
 {
     "home": {
+        "name": "Home",
         "link": "/",
         "image": "/images/logo.png"
     },
@@ -7,6 +8,32 @@
         {
             "name": "About",
             "link": "#profile"
+        },
+        {
+            "name": "Versions",
+            "link": "#versions",
+            "nest": [
+                {
+                    "name": "AMP",
+                    "link": "/amp"
+                },
+                {
+                    "name": "AngularJS",
+                    "link": "/angularjs"
+                },
+                {
+                    "name": "Angular",
+                    "link": "/angular"
+                },
+                {
+                    "name": "JavaScript ES6",
+                    "link": "/"
+                },
+                {
+                    "name": "ReactJS",
+                    "link": "/reactjs"
+                }
+            ]
         },
         {
             "name": "Skills",

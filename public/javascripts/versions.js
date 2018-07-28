@@ -1,12 +1,15 @@
 ((window, document) => {
-    const setUpEtiedeken = (etiedeken) => {
+    class Setup {
+        constructor(etiedeken) {
+            this.etiedeken = etiedeken;
+        }
 
-        const versions = (versions) => {
-            let wrapper = etiedeken.element('li', ['item'], []);
-            let link = etiedeken.link(['link', versions.link], [], [], versions.link, false);
+        versions(versions) {
+            let wrapper = this.etiedeken.element('li', ['item'], []);
+            let link = this.etiedeken.link(['link', versions.link], [], [], versions.link, false);
 
-            const image = etiedeken.image([], [], '/images/' + versions.image, versions.name);
-            const span = etiedeken.textElement('span', ['h5'], [], versions.name);
+            const image = this.etiedeken.image([], [], '/images/' + versions.image, versions.name);
+            const span = this.etiedeken.element('span', ['h5'], [], versions.name);
 
             link.appendChild(image);
             link.appendChild(span);
@@ -15,43 +18,54 @@
             return wrapper;
         };
 
-        etiedeken.ajax('GET', '/javascripts/versions.json', function() {
+        fulfiller(ajax) {
             let versionsWrapper = document.getElementById('versions');
             versionsWrapper.classList.add('versions-wrapper');
 
-            let container = etiedeken.element('div', ['container'], []);
+            let container = this.etiedeken.element('div', ['container'], []);
 
-            const label = etiedeken.textElement('h2', ['text-center'], [], 'View this site in:');
+            const label = this.etiedeken.element('h2', ['text-center'], [], 'View this site in:');
 
-            this.versions.reverse();
+            ajax.versions.reverse();
 
-            let versionsContainer = etiedeken.element('ul', ['versions'], []);
+            let versionsContainer = this.etiedeken.element('ul', ['versions'], []);
 
-            for (let i = this.versions.length; i > 0; --i) {
-                versionsContainer.appendChild(versions(this.versions[i-1]));
+            for (let i = ajax.versions.length; i > 0; --i) {
+                versionsContainer.appendChild(this.versions(ajax.versions[i-1]));
             }
             container.appendChild(label);
             container.appendChild(versionsContainer);
             versionsWrapper.appendChild(container);
-        });
+        }
 
-        etiedeken.loadDeferredStyles('/stylesheets/versions.css');
-    };
+        ajax(ajax) {
+            let self = this;
+            this.etiedeken.ajax('GET', ajax, function() {
+                self.fulfiller(this);
+            });
+        }
 
-    const callEtiedeken = (window) => {
+        style(style) {
+            this.etiedeken.loadDeferredStyles(style);
+        }
+    }
+
+    const check = (window) => {
         if (window.etiedeken) {
             let etiedeken = window.etiedeken;
             window.requestAnimationFrame(() => {
-                setUpEtiedeken(etiedeken);
+                let load = new Setup(etiedeken);
+                load.ajax('/javascripts/versions.json');
+                load.style('/stylesheets/versions.css');
             });
         } else {
             window.requestAnimationFrame(() => {
-                callEtiedeken(window);
+                check(window);
             });
         }
     }
 
     window.requestAnimationFrame(() => {
-        callEtiedeken(window);
+        check(window);
     });
 })(window, document);

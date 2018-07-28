@@ -1,5 +1,5 @@
 ((window, document) => {
-    class tiedeken {
+    class Tiedeken {
         constructor () {}
 
         ajax(method, url, callback) {
@@ -24,12 +24,33 @@
             return xhttp;
         }
 
-        element(element, classlist, stylelist) {
-            let elem = document.createElement(element);
+        accessibleElement(element, classlist, stylelist, arialist) {
+            let elem = etiedeken.element(element, classlist, stylelist);
+
+            for (let i = arialist.length; i > 0; --i) {
+                let accessible;
+                for (let aria in arialist[i-1]) {
+                    accessible = document.createAttribute(aria);
+                    accessible.value = arialist[i-1][aria];
+                }
+                elem.setAttributeNode(accessible);
+            }
+
+            return elem;
+        }
+
+        classElement(element, classlist) {
+            let elem = element;
 
             for (let i = classlist.length; i > 0; --i) {
                 elem.classList.add(classlist[i-1]);
             }
+
+            return elem;
+        }
+
+        styleElement(element, stylelist) {
+            let elem = element;
 
             for (let x = stylelist.length; x > 0; --x) {
                 for (let style in stylelist[x-1]) {
@@ -40,20 +61,34 @@
             return elem;
         }
 
-        textElement(element, classlist, stylelist, text) {
-            let elem = etiedeken.element(element, classlist, stylelist);
+        textElement(element, text) {
+            let elem = element;
+
             elem.appendChild(document.createTextNode(text));
 
             return elem;
         }
 
-        link(classlist, stylelist, text, href, target) {
-            let elem;
-            if (text.length) {
-                elem = etiedeken.textElement('a', classlist, stylelist, text);
-            } else {
-                elem = etiedeken.element('a', classlist, stylelist);
+        element(element, classlist, stylelist, text) {
+            let elem = document.createElement(element);
+
+            if (classlist.length) {
+                elem = this.classElement(elem, classlist);
             }
+
+            if (stylelist.length) {
+                elem = this.styleElement(elem, stylelist);
+            }
+
+            if (text) {
+                elem = this.textElement(elem, text);
+            }
+
+            return elem;
+        }
+
+        link(classlist, stylelist, text, href, target) {
+            let elem = etiedeken.element('a', classlist, stylelist, text);
             elem.href = href;
 
             if (target) {
@@ -78,5 +113,5 @@
             document.head.appendChild(replacement);
         }
     }
-    let etiedeken = window.etiedeken = new tiedeken();
+    let etiedeken = window.etiedeken = new Tiedeken();
 })(window, document);

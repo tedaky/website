@@ -1,13 +1,16 @@
 ((window, document) => {
-    const setUpEtiedeken = (etiedeken) => {
+    class Setup {
+        constructor(etiedeken) {
+            this.etiedeken = etiedeken;
+        }
 
-        const profile = (about) => {
-            let container = etiedeken.element('div', ['container'], []);
-            let wrapper = etiedeken.element('div', ['profile-wrapper'], []);
+        profile(about) {
+            let container = this.etiedeken.element('div', ['container'], []);
+            let wrapper = this.etiedeken.element('div', ['profile-wrapper'], []);
 
             const image = (about) => {
-                let container = etiedeken.element('div', ['image'], []);
-                const image = etiedeken.image([], [], about.image, about.name);
+                let container = this.etiedeken.element('div', ['image'], []);
+                const image = this.etiedeken.image([], [], about.image, about.name);
 
                 container.appendChild(image);
 
@@ -18,13 +21,13 @@
 
             const subtagline = (about) => {
                 about = about.split(' ');
-                let container = etiedeken.element('p', ['subtagline'], []);
+                let container = this.etiedeken.element('p', ['subtagline'], []);
 
                 about.reverse();
 
                 for (let i = about.length; i > 0; --i) {
-                    let subtagline = etiedeken.textElement('span', [], [], about[i-1]);
-                    let bullet = etiedeken.textElement('span', [], [], ' ● ');
+                    let subtagline = this.etiedeken.element('span', [], [], about[i-1]);
+                    let bullet = this.etiedeken.element('span', [], [], ' ● ');
                     container.appendChild(subtagline);
                     container.appendChild(bullet);
                 }
@@ -33,15 +36,15 @@
             }
 
             const me = (about) => {
-                let container = etiedeken.element('div', ['greeting'], []);
+                let container = this.etiedeken.element('div', ['greeting'], []);
 
-                const name = etiedeken.textElement('h1', [], [], about.name);
+                const name = this.etiedeken.element('h1', [], [], about.name);
 
-                const tagline = etiedeken.textElement('p', ['tagline', 'h3'], [], about.tagline);
+                const tagline = this.etiedeken.element('p', ['tagline', 'h3'], [], about.tagline);
 
                 const subtag = subtagline(about.subtagline);
 
-                const divider = etiedeken.element('hr', [], []);
+                const divider = this.etiedeken.element('hr', [], []);
 
                 container.appendChild(name);
                 container.appendChild(tagline);
@@ -54,12 +57,12 @@
             let greeting = me(about);
 
             const info = (about) => {
-                let container = etiedeken.element('div', ['info'], []);
+                let container = this.etiedeken.element('div', ['info'], []);
 
                 for (let i in about) {
-                    let row = etiedeken.element('p', [], []);
-                    let property = etiedeken.textElement('label', [], [], i);
-                    let value = etiedeken.textElement('span', [], [], about[i]);
+                    let row = this.etiedeken.element('p', [], []);
+                    let property = this.etiedeken.element('label', [], [], i);
+                    let value = this.etiedeken.element('span', [], [], about[i]);
 
                     row.appendChild(property);
                     row.appendChild(value);
@@ -82,38 +85,38 @@
             container.appendChild(wrapper);
 
             return container;
-        };
+        }
 
-        const resume = (about) => {
-            let container = etiedeken.element('div', ['container', 'no-bg'], []);
-            let resumeWrapper = etiedeken.element('p', ['resume-wrapper', 'text-center'], []);
-            let resume = etiedeken.link(['btn', 'resume'], [], 'Download Resume', about.resume);
+        resume(about) {
+            let container = this.etiedeken.element('div', ['container', 'no-bg'], []);
+            let resumeWrapper = this.etiedeken.element('p', ['resume-wrapper', 'text-center'], []);
+            const resume = this.etiedeken.link(['btn', 'resume'], [], 'Download Resume', about.resume);
 
             resumeWrapper.appendChild(resume);
             container.appendChild(resumeWrapper);
 
             return container;
-        };
+        }
 
-        const about = (about) => {
-            let container = etiedeken.element('div', ['container', 'no-bg'], []);
-            let description = etiedeken.element('p', ['description', 'text-center'], []);
+        about(about) {
+            let container = this.etiedeken.element('div', ['container', 'no-bg'], []);
+            let description = this.etiedeken.element('p', ['description', 'text-center'], []);
             description.innerHTML = about.description;
 
             container.appendChild(description);
 
             return container;
-        };
+        }
 
-        const sphere = () => {
-            let ballWrapper = etiedeken.element('div', ['ball-wrapper'], []);
-            let inner = etiedeken.element('div', ['inner'], []);
-            let wrap = etiedeken.element('div', ['wrap'], []);
-            let scene = etiedeken.element('div', ['scene'], []);
-            let wrapper = etiedeken.element('div', ['wrapper'], []);
-            let ball = etiedeken.element('ul', ['ball'], []);
+        sphere() {
+            let ballWrapper = this.etiedeken.element('div', ['ball-wrapper'], []);
+            let inner = this.etiedeken.element('div', ['inner'], []);
+            let wrap = this.etiedeken.element('div', ['wrap'], []);
+            let scene = this.etiedeken.element('div', ['scene'], []);
+            let wrapper = this.etiedeken.element('div', ['wrapper'], []);
+            let ball = this.etiedeken.element('ul', ['ball'], []);
             for (let i = 20; i > 0; --i) {
-                let ring = etiedeken.element('li', ['ring'], []);
+                let ring = this.etiedeken.element('li', ['ring'], []);
                 ball.appendChild(ring);
             }
 
@@ -124,43 +127,54 @@
             ballWrapper.appendChild(inner);
 
             return ballWrapper;
-        };
+        }
 
-        etiedeken.ajax('GET', '/javascripts/about.json', function() {
+        fulfiller(ajax) {
             let profileWrapper = document.getElementById('profile');
             let aboutWrapper = document.getElementById('about');
-            let background = etiedeken.element('div', ['background'], []);
-            let sphereBackground = etiedeken.element('div', ['sphere'], []);
+            let background = this.etiedeken.element('div', ['background'], []);
+            let sphereBackground = this.etiedeken.element('div', ['sphere'], []);
 
             profileWrapper.classList.add('profile');
-            profileWrapper.appendChild(profile(this.about));
-            aboutWrapper.appendChild(resume(this.about));
-            aboutWrapper.appendChild(about(this.about));
+            profileWrapper.appendChild(this.profile(ajax.about));
+            aboutWrapper.appendChild(this.resume(ajax.about));
+            aboutWrapper.appendChild(this.about(ajax.about));
 
             document.body.insertBefore(background, profileWrapper);
-            sphereBackground.appendChild(sphere());
+            sphereBackground.appendChild(this.sphere());
             document.body.insertBefore(sphereBackground, aboutWrapper);
-        });
+        }
 
-        etiedeken.loadDeferredStyles('/stylesheets/about.css');
-        etiedeken.loadDeferredStyles('/stylesheets/background.css');
-        etiedeken.loadDeferredStyles('/stylesheets/sphere.css');
-    };
+        ajax(ajax) {
+            let self = this;
+            this.etiedeken.ajax('GET', ajax, function() {
+                self.fulfiller(this);
+            });
+        }
 
-    const callEtiedeken = (window) => {
+        style(style) {
+            this.etiedeken.loadDeferredStyles(style);
+        }
+    }
+
+    const check = (window) => {
         if (window.etiedeken) {
             let etiedeken = window.etiedeken;
             window.requestAnimationFrame(() => {
-                setUpEtiedeken(etiedeken);
+                let load = new Setup(etiedeken);
+                load.ajax('/javascripts/about.json');
+                load.style('/stylesheets/about.css');
+                load.style('/stylesheets/background.css');
+                load.style('/stylesheets/sphere.css');
             });
         } else {
             window.requestAnimationFrame(() => {
-                callEtiedeken(window);
+                check(window);
             });
         }
     };
 
     window.requestAnimationFrame(() => {
-        callEtiedeken(window);
+        check(window);
     });
 })(window, document);

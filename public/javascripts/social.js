@@ -1,44 +1,58 @@
 ((window, document) => {
-    const setUpEtiedeken = (etiedeken) => {
+    class Setup {
+        constructor(etiedeken) {
+            this.etiedeken = etiedeken;
+        }
 
-        const social = (social) => {
-            let wrapper = etiedeken.element('li', ['item'], []);
-            let link = etiedeken.link(['link'], [], '', social.link, true);
+        social(social) {
+            let wrapper = this.etiedeken.element('li', ['item'], []);
+            let link = this.etiedeken.link(['link'], [], '', social.link, true);
 
-            let image = etiedeken.image(['image'], [], social.base64, social.name);
+            const image = this.etiedeken.image(['image'], [], social.base64, social.name);
 
             link.appendChild(image);
 
             wrapper.appendChild(link);
 
             return wrapper;
-        };
+        }
 
-        etiedeken.ajax('GET', '/javascripts/social.json', function() {
+        fulfiller(ajax) {
             let socialWrapper = document.getElementById('social');
             socialWrapper.classList.add('social-wrapper');
 
-            let container = etiedeken.element('div', ['container'], []);
+            let container = this.etiedeken.element('div', ['container'], []);
 
-            this.social.reverse();
+            ajax.social.reverse();
 
-            let socialContainer = etiedeken.element('ul', ['social'], []);
+            let socialContainer = this.etiedeken.element('ul', ['social'], []);
 
-            for (let i = this.social.length; i > 0; --i) {
-                socialContainer.appendChild(social(this.social[i-1]));
+            for (let i = ajax.social.length; i > 0; --i) {
+                socialContainer.appendChild(this.social(ajax.social[i-1]));
             }
             container.appendChild(socialContainer);
             socialWrapper.appendChild(container);
-        });
+        }
 
-        etiedeken.loadDeferredStyles('/stylesheets/social.css');
-    };
+        ajax(ajax) {
+            let self = this;
+            this.etiedeken.ajax('GET', ajax, function() {
+                self.fulfiller(this);
+            });
+        }
+
+        style(style) {
+            this.etiedeken.loadDeferredStyles(style);
+        }
+    }
 
     const callEtiedeken = (window) => {
         if (window.etiedeken) {
             let etiedeken = window.etiedeken;
             window.requestAnimationFrame(() => {
-                setUpEtiedeken(etiedeken);
+                let load = new Setup(etiedeken);
+                load.ajax('/javascripts/social.json');
+                load.style('/stylesheets/social.css');
             });
         } else {
             window.requestAnimationFrame(() => {

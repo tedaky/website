@@ -51,6 +51,7 @@
         '/javascripts/about',
         '/javascripts/versions',
         '/javascripts/skills',
+        '/javascripts/experience',
         '/javascripts/education',
         '/javascripts/social'
     ];

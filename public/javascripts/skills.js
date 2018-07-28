@@ -1,14 +1,17 @@
 ((window, document) => {
-    const setUpEtiedeken = (etiedeken) => {
+    class Setup {
+        constructor(etiedeken) {
+            this.etiedeken = etiedeken;
+        }
 
-        const skill = (skill) => {
-            const skillElement = etiedeken.element('li', ['skill'], []);
+        skill(skill) {
+            const skillElement = this.etiedeken.element('li', ['skill'], []);
 
-            const nameElement = etiedeken.textElement('span', ['h5'], [], skill.name);
+            const nameElement = this.etiedeken.element('span', ['h5'], [], skill.name);
 
-            let levelContainer = etiedeken.element('div', ['line'], []);
+            let levelContainer = this.etiedeken.accessibleElement('div', ['line'], [], [{'aria-label': skill.level + '%'}]);
 
-            const levelElement = etiedeken.element('span', [], [{'width': skill.level + '%'}]);
+            const levelElement = this.etiedeken.element('span', [], [{'width': skill.level + '%'}]);
 
             levelContainer.appendChild(levelElement);
 
@@ -16,48 +19,59 @@
             skillElement.appendChild(levelContainer);
 
             return skillElement;
-        };
+        }
 
-        etiedeken.ajax('GET', '/javascripts/skills.json', function() {
-            const label = etiedeken.textElement('h2', ['text-center'], [], 'Skills');
+        fulfiller(ajax) {
+            const label = this.etiedeken.element('h2', ['text-center'], [], 'Skills');
 
             let skillsWrapper = document.getElementById('skills');
             skillsWrapper.appendChild(label);
 
-            this.skills.reverse();
+            ajax.skills.reverse();
 
-            for (let i = this.skills.length; i > 0; --i) {
-                let container = etiedeken.element('div', ['container'], []);
-                container.id = this.skills[i-1].group.replace(' ', '-').toLowerCase();
-                const group = etiedeken.textElement('h3', ['text-center'], [], this.skills[i-1].group);
-                let skills = etiedeken.element('ul', ['skills'], []);
-                this.skills[i-1].skill.reverse();
-                for (let y = this.skills[i-1].skill.length; y > 0; --y) {
-                    skills.appendChild(skill(this.skills[i-1].skill[y-1]));
+            for (let i = ajax.skills.length; i > 0; --i) {
+                let container = this.etiedeken.element('div', ['container'], []);
+                container.id = ajax.skills[i-1].group.replace(' ', '-').toLowerCase();
+                const group = this.etiedeken.element('h3', ['text-center'], [], ajax.skills[i-1].group);
+                let skills = this.etiedeken.element('ul', ['skills'], []);
+                ajax.skills[i-1].skill.reverse();
+                for (let y = ajax.skills[i-1].skill.length; y > 0; --y) {
+                    skills.appendChild(this.skill(ajax.skills[i-1].skill[y-1]));
                 }
                 container.appendChild(group);
                 container.appendChild(skills);
                 skillsWrapper.appendChild(container);
             }
-        });
+        }
 
-        etiedeken.loadDeferredStyles('/stylesheets/skills.css');
-    };
+        ajax(ajax) {
+            let self = this;
+            this.etiedeken.ajax('GET', ajax, function() {
+                self.fulfiller(this);
+            });
+        }
 
-    const callEtiedeken = (window) => {
+        style(style) {
+            this.etiedeken.loadDeferredStyles(style);
+        }
+    }
+
+    const check = (window) => {
         if (window.etiedeken) {
             let etiedeken = window.etiedeken;
             window.requestAnimationFrame(() => {
-                setUpEtiedeken(etiedeken);
+                let load = new Setup(etiedeken);
+                load.ajax('/javascripts/skills.json');
+                load.style('/stylesheets/skills.css');
             });
         } else {
             window.requestAnimationFrame(() => {
-                callEtiedeken(window);
+                check(window);
             });
         }
     }
 
     window.requestAnimationFrame(() => {
-        callEtiedeken(window);
+        check(window);
     });
 })(window, document);
