@@ -2,23 +2,28 @@
     "versions": [
         {
             "name": "AMP",
-            "link": "amp"
+            "link": "/amp",
+            "image": "amp.png"
         },
         {
             "name": "AngularJS",
-            "link": "angularjs"
+            "link": "/angularjs",
+            "image": "angularjs.png"
         },
         {
             "name": "Angular",
-            "link": "angular"
+            "link": "/angular",
+            "image": "angular.png"
         },
         {
             "name": "JavaScript ES6",
-            "link": "javascript-es6"
+            "link": "/",
+            "image": "javascript-es6.png"
         },
         {
             "name": "ReactJS",
-            "link": "reactjs"
+            "link": "/reactjs",
+            "image": "reactjs.png"
         }
     ]
 }

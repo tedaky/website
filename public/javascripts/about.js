@@ -143,6 +143,8 @@
         });
 
         etiedeken.loadDeferredStyles('/stylesheets/about.css');
+        etiedeken.loadDeferredStyles('/stylesheets/background.css');
+        etiedeken.loadDeferredStyles('/stylesheets/sphere.css');
     };
 
     const callEtiedeken = (window) => {

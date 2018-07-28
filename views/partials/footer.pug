@@ -1,62 +1,20 @@
 script(type="text/javascript").
-  ((window, document) => {
-    let currentScript = document.currentScript;
+  function checkCompatibility() {
+    "use strict";
+    if (typeof Symbol == "undefined") return false;
+    try {
+        eval("class Foo {}");
+        eval("var bar = (x) => x+1");
+    } catch (e) { return false; }
+    return true;
+  }
 
-    const jsfiles = [
-      '/javascripts/script',
-      '/javascripts/navigation',
-      '/javascripts/about',
-      '/javascripts/versions',
-      '/javascripts/skills',
-      '/javascripts/education',
-      '/javascripts/social'
-    ];
-
-    const downloadjs = (script) => {
-      let element = document.createElement('script');
-      element.src = script + '.js';
-      element.async = true;
-      document.body.appendChild(element);
-    };
-
-    const loadjs = (i) => {
-      if (i < jsfiles.length) {
-        downloadjs(jsfiles[i]);
-        window.requestAnimationFrame(() => {
-          loadjs(++i);
-        });
-      }
-    };
-
-    const cssfiles = [
-      '/stylesheets/style'
-    ];
-
-    const downloadstyles = (style) => {
-      let element = document.createElement('link');
-      element.rel = 'stylesheet';
-      element.href = style + '.css';
-      document.head.appendChild(element);
-    };
-
-    const loadcss = (i) => {
-      if (i < cssfiles.length) {
-        downloadstyles(cssfiles[i]);
-        window.requestAnimationFrame(() => {
-          loadcss(++i);
-        });
-      }
-    };
-    
-    const atOnload = () => {
-      let outOfDate = document.getElementById('out-of-date');
-      document.body.removeChild(outOfDate);
-      document.body.removeChild(currentScript);
-      loadjs(0);
-      loadcss(0);
-    };
-
-    window.requestAnimationFrame(() => {
-      window.addEventListener('DOMContentLoaded', atOnload(), false);
-    });
-  })(window, document);
+  var esScript = document.createElement('script');
+  if (checkCompatibility()) {
+    esScript.src = '/javascripts/es6.js';
+    esScript.async = true;
+  } else {
+    esScript.src = '/javascripts/unsupported.js';
+    esScript.async = true;
+  }
+  document.body.appendChild(esScript);

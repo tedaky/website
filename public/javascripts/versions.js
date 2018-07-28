@@ -5,8 +5,8 @@
             let wrapper = etiedeken.element('li', ['item'], []);
             let link = etiedeken.link(['link', versions.link], [], [], versions.link, false);
 
-            let image = etiedeken.image([], [], '/images/' + versions.link + '.png', versions.name);
-            let span = etiedeken.textElement('span', ['h5'], [], versions.name);
+            const image = etiedeken.image([], [], '/images/' + versions.image, versions.name);
+            const span = etiedeken.textElement('span', ['h5'], [], versions.name);
 
             link.appendChild(image);
             link.appendChild(span);
@@ -21,6 +21,8 @@
 
             let container = etiedeken.element('div', ['container'], []);
 
+            const label = etiedeken.textElement('h2', ['text-center'], [], 'View this site in:');
+
             this.versions.reverse();
 
             let versionsContainer = etiedeken.element('ul', ['versions'], []);
@@ -28,6 +30,7 @@
             for (let i = this.versions.length; i > 0; --i) {
                 versionsContainer.appendChild(versions(this.versions[i-1]));
             }
+            container.appendChild(label);
             container.appendChild(versionsContainer);
             versionsWrapper.appendChild(container);
         });

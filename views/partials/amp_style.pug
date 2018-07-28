@@ -1,12 +1,11 @@
-style(amp-custom).
-  .amp-close-image {
-    position: absolute;
-    top: 10px;
-    left: auto;
-    right: 10px;
-    cursor: pointer;
-  }
-  .amp-close-image + ul {
-    margin-top: 0;
-    padding-top: 40px;
-  }
+style(amp-custom)
+  :sass
+    .amp-close-image
+      position: absolute
+      top: 10px
+      left: auto
+      right: 10px
+      cursor: pointer
+      & + ul
+        margin-top: 0
+        padding-top: 40px
