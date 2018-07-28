@@ -1,5 +1,6 @@
 ((window, document) => {
-    let etiedeken = window.etiedeken = {
+    class tiedeken {
+        constructor () {}
 
         ajax(method, url, callback) {
             let xhttp = new XMLHttpRequest();
@@ -21,11 +22,10 @@
             xhttp.send();
 
             return xhttp;
-        },
+        }
 
         element(element, classlist, stylelist) {
             let elem = document.createElement(element);
-            let classnames = classlist;
 
             for (let i = classlist.length; i > 0; --i) {
                 elem.classList.add(classlist[i-1]);
@@ -38,14 +38,14 @@
             }
 
             return elem;
-        },
+        }
 
         textElement(element, classlist, stylelist, text) {
             let elem = etiedeken.element(element, classlist, stylelist);
             elem.appendChild(document.createTextNode(text));
 
             return elem;
-        },
+        }
 
         link(classlist, stylelist, text, href, target) {
             let elem;
@@ -61,7 +61,7 @@
             }
 
             return elem;
-        },
+        }
 
         image(classlist, stylelist, src, alt) {
             let elem = etiedeken.element('img', classlist, stylelist);
@@ -69,7 +69,7 @@
             elem.alt = alt;
 
             return elem;
-        },
+        }
 
         loadDeferredStyles(source) {
             let replacement = document.createElement('link');
@@ -77,5 +77,6 @@
             replacement.setAttribute('href', source);
             document.head.appendChild(replacement);
         }
-    };
+    }
+    let etiedeken = window.etiedeken = new tiedeken();
 })(window, document);
