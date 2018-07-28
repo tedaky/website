@@ -30,9 +30,9 @@
 
             let versionsContainer = this.etiedeken.element('ul', ['versions'], []);
 
-            for (let i = ajax.versions.length; i > 0; --i) {
+            for (let i = ajax.versions.length; i > 0; --i)
                 versionsContainer.appendChild(this.versions(ajax.versions[i-1]));
-            }
+
             container.appendChild(label);
             container.appendChild(versionsContainer);
             versionsWrapper.appendChild(container);

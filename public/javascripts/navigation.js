@@ -22,9 +22,11 @@
             return home;
         }
 
-        navItem(item) {
+        navItem(item, link) {
             let nav = this.etiedeken.element('li', ['nav-item'], []);
-            let text = this.etiedeken.link(['nav-click'], [], item.name, item.link, false);
+            let text = (link) ?
+                this.etiedeken.link(['nav-click'], [], item.name, item.link, false) :
+                this.etiedeken.element('a', ['nav-click'], [], item.name);
 
             nav.appendChild(text);
 
@@ -39,16 +41,19 @@
             let navWrapper = this.etiedeken.element('ul', ['nav'], []);
 
             for (let i = nav.length; i > 0; --i) {
-                let curItem = this.navItem(nav[i-1]);
+                let curItem;
                 if (nav[i-1].nest) {
+                    curItem = this.navItem(nav[i-1], false);
                     nav[i-1].nest.reverse();
                     let nestWrapper = this.etiedeken.element('ul', ['nav'], []);
 
                     for (let y = nav[i-1].nest.length; y > 0; --y) {
-                        let curNestItem = this.navItem(nav[i-1].nest[y-1]);
+                        let curNestItem = this.navItem(nav[i-1].nest[y-1], true);
                         nestWrapper.appendChild(curNestItem);
                     }
                     curItem.appendChild(nestWrapper);
+                } else {
+                    curItem = this.navItem(nav[i-1], true);
                 }
                 navWrapper.appendChild(curItem);
             }

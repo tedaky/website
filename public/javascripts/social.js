@@ -27,9 +27,9 @@
 
             let socialContainer = this.etiedeken.element('ul', ['social'], []);
 
-            for (let i = ajax.social.length; i > 0; --i) {
+            for (let i = ajax.social.length; i > 0; --i)
                 socialContainer.appendChild(this.social(ajax.social[i-1]));
-            }
+
             container.appendChild(socialContainer);
             socialWrapper.appendChild(container);
         }

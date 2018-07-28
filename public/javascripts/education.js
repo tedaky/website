@@ -9,9 +9,8 @@
 
             items.reverse();
 
-            for (let i = items.length; i > 0; --i) {
+            for (let i = items.length; i > 0; --i)
                 wrapper.appendChild(this.etiedeken.element('span', [], [], items[i-1]));
-            }
 
             return wrapper;
         }
@@ -49,9 +48,9 @@
 
             ajax.education.reverse();
 
-            for (let i = ajax.education.length; i > 0; --i) {
+            for (let i = ajax.education.length; i > 0; --i)
                 schools.appendChild(this.school(ajax.education[i-1]));
-            }
+
             container.appendChild(label);
             container.appendChild(schools);
             educationElement.appendChild(container);

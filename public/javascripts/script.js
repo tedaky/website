@@ -14,9 +14,8 @@
                 // if (this.readyState == 3) {
                 //     console.log('processing request ' + new Date());
                 // }
-                if (this.readyState == 4 && this.status == 200) {
+                if (this.readyState == 4 && this.status == 200)
                     callback.call(JSON.parse(this.responseText));
-                }
             }
             xhttp.open(method, url, true);
             xhttp.send();
@@ -42,9 +41,8 @@
         classElement(element, classlist) {
             let elem = element;
 
-            for (let i = classlist.length; i > 0; --i) {
+            for (let i = classlist.length; i > 0; --i)
                 elem.classList.add(classlist[i-1]);
-            }
 
             return elem;
         }
@@ -52,11 +50,9 @@
         styleElement(element, stylelist) {
             let elem = element;
 
-            for (let x = stylelist.length; x > 0; --x) {
-                for (let style in stylelist[x-1]) {
+            for (let x = stylelist.length; x > 0; --x)
+                for (let style in stylelist[x-1])
                     elem.style[style] = stylelist[x-1][style];
-                }
-            }
 
             return elem;
         }
@@ -72,17 +68,14 @@
         element(element, classlist, stylelist, text) {
             let elem = document.createElement(element);
 
-            if (classlist.length) {
+            if (classlist.length)
                 elem = this.classElement(elem, classlist);
-            }
 
-            if (stylelist.length) {
+            if (stylelist.length)
                 elem = this.styleElement(elem, stylelist);
-            }
 
-            if (text) {
+            if (text)
                 elem = this.textElement(elem, text);
-            }
 
             return elem;
         }
@@ -91,9 +84,8 @@
             let elem = etiedeken.element('a', classlist, stylelist, text);
             elem.href = href;
 
-            if (target) {
+            if (target)
                 elem.target = '_blank';
-            }
 
             return elem;
         }
