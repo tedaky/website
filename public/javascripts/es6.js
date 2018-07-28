@@ -1,4 +1,49 @@
 ((window, document) => {
+  class loader {
+    constructor(jsfiles, cssfiles) {
+      this.jsfiles = jsfiles;
+      this.cssfiles = cssfiles;
+    }
+
+    downloadjs(script) {
+      let element = document.createElement('script');
+      element.src = script + '.js';
+      element.async = true;
+      document.body.appendChild(element);
+    }
+
+    loadjs(i) {
+      if (i < this.jsfiles.length) {
+        this.downloadjs(this.jsfiles[i]);
+        window.requestAnimationFrame(() => {
+          this.loadjs(++i);
+        });
+      }
+    };
+
+    downloadstyles(style) {
+      let element = document.createElement('link');
+      element.rel = 'stylesheet';
+      element.href = style + '.css';
+      document.head.appendChild(element);
+    };
+
+    loadcss(i) {
+      if (i < this.cssfiles.length) {
+        this.downloadstyles(this.cssfiles[i]);
+        window.requestAnimationFrame(() => {
+          this.loadcss(++i);
+        });
+      }
+    };
+
+    load() {
+      let outOfDate = document.getElementById('out-of-date');
+      document.body.removeChild(outOfDate);
+      this.loadjs(0);
+      this.loadcss(0);
+    };
+  }
 
   const jsfiles = [
     '/javascripts/script',
@@ -10,50 +55,12 @@
     '/javascripts/social'
   ];
 
-  const downloadjs = (script) => {
-    let element = document.createElement('script');
-    element.src = script + '.js';
-    element.async = true;
-    document.body.appendChild(element);
-  };
-
-  const loadjs = (i) => {
-    if (i < jsfiles.length) {
-      downloadjs(jsfiles[i]);
-      window.requestAnimationFrame(() => {
-        loadjs(++i);
-      });
-    }
-  };
-
   const cssfiles = [
     '/stylesheets/style'
   ];
 
-  const downloadstyles = (style) => {
-    let element = document.createElement('link');
-    element.rel = 'stylesheet';
-    element.href = style + '.css';
-    document.head.appendChild(element);
-  };
-
-  const loadcss = (i) => {
-    if (i < cssfiles.length) {
-      downloadstyles(cssfiles[i]);
-      window.requestAnimationFrame(() => {
-        loadcss(++i);
-      });
-    }
-  };
-
-  const atOnload = () => {
-    let outOfDate = document.getElementById('out-of-date');
-    document.body.removeChild(outOfDate);
-    loadjs(0);
-    loadcss(0);
-  };
-
   window.requestAnimationFrame(() => {
-    window.addEventListener('DOMContentLoaded', atOnload(), false);
+    let atOnload = new loader(jsfiles, cssfiles);
+    window.addEventListener('DOMContentLoaded', atOnload.load(), false);
   });
 })(window, document);
