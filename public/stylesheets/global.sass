@@ -11,6 +11,21 @@ body
   color: #5f5f5f
   font:
     family: 'Trebuchet MS', 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Tahoma, sans-serif
+#profile, #social, #about, #versions, #skills, #experience, #education
+  position: relative
+  z-index: 2
+  padding:
+    top: 0
+    bottom: 0
+    left: 26px
+    right: 26px
+  max:
+    width: 1024px
+  margin:
+    left: auto
+    right: auto
+  box:
+    sizing: border-box
   &::before,
   &::after
     content: ''
@@ -18,28 +33,6 @@ body
     clear: both
     width: 0
     height: 0
-  & > div:not(.background):not(.navigation):not(.sphere)
-    position: relative
-    z-index: 2
-    padding:
-      top: 0
-      bottom: 0
-      left: 26px
-      right: 26px
-    max:
-      width: 1024px
-    margin:
-      left: auto
-      right: auto
-    box:
-      sizing: border-box
-    &::before,
-    &::after
-      content: ''
-      display: table
-      clear: both
-      width: 0
-      height: 0
 
 @import 'font'
 

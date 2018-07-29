@@ -16,7 +16,7 @@
             wrapper.appendChild(link);
 
             return wrapper;
-        };
+        }
 
         fulfiller(ajax) {
             let versionsWrapper = document.getElementById('versions');
@@ -51,19 +51,16 @@
     }
 
     const check = (window) => {
-        if (window.etiedeken) {
-            let etiedeken = window.etiedeken;
+        (window.etiedeken) ?
             window.requestAnimationFrame(() => {
-                let load = new Setup(etiedeken);
+                let load = new Setup(window.etiedeken);
                 load.ajax('/javascripts/versions.json');
                 load.style('/stylesheets/versions.css');
-            });
-        } else {
+            }) :
             window.requestAnimationFrame(() => {
                 check(window);
             });
-        }
-    }
+    };
 
     window.requestAnimationFrame(() => {
         check(window);

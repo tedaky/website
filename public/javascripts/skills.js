@@ -9,7 +9,7 @@
 
             const nameElement = this.etiedeken.element('span', ['h5'], [], skill.name);
 
-            let levelContainer = this.etiedeken.accessibleElement('div', ['line'], [], [{'aria-label': skill.level + '%'}]);
+            let levelContainer = this.etiedeken.accessibleElement('div', ['line'], [], [{'aria-label': skill.level + '%'}], []);
 
             const levelElement = this.etiedeken.element('span', [], [{'width': skill.level + '%'}]);
 
@@ -35,9 +35,10 @@
                 const group = this.etiedeken.element('h3', ['text-center'], [], ajax.skills[i-1].group);
                 let skills = this.etiedeken.element('ul', ['skills'], []);
                 ajax.skills[i-1].skill.reverse();
-                for (let y = ajax.skills[i-1].skill.length; y > 0; --y) {
+
+                for (let y = ajax.skills[i-1].skill.length; y > 0; --y)
                     skills.appendChild(this.skill(ajax.skills[i-1].skill[y-1]));
-                }
+
                 container.appendChild(group);
                 container.appendChild(skills);
                 skillsWrapper.appendChild(container);
@@ -57,19 +58,16 @@
     }
 
     const check = (window) => {
-        if (window.etiedeken) {
-            let etiedeken = window.etiedeken;
+        (window.etiedeken) ?
             window.requestAnimationFrame(() => {
-                let load = new Setup(etiedeken);
+                let load = new Setup(window.etiedeken);
                 load.ajax('/javascripts/skills.json');
                 load.style('/stylesheets/skills.css');
-            });
-        } else {
+            }) :
             window.requestAnimationFrame(() => {
                 check(window);
             });
-        }
-    }
+    };
 
     window.requestAnimationFrame(() => {
         check(window);

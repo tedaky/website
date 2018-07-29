@@ -19,19 +19,16 @@
     }
 
     const check = (window) => {
-        if (window.etiedeken) {
-            let etiedeken = window.etiedeken;
+        (window.etiedeken) ?
             window.requestAnimationFrame(() => {
-                let load = new Setup(etiedeken);
+                let load = new Setup(window.etiedeken);
                 load.ajax('/javascripts/experience.json');
                 load.style('/stylesheets/experience.css');
-            });
-        } else {
+            }) :
             window.requestAnimationFrame(() => {
                 check(window);
             });
-        }
-    }
+    };
 
     window.requestAnimationFrame(() => {
         check(window);

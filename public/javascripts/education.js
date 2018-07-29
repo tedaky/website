@@ -69,19 +69,16 @@
     }
 
     const check = (window) => {
-        if (window.etiedeken) {
-            let etiedeken = window.etiedeken;
+        (window.etiedeken) ?
             window.requestAnimationFrame(() => {
-                let load = new Setup(etiedeken);
+                let load = new Setup(window.etiedeken);
                 load.ajax('/javascripts/education.json');
                 load.style('/stylesheets/education.css');
-            });
-        } else {
+            }) :
             window.requestAnimationFrame(() => {
                 check(window);
             });
-        }
-    }
+    };
 
     window.requestAnimationFrame(() => {
         check(window);

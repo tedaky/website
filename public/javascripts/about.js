@@ -158,20 +158,17 @@
     }
 
     const check = (window) => {
-        if (window.etiedeken) {
-            let etiedeken = window.etiedeken;
+        (window.etiedeken) ?
             window.requestAnimationFrame(() => {
-                let load = new Setup(etiedeken);
+                let load = new Setup(window.etiedeken);
                 load.ajax('/javascripts/about.json');
                 load.style('/stylesheets/about.css');
                 load.style('/stylesheets/background.css');
                 load.style('/stylesheets/sphere.css');
-            });
-        } else {
+            }) :
             window.requestAnimationFrame(() => {
                 check(window);
             });
-        }
     };
 
     window.requestAnimationFrame(() => {

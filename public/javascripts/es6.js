@@ -19,14 +19,14 @@
                     this.loadjs(++i);
                 });
             }
-        };
+        }
 
         downloadstyles(style) {
             let element = document.createElement('link');
             element.rel = 'stylesheet';
             element.href = style + '.css';
             document.head.appendChild(element);
-        };
+        }
 
         loadcss(i) {
             if (i < this.cssfiles.length) {
@@ -35,14 +35,14 @@
                     this.loadcss(++i);
                 });
             }
-        };
+        }
 
         load() {
             let outOfDate = document.getElementById('out-of-date');
             document.body.removeChild(outOfDate);
             this.loadjs(0);
             this.loadcss(0);
-        };
+        }
     }
 
     const jsfiles = [
@@ -61,7 +61,7 @@
     ];
 
     window.requestAnimationFrame(() => {
-        let atOnload = new loader(jsfiles, cssfiles);
-        window.addEventListener('DOMContentLoaded', atOnload.load(), false);
+        let load = window.load = new loader(jsfiles, cssfiles);
+        window.addEventListener('DOMContentLoaded', load.load(), false);
     });
 })(window, document);

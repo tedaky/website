@@ -1,0 +1,66 @@
+@keyframes navigation-fade-in
+  0%
+    visibility: visible
+    opacity: 0
+  100%
+    visibility: visible
+    opacity: 1
+@keyframes navigation-fade-out
+  0%
+    visibility: visible
+    opacity: 1
+  100%
+    visibility: visible
+    opacity: 0
+@keyframes navigation-slide-in
+  0%
+    transform: translateX(-100%)
+    visibility: visible
+  100%
+    transform: translateX(0%)
+    visibility: visible
+@keyframes navigation-slide-out
+  0%
+    transform: translateX(0%)
+    visibility: visible
+  100%
+    transform: translateX(-100%)
+    visibility: visible
+
+.navigation
+  &.menu-open
+    & + .close-navigation
+      animation: navigation-fade-in 500ms
+      visibility: visible
+    .container
+      & > .nav
+        &:first-child
+          button
+            span
+              &:first-child
+                animation: navigation-fade-out 500ms
+                visibility: hidden
+              &:last-child
+                animation: navigation-fade-in 500ms
+                visibility: visible
+        &:last-child
+          animation: navigation-slide-in 500ms
+          visibility: visible
+  &.menu-close
+    & + .close-navigation
+      animation: navigation-fade-out 500ms
+      visibility: hidden
+    .container
+      & > .nav
+        &:first-child
+          button
+            span
+              &:first-child
+                animation: navigation-fade-in 500ms
+                visibility: visible
+              &:last-child
+                animation: navigation-fade-out 500ms
+                visibility: hidden
+        &:last-child
+          animation: navigation-slide-out 500ms
+          visibility: hidden

@@ -47,19 +47,16 @@
     }
 
     const callEtiedeken = (window) => {
-        if (window.etiedeken) {
-            let etiedeken = window.etiedeken;
+        (window.etiedeken) ?
             window.requestAnimationFrame(() => {
-                let load = new Setup(etiedeken);
+                let load = new Setup(window.etiedeken);
                 load.ajax('/javascripts/social.json');
                 load.style('/stylesheets/social.css');
-            });
-        } else {
+            }) :
             window.requestAnimationFrame(() => {
                 callEtiedeken(window);
             });
-        }
-    }
+    };
 
     window.requestAnimationFrame(() => {
         callEtiedeken(window);

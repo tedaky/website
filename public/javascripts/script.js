@@ -23,17 +23,12 @@
             return xhttp;
         }
 
-        accessibleElement(element, classlist, stylelist, arialist) {
-            let elem = etiedeken.element(element, classlist, stylelist);
+        accessibleElement(element, classlist, stylelist, arialist, text) {
+            let elem = etiedeken.element(element, classlist, stylelist, text);
 
-            for (let i = arialist.length; i > 0; --i) {
-                let accessible;
-                for (let aria in arialist[i-1]) {
-                    accessible = document.createAttribute(aria);
-                    accessible.value = arialist[i-1][aria];
-                }
-                elem.setAttributeNode(accessible);
-            }
+            for (let i = arialist.length; i > 0; --i)
+                for (let aria in arialist[i-1])
+                    elem.setAttribute(aria, arialist[i-1][aria]);
 
             return elem;
         }

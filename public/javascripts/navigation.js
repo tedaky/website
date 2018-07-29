@@ -19,6 +19,16 @@
 
             home.appendChild(nav);
 
+            let button = this.etiedeken.element('li', ['nav-item'], []);
+            let icon = this.etiedeken.accessibleElement('button', [], [], [{'aria-label': item.buttonText}, {'aria-controls': 'navbar'}, {'aria-expanded': 'false'}]);
+            let iconOpen = this.etiedeken.element('span', [], [], item.buttonIconOpen);
+            let iconclose = this.etiedeken.element('span', [], [], item.buttonIconClose);
+            icon.appendChild(iconOpen);
+            icon.appendChild(iconclose);
+            button.appendChild(icon);
+
+            home.appendChild(button);
+
             return home;
         }
 
@@ -39,6 +49,7 @@
             let homeWrapper = this.navHome(home);
 
             let navWrapper = this.etiedeken.element('ul', ['nav'], []);
+            navWrapper.id = 'navbar';
 
             for (let i = nav.length; i > 0; --i) {
                 let curItem;
@@ -68,9 +79,13 @@
             let navigationWrapper = document.getElementById('navigation');
             navigationWrapper.classList.add('navigation');
 
+            let closeElement = this.etiedeken.element('div', ['close-navigation'], []);
+            navigationWrapper.parentNode.insertBefore(closeElement, navigationWrapper.nextSibling);
+
             ajax.navigation.reverse();
 
             navigationWrapper.appendChild(this.navigating(ajax.home, ajax.navigation));
+            window.load.downloadjs('/javascripts/navigation_events');
         }
 
         ajax(ajax) {
@@ -86,19 +101,16 @@
     }
 
     const check = (window) => {
-        if (window.etiedeken) {
-            let etiedeken = window.etiedeken;
+        (window.etiedeken) ?
             window.requestAnimationFrame(() => {
-                let load = new Setup(etiedeken);
+                let load = new Setup(window.etiedeken);
                 load.ajax('/javascripts/navigation.json');
                 load.style('/stylesheets/navigation.css');
-            });
-        } else {
+            }) :
             window.requestAnimationFrame(() => {
                 check(window);
             });
-        }
-    }
+    };
 
     window.requestAnimationFrame(() => {
         check(window);
