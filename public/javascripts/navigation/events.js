@@ -5,6 +5,11 @@
             this.menu = menu;
             this.submenu = submenu;
             this.close = close;
+
+            this.aria = ['aria-expanded', 'true', 'false'];
+
+            this.navigation = ['navigation-menu-open', 'navigation-menu-close', 'menu-open', 'menu-close', 'submenu-open', 'submenu-close'];
+            this.scrollTimeout = undefined;
         }
 
         scrollbar() {
@@ -17,28 +22,28 @@
         }
 
         openMenu(menu, button, navbar) {
-            menu.classList.remove('menu-close');
-            menu.classList.add('menu-open');
+            menu.classList.remove(this.navigation[3]);
+            menu.classList.add(this.navigation[2]);
 
-            navbar.setAttribute('aria-expanded', 'true');
-            button.setAttribute('aria-expanded', 'true');
+            navbar.setAttribute(this.aria[0], this.aria[1]);
+            button.setAttribute(this.aria[0], this.aria[1]);
 
-            document.body.classList.remove('navigation-menu-close');
-            document.body.classList.add('navigation-menu-open');
+            document.body.classList.remove(this.navigation[1]);
+            document.body.classList.add(this.navigation[0]);
 
             const scrollbarWidth = this.scrollbar() + 'px';
             document.body.style.paddingRight = scrollbarWidth;
             menu.style.paddingRight = scrollbarWidth;
         }
         closeMenu(menu, button, navbar) {
-            menu.classList.remove('menu-open');
-            menu.classList.add('menu-close');
+            menu.classList.remove(this.navigation[2]);
+            menu.classList.add(this.navigation[3]);
 
-            navbar.setAttribute('aria-expanded', 'false');
-            button.setAttribute('aria-expanded', 'false');
+            navbar.setAttribute(this.aria[0], this.aria[2]);
+            button.setAttribute(this.aria[0], this.aria[2]);
 
-            document.body.classList.remove('navigation-menu-open');
-            document.body.classList.add('navigation-menu-close');
+            document.body.classList.remove(this.navigation[0]);
+            document.body.classList.add(this.navigation[1]);
 
             menu.style.paddingRight = null;
             document.body.style.paddingRight = null;
@@ -48,7 +53,8 @@
             let button = document.querySelector(this.button);
             let navbar = document.getElementById('navbar');
 
-            if (menu.classList.contains('menu-open')) {
+            if (menu.classList.contains(this.navigation[2])) {
+                this.closeSubmenu();
                 this.closeMenu(menu, button, navbar);
             } else {
                 this.openMenu(menu, button, navbar);
@@ -56,33 +62,41 @@
         }
 
         openSubmenu(button, menu) {
-            menu.classList.remove('submenu-close');
-            menu.classList.add('submenu-open');
+            this.closeSubmenu();
 
-            button.setAttribute('aria-expanded', 'true');
+            menu.classList.remove(this.navigation[5]);
+            menu.classList.add(this.navigation[4]);
+
+            button.setAttribute(this.aria[0], this.aria[1]);
         }
-        closeSubmenu(button, menu) {
-            menu.classList.remove('submenu-open');
-            menu.classList.add('submenu-close');
+        closeSubmenu() {
+            let submenus = document.querySelectorAll(this.menu + ' ' + this.submenu);
 
-            button.setAttribute('aria-expanded', 'false');
+            for (let i = submenus.length; i > 0; --i) {
+                let menu = submenus[i-1];
+                let button = menu.firstChild;
+
+                menu.classList.remove(this.navigation[4]);
+                menu.classList.add(this.navigation[5]);
+
+                button.setAttribute(this.aria[0], this.aria[2]);
+            }
         }
         toggleSubmenu(button, menu) {
-            (menu.classList.contains('submenu-open')) ?
+            (menu.classList.contains(this.navigation[4])) ?
                 this.closeSubmenu(button, menu) :
                 this.openSubmenu(button, menu);
         }
-
         clickSubmenu() {
             let self = this;
             let submenus = document.querySelectorAll(this.menu + ' ' + this.submenu);
 
             for (let i = submenus.length; i > 0; --i) {
-                let parent = submenus[i-1];
-                let button = parent.firstChild;
+                let menu = submenus[i-1];
+                let button = menu.firstChild;
                 button.addEventListener('click', (e) => {
                     e.preventDefault();
-                    self.toggleSubmenu(button, parent);
+                    self.toggleSubmenu(button, menu);
                 });
             }
         }
@@ -97,20 +111,86 @@
             });
         }
 
+        clickMenuItem() {
+            let self = this;
+            let menu = document.querySelector(this.menu);
+            let button = document.querySelector(this.button);
+            let navbar = document.getElementById('navbar');
+
+            let menuItem = document.querySelectorAll(this.menu + ' .container > .nav:last-child .nav-item:not(' + this.submenu + ') .nav-click[href^="#"]');
+
+            for (let i = menuItem.length; i > 0; --i) {
+                let item = menuItem[i-1];
+                item.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    self.closeSubmenu();
+                    self.closeMenu(menu, button, navbar);
+                    self.scrollingToCalculations(item);
+                });
+            }
+        }
+
+        scrollingToCalculations(menuItem) {
+            if (this.scrollTimeOut)
+                return;
+
+            const pageTo = menuItem.getAttributeNode("href").value.replace('#', '');
+            const pageToElement = document.getElementById(pageTo);
+            const navbar = document.getElementById('navigation');
+            const topPosition = window.pageYOffset || document.documentElement.scrollTop;
+            const getOffsetTop = (elem) => {
+                let offsetTop = 0;
+                do
+                    if (!isNaN(elem.offsetTop))
+                        offsetTop += elem.offsetTop;
+                while(elem = elem.offsetParent);
+                return offsetTop;
+            }
+            const navBarHeight = navbar.innerHeight || navbar.clientHeight;
+            const toElementPos = getOffsetTop(pageToElement) - navBarHeight - 24;
+            const leftPosition = window.pageXOffset || document.documentElement.scrollLeft;
+            const startTime = new Date().getTime();
+            const easInOutQuad = (t) => t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+            const scroll = () => {
+                const duration = 750;
+                const currentTime = new Date().getTime();
+                const time = Math.min(1, ((currentTime - startTime) / duration));
+                const ease = easInOutQuad(time);
+                if (window.pageYOffset != toElementPos) {
+                    if ((currentTime - startTime) >= duration) {
+                        clearTimeout(this.scrollTimeOut);
+                        this.scrollTimeOut = undefined;
+                        return;
+                    }
+                    window.scroll(leftPosition, Math.ceil((ease * (toElementPos - topPosition)) + topPosition));
+                    this.scrollTimeOut = setTimeout(scroll, 5);
+                } else {
+                    clearTimeout(this.scrollTimeOut);
+                    this.scrollTimeOut = undefined;
+                }
+            };
+            scroll();
+        }
+
         window() {
+            let self = this;
             let menu = document.querySelector(this.menu);
             let button = document.querySelector(this.button);
             let navbar = document.getElementById('navbar');
 
             window.addEventListener('keydown', (e) => {
+                let openSubmenus = document.querySelectorAll(this.menu + ' .' + this.navigation[4]);
                 if (e.keyCode === 27)
-                    this.closeMenu(menu, button, navbar);
+                    (openSubmenus.length) ?
+                        self.closeSubmenu() :
+                        self.closeMenu(menu, button, navbar);
             })
         }
     }
 
-    let navigation = new Navigation('.navigation .nav:first-child button', '.navigation', '.sub-nav', '.close-navigation');
+    let navigation = new Navigation('.navigation .container > .nav:first-child button', '.navigation', '.sub-nav', '.close-navigation');
     navigation.clickMenu();
     navigation.clickSubmenu();
     navigation.window();
+    navigation.clickMenuItem();
 })(window, document);
