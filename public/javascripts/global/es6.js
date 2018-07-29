@@ -47,17 +47,17 @@
 
     const jsfiles = [
         '/javascripts/global/script',
-        '/javascripts/navigation/navigation',
-        '/javascripts/about/about',
-        '/javascripts/versions/versions',
-        '/javascripts/skills/skills',
-        '/javascripts/experience/experience',
-        '/javascripts/education/education',
-        '/javascripts/social/social'
+        '/javascripts/navigation/script',
+        '/javascripts/about/script',
+        '/javascripts/versions/script',
+        '/javascripts/skills/script',
+        '/javascripts/experience/script',
+        '/javascripts/education/script',
+        '/javascripts/social/script'
     ];
 
     const cssfiles = [
-        '/stylesheets/global/style'
+        '/stylesheets/global/styles'
     ];
 
     window.requestAnimationFrame(() => {

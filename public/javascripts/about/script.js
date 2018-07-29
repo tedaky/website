@@ -161,10 +161,10 @@
         (window.etiedeken) ?
             window.requestAnimationFrame(() => {
                 let load = new Setup(window.etiedeken);
-                load.ajax('/javascripts/about/about.json');
-                load.style('/stylesheets/about/about.css');
-                load.style('/stylesheets/background/background.css');
-                load.style('/stylesheets/sphere/sphere.css');
+                load.ajax('/javascripts/about/source.json');
+                load.style('/stylesheets/about/styles.css');
+                load.style('/stylesheets/background/styles.css');
+                load.style('/stylesheets/sphere/styles.css');
             }) :
             window.requestAnimationFrame(() => {
                 check(window);
