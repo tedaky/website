@@ -61,8 +61,8 @@
         (window.etiedeken) ?
             window.requestAnimationFrame(() => {
                 let load = new Setup(window.etiedeken);
-                load.ajax('/javascripts/skills.json');
-                load.style('/stylesheets/skills.css');
+                load.ajax('/javascripts/skills/skills.json');
+                load.style('/stylesheets/skills/skills.css');
             }) :
             window.requestAnimationFrame(() => {
                 check(window);

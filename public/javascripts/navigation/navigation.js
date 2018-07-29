@@ -85,7 +85,7 @@
             ajax.navigation.reverse();
 
             navigationWrapper.appendChild(this.navigating(ajax.home, ajax.navigation));
-            window.load.downloadjs('/javascripts/navigation_events');
+            window.load.downloadjs('/javascripts/navigation/navigation_events');
         }
 
         ajax(ajax) {
@@ -104,8 +104,8 @@
         (window.etiedeken) ?
             window.requestAnimationFrame(() => {
                 let load = new Setup(window.etiedeken);
-                load.ajax('/javascripts/navigation.json');
-                load.style('/stylesheets/navigation.css');
+                load.ajax('/javascripts/navigation/navigation.json');
+                load.style('/stylesheets/navigation/navigation.css');
             }) :
             window.requestAnimationFrame(() => {
                 check(window);

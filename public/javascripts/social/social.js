@@ -50,8 +50,8 @@
         (window.etiedeken) ?
             window.requestAnimationFrame(() => {
                 let load = new Setup(window.etiedeken);
-                load.ajax('/javascripts/social.json');
-                load.style('/stylesheets/social.css');
+                load.ajax('/javascripts/social/social.json');
+                load.style('/stylesheets/social/social.css');
             }) :
             window.requestAnimationFrame(() => {
                 callEtiedeken(window);

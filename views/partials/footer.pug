@@ -11,10 +11,10 @@ script(type="text/javascript").
 
   var esScript = document.createElement('script');
   if (checkCompatibility()) {
-    esScript.src = '/javascripts/es6.js';
+    esScript.src = '/javascripts/global/es6.js';
     esScript.async = true;
   } else {
-    esScript.src = '/javascripts/unsupported.js';
+    esScript.src = '/javascripts/global/unsupported.js';
     esScript.async = true;
   }
   document.body.appendChild(esScript);
