@@ -1,39 +1,10 @@
 ((window, document) => {
     class Navigation {
-        constructor(button, menu, close) {
+        constructor(button, menu, submenu, close) {
             this.button = button;
             this.menu = menu;
+            this.submenu = submenu;
             this.close = close;
-        }
-
-        toggle() {
-            let menu = document.querySelector(this.menu);
-            let button = document.querySelector(this.button);
-            let navbar = document.getElementById('navbar');
-            if (menu.classList.contains('menu-open')) {
-                menu.classList.remove('menu-open');
-                menu.classList.add('menu-close');
-
-                navbar.setAttribute('aria-expanded', 'false');
-                button.setAttribute('aria-expanded', 'false');
-
-                document.body.classList.remove('navigation-menu-open');
-                document.body.classList.add('navigation-menu-close');
-                menu.style.paddingRight = null;
-                document.body.style.paddingRight = null;
-            } else {
-                menu.classList.add('menu-open');
-                menu.classList.remove('menu-close');
-
-                navbar.setAttribute('aria-expanded', 'true');
-                button.setAttribute('aria-expanded', 'true');
-
-                document.body.classList.add('navigation-menu-open');
-                document.body.classList.remove('navigation-menu-close');
-                const scrollbarWidth = this.scrollbar() + 'px';
-                document.body.style.paddingRight = scrollbarWidth;
-                menu.style.paddingRight = scrollbarWidth;
-            }
         }
 
         scrollbar() {
@@ -45,17 +16,79 @@
             return result;
         }
 
-        click() {
+        toggleMenu() {
+            let menu = document.querySelector(this.menu);
+            let button = document.querySelector(this.button);
+            let navbar = document.getElementById('navbar');
+
+            if (menu.classList.contains('menu-open')) {
+                menu.classList.remove('menu-open');
+                menu.classList.add('menu-close');
+
+                navbar.setAttribute('aria-expanded', 'false');
+                button.setAttribute('aria-expanded', 'false');
+
+                document.body.classList.remove('navigation-menu-open');
+                document.body.classList.add('navigation-menu-close');
+
+                menu.style.paddingRight = null;
+                document.body.style.paddingRight = null;
+            } else {
+                menu.classList.remove('menu-close');
+                menu.classList.add('menu-open');
+
+                navbar.setAttribute('aria-expanded', 'true');
+                button.setAttribute('aria-expanded', 'true');
+
+                document.body.classList.remove('navigation-menu-close');
+                document.body.classList.add('navigation-menu-open');
+
+                const scrollbarWidth = this.scrollbar() + 'px';
+                document.body.style.paddingRight = scrollbarWidth;
+                menu.style.paddingRight = scrollbarWidth;
+            }
+        }
+
+        toggleSubmenu(button, menu) {
+            if (menu.classList.contains('submenu-open')) {
+                menu.classList.remove('submenu-open');
+                menu.classList.add('submenu-close');
+
+                button.setAttribute('aria-expanded', 'false');
+            } else {
+                menu.classList.remove('submenu-close');
+                menu.classList.add('submenu-open');
+
+                button.setAttribute('aria-expanded', 'true');
+            }
+        }
+
+        clickSubmenu() {
+            let self = this;
+            let submenus = document.querySelectorAll(this.menu + ' ' + this.submenu);
+
+            for (let i = submenus.length; i > 0; --i) {
+                let parent = submenus[i-1];
+                let button = parent.firstChild;
+                button.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    self.toggleSubmenu(button, parent);
+                });
+            }
+        }
+
+        clickMenu() {
             let self = this;
             document.querySelector(this.button).addEventListener('click', (e) => {
-                self.toggle();
+                self.toggleMenu();
             });
             document.querySelector(this.close).addEventListener('click', (e) => {
-                self.toggle();
+                self.toggleMenu();
             });
         }
     }
 
-    let navigation = new Navigation('.navigation .nav:first-child button', '.navigation', '.close-navigation');
-    navigation.click();
+    let navigation = new Navigation('.navigation .nav:first-child button', '.navigation', '.sub-nav', '.close-navigation');
+    navigation.clickMenu();
+    navigation.clickSubmenu();
 })(window, document);

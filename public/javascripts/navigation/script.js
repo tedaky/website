@@ -32,11 +32,9 @@
             return home;
         }
 
-        navItem(item, link) {
+        navItem(item) {
             let nav = this.etiedeken.element('li', ['nav-item'], []);
-            let text = (link) ?
-                this.etiedeken.link(['nav-click'], [], item.name, item.link, false) :
-                this.etiedeken.element('a', ['nav-click'], [], item.name);
+            let text = this.etiedeken.link(['nav-click'], [], item.name, item.link, false);
 
             nav.appendChild(text);
 
@@ -54,17 +52,23 @@
             for (let i = nav.length; i > 0; --i) {
                 let curItem;
                 if (nav[i-1].nest) {
-                    curItem = this.navItem(nav[i-1], false);
+                    curItem = this.navItem(nav[i-1]);
+                    curItem.classList.add('sub-nav');
+                    curItem.firstChild.id = 'subnav' + (i - 1);
+                    curItem.firstChild.setAttribute('aria-haspopup', 'true');
+                    curItem.firstChild.setAttribute('aria-expanded', 'false');
+                    curItem.firstChild.setAttribute('role', 'button');
+
                     nav[i-1].nest.reverse();
-                    let nestWrapper = this.etiedeken.element('ul', ['nav'], []);
+                    let nestWrapper = this.etiedeken.accessibleElement('ul', ['nav'], [], [{'aria-labelledby': 'subnav' + (i - 1)}]);
 
                     for (let y = nav[i-1].nest.length; y > 0; --y) {
-                        let curNestItem = this.navItem(nav[i-1].nest[y-1], true);
+                        let curNestItem = this.navItem(nav[i-1].nest[y-1]);
                         nestWrapper.appendChild(curNestItem);
                     }
                     curItem.appendChild(nestWrapper);
                 } else {
-                    curItem = this.navItem(nav[i-1], true);
+                    curItem = this.navItem(nav[i-1]);
                 }
                 navWrapper.appendChild(curItem);
             }

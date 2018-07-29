@@ -2,11 +2,35 @@
   .container
     & > .nav
       &:last-child
-
+        .submenu-open
+          .nav-click
+            & + .nav
+              display: block
+        .nav-click
+          text-decoration: none
+          cursor: pointer
+          color: white
+          padding: 8px
+          & + .nav
+            display: none
+        .sub-nav
+          & > .nav-click
+            &::after
+              display: inline-block
+              vertical-align: top
+              content: '\22CE'
+              line-height: 1
+              margin:
+                left: 15px
+                top: .2em
+              font:
+                weight: bold
+                size: .7em
 
   a
     display: block
   img
+    filter: hue-rotate(-10deg) brightness(1.2)
     display: block
     height: 40px
     width: 40px
