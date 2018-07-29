@@ -42,7 +42,7 @@
         }
 
         navigating(home, nav) {
-            let container = this.etiedeken.element('div', ['container', 'no-bg'], []);
+            let container = this.etiedeken.element('nav', ['container', 'no-bg'], []);
 
             let homeWrapper = this.navHome(home);
 
