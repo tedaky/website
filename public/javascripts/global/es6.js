@@ -1,5 +1,5 @@
 ((window, document) => {
-    class loader {
+    class Loader {
         constructor(jsfiles, cssfiles) {
             this.jsfiles = jsfiles;
             this.cssfiles = cssfiles;
@@ -61,7 +61,7 @@
     ];
 
     window.requestAnimationFrame(() => {
-        let load = window.load = new loader(jsfiles, cssfiles);
+        let load = window.load = new Loader(jsfiles, cssfiles);
         window.addEventListener('DOMContentLoaded', load.load(), false);
     });
 })(window, document);
