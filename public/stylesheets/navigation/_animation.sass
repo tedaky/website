@@ -27,6 +27,7 @@
     transform: translateX(-100%)
     visibility: visible
 
+
 .navigation
   &.menu-open
     & + .close-navigation
@@ -64,3 +65,42 @@
         &:last-child
           animation: navigation-slide-out 500ms
           visibility: hidden
+
+@media (min-width: 730px)
+  .navigation
+    &.menu-open
+      & + .close-navigation
+        visibility: visible
+        animation: none
+      .container
+        & > .nav
+          &:first-child
+            button
+              span
+                &:first-child
+                  visibility: hidden
+                  animation: none
+                &:last-child
+                  visibility: visible
+                  animation: none
+          &:last-child
+            visibility: visible
+            animation: none
+    &.menu-close
+      & + .close-navigation
+        visibility: hidden
+        animation: none
+      .container
+        & > .nav
+          &:first-child
+            button
+              span
+                &:first-child
+                  visibility: visible
+                  animation: none
+                &:last-child
+                  visibility: hidden
+                  animation: none
+          &:last-child
+            visibility: hidden
+            animation: none

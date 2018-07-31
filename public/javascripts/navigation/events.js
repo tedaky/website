@@ -172,6 +172,13 @@
             scroll();
         }
 
+        scroll() {
+            const topPosition = window.pageYOffset || document.documentElement.scrollTop;
+            (topPosition > 70) ?
+                document.body.classList.add('top-scroll') :
+                document.body.classList.remove('top-scroll');
+        }
+
         window() {
             let self = this;
             let menu = document.querySelector(this.menu);
@@ -184,7 +191,10 @@
                     (openSubmenus.length) ?
                         self.closeSubmenu() :
                         self.closeMenu(menu, button, navbar);
-            })
+            });
+            window.addEventListener('scroll', (e) => {
+                self.scroll();
+            });
         }
     }
 

@@ -1,3 +1,5 @@
+@import '_scroll'
+
 .navigation-menu-open
   overflow: hidden
 .scrollbar
@@ -24,8 +26,6 @@
   right: 0
   left: 0
   top: 0
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.19), 0 6px 10px rgba(0, 0, 0, 0.23)
-  background-color: #fff
   .container
     padding: 0
     margin: 0 auto
@@ -60,11 +60,7 @@
             position: relative
             display: block
             line-height: 1
-            padding:
-              bottom: 9px
-              top: 9px
-              right: 0
-              left: 0
+            padding: 9px 0
             margin: 0
             width: 40px
             border: 0
@@ -99,8 +95,7 @@
         .nav
           list-style-type: none
           background-color: rgba(0, 0, 0, 0.1)
-          padding:
-            left: 8px
+          padding-left: 8px
 
 @import '_items'
 @import '_animation'
