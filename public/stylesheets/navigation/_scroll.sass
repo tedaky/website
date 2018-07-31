@@ -9,6 +9,22 @@
         button
           color: #fff
           transition: color 250ms
+          span
+            &:first-child
+              transition: border 250ms
+              border:
+                top:
+                  color: #fff
+                bottom:
+                  color: #fff
+              &:before
+                transition: background-color 250ms
+                background-color: #fff
+
+      &:last-child
+        transition: margin-top 250ms
+        margin-top: 30px
+
 .top-scroll, .navigation-menu-open
   .navigation
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.19), 0 6px 10px rgba(0, 0, 0, 0.23)
@@ -16,18 +32,29 @@
     padding:
       bottom: 0
       top: 0
-
     .container
       & > .nav
         &:first-child
           button
             color: #000
+            span
+              &:first-child
+                border:
+                  top:
+                    color: #000
+                  bottom:
+                    color: #000
+                &:before
+                  background-color: #000
+        &:last-child
+          margin-top: 0
 
 @media (min-width: 730px)
   .navigation
     .container
       & > .nav
         &:last-child
+          margin-top: 0
           .nav-click
             transition: color 250ms
             color: #dadada

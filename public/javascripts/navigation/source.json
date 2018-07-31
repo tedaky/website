@@ -3,7 +3,6 @@
         "name": "Home",
         "link": "/",
         "image": "/images/logo.png",
-        "buttonIconOpen": "☰",
         "buttonIconClose": "×",
         "buttonText": "Toggle Navigation"
     },

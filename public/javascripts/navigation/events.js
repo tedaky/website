@@ -1,5 +1,5 @@
 ((window, document) => {
-    class Navigation {
+    class Events {
         constructor(button, menu, submenu, close) {
             this.button = button;
             this.menu = menu;
@@ -198,9 +198,9 @@
         }
     }
 
-    let navigation = new Navigation('.navigation .container > .nav:first-child button', '.navigation', '.sub-nav', '.close-navigation');
-    navigation.clickMenu();
-    navigation.clickSubmenu();
-    navigation.window();
-    navigation.clickMenuItem();
+    let events = new Events('.navigation .container > .nav:first-child button', '.navigation', '.sub-nav', '.close-navigation');
+    events.clickMenu();
+    events.clickSubmenu();
+    events.window();
+    events.clickMenuItem();
 })(window, document);

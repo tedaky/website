@@ -32,8 +32,9 @@
             for (let i = ajax.skills.length; i > 0; --i) {
                 let container = this.etiedeken.element('div', ['container'], []);
                 container.id = ajax.skills[i-1].group.replace(' ', '-').toLowerCase();
-                const group = this.etiedeken.element('h3', ['text-center'], [], ajax.skills[i-1].group);
-                let skills = this.etiedeken.element('ul', ['skills'], []);
+                let group = this.etiedeken.accessibleElement('button', ['text-center', 'h3'], [], [{'aria-expanded': 'true'}, {'aria-controls': 'skills' + i}], ajax.skills[i-1].group);
+                let skills = this.etiedeken.accessibleElement('ul', ['skills'], [], [{'aria-expanded': 'true'}]);
+                skills.id = 'skills' + i;
                 ajax.skills[i-1].skill.reverse();
 
                 for (let y = ajax.skills[i-1].skill.length; y > 0; --y)
@@ -43,6 +44,7 @@
                 container.appendChild(skills);
                 skillsWrapper.appendChild(container);
             }
+            window.load.downloadjs('/javascripts/skills/events');
         }
 
         ajax(ajax) {

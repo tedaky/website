@@ -1,18 +1,18 @@
 body
-  margin: 0
-  padding-top: 115px
-  background-color: rgba(0, 0, 0, 0.07)
-  color: #5f5f5f
   font-family: 'Trebuchet MS', 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Tahoma, sans-serif
+  background-color: rgba(0, 0, 0, 0.07)
+  padding-top: 115px
+  color: #5f5f5f
+  margin: 0
 #profile, #social, #about, #versions, #skills, #portfolio, #experience, #education
-  position: relative
-  z-index: 2
-  padding: 0 26px
+  box-sizing: border-box
   max-width: 1024px
+  position: relative
+  padding: 0 26px
+  z-index: 2
   margin:
     right: auto
     left: auto
-  box-sizing: border-box
   &::before,
   &::after
     content: ''
@@ -31,11 +31,11 @@ body
     bottom: 24px
   &::before,
   &::after
-    content: ''
     display: table
     clear: both
-    width: 0
+    content: ''
     height: 0
+    width: 0
 
 .no-bg
   background-color: transparent

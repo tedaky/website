@@ -1,19 +1,16 @@
 .profile
   & > .container
-    margin:
-      bottom: 0
+    margin-bottom: 0
 
 .profile-wrapper
   padding: 16px
   img
-    max:
-      width: 100%
+    max-width: 100%
   h1
+    font-size: 34px
     margin:
       bottom: 8px
       top: 8px
-    font:
-      size: 34px
   .greeting
     .tagline
       margin:
@@ -29,17 +26,13 @@
         &:last-child
           display: none
     hr
-      border:
+      border: 0
         bottom: 1px solid rgba(0, 0, 0, 0.25)
-        right: 0
-        left: 0
-        top: 0
   .info
     label, span
       display: block
     label
-      text:
-        transform: uppercase
+      text-transform: uppercase
       font:
         weight: bold
         size: 0.8em
@@ -48,25 +41,18 @@
 
 .resume-wrapper
   .resume
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.0), 0 0 0 0 rgba(0, 0, 0, 0.0)
     transition: box-shadow 500ms
     border: 1px solid #cecece
     display: inline-block
+    padding: 12px 24px
+    font-weight: bold
     color: #767676
     text:
       transform: uppercase
       decoration: none
-    font:
-      weight: bold
-    padding:
-      bottom: 12px
-      right: 24px
-      left: 24px
-      top: 12px
-    box:
-      shadow: 0 0 0 0 rgba(0, 0, 0, 0.0), 0 0 0 0 rgba(0, 0, 0, 0.0)
     &:hover, &:focus
-      box:
-        shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15)
+      box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15)
 
 @media (min-width: 480px)
   .profile-wrapper
@@ -80,10 +66,11 @@
       grid-area: image
     .greeting
       position: relative
+      padding-top: 24px
       grid-area: me
-      padding:
-        top: 24px
       &::before
+        background-color: #1a77d4
+        text-transform: uppercase
         display: inline-block
         position: absolute
         padding: 4px 10px
@@ -91,45 +78,35 @@
         color: white
         left: 0
         top: 0
-        background:
-          color: #1a77d4
         font:
           weight: bold
           size: 14px
-        text:
-          transform: uppercase
       &::after
-        content: ''
         position: absolute
+        content: ''
         top: 24px
         left: 5px
-        width: 0
         height: 0
+        width: 0
         border:
           width: 0 0 8px 8px
           color: transparent
           style: solid
-          left:
-            color: #1a77d4
+          left-color: #1a77d4
     h1
-      font:
-        size: 32px
+      font-size: 32px
       &::before
         content: "I'm "
-        font:
-          weight: normal
+        font-weight: normal
     .info
       grid-area: info
       display: flex
-      flex:
-        wrap: wrap
+      flex-wrap: wrap
       p
         flex: 1 1 auto
         &:nth-child(odd)
-          min:
-            width: 188px
-          max:
-            width: 260px
+          min-width: 188px
+          max-width: 260px
         &:nth-child(even)
           width: 50%
 
@@ -143,10 +120,8 @@
     .info
       p
         &:nth-child(odd)
-          min:
-            width: 50%
-          max:
-            width: 50%
+          min-width: 50%
+          max-width: 50%
 
 @media (min-width: 720px)
   .profile-wrapper
@@ -157,18 +132,15 @@
         areas: "image me" "image info" "image ."
         columns: 210px 1fr
     h1
-      font:
-        size: 38px
+      font-size: 38px
     .info
       display: block
       p
         width: auto
         display: flex
         &:nth-child(odd)
-          min:
-            width: 199px
-          max:
-            width: 100%
+          min-width: 199px
+          max-width: 100%
         &:nth-child(even)
           width: 100%
       label
@@ -182,5 +154,4 @@
   .profile-wrapper
     grid:
       gap: 0 60px
-      template:
-        columns: 210px 1fr
+      template-columns: 210px 1fr

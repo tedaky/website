@@ -21,7 +21,7 @@
 
             let button = this.etiedeken.element('li', ['nav-item'], []);
             let icon = this.etiedeken.accessibleElement('button', [], [], [{'aria-label': item.buttonText}, {'aria-controls': 'navbar'}, {'aria-expanded': 'false'}]);
-            let iconOpen = this.etiedeken.element('span', [], [], item.buttonIconOpen);
+            let iconOpen = this.etiedeken.element('span', [], [], []);
             let iconclose = this.etiedeken.element('span', [], [], item.buttonIconClose);
             icon.appendChild(iconOpen);
             icon.appendChild(iconclose);
