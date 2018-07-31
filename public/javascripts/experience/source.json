@@ -2,7 +2,7 @@
     "experience": [
         {
             "company": "Encore Software",
-            "image": "",
+            "image": "/images/experience/encore.png",
             "position": "Web Developer",
             "time": {
                 "start": "August 2012",
@@ -13,7 +13,7 @@
         },
         {
             "company": "B507",
-            "image": "",
+            "image": "/images/experience/b507.png",
             "position": "Front End Team Leader",
             "time": {
                 "start": "August 2016",
@@ -24,7 +24,7 @@
         },
         {
             "company": "ValuSoft Cosmi",
-            "image": "",
+            "image": "/images/experience/valusoft_cosmi.png",
             "position": "Web Developer",
             "time": {
                 "start": "August 2012",
@@ -35,24 +35,35 @@
         },
         {
             "company": "Theory.io",
-            "image": "",
+            "image": "/images/experience/theoryio.png",
             "position": "Web Developer",
             "time": {
                 "start": "March 2012",
                 "end": "December 2012"
             },
-            "description": "Developed company website to provide helpful information for series of organizational iPad apps developed by the iPad team",
+            "description": "Developed company website to provide helpful information for series of organizational iPad apps developed by the iPad team.",
+            "link": "http://theory.io/"
+        },
+        {
+            "company": "Preferred Interactive",
+            "image": "/images/experience/preferred_interactive.png",
+            "position": "Image Detailer",
+            "time": {
+                "start": "March 2012",
+                "end": "June 2012"
+            },
+            "description": "Used Photoshop batch scripts to add materials to house images such as counters, walls, floors and ceilings.",
             "link": "http://theory.io/"
         },
         {
             "company": "ValuSoft THQ",
-            "image": "",
+            "image": "/images/experience/valusoft_thq.png",
             "position": "QA Lead",
             "time": {
                 "start": "July 2011",
                 "end": "March 2012"
             },
-            "description": "Test bugs/glitches with games, created steam depots for steam game release, disc setup, and game play video for retail presentations and marketing events",
+            "description": "Test bugs/glitches with games, created steam depots for steam game release, disc setup, and game play video for retail presentations and marketing events.",
             "link": "https://www.thqnordic.com/"
         }
     ]
