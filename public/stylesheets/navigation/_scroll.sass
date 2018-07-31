@@ -24,6 +24,9 @@
       &:last-child
         transition: margin-top 250ms
         margin-top: 30px
+  img
+    filter: hue-rotate(-10deg) brightness(1.5)
+    transition: filter 250ms
 
 .top-scroll, .navigation-menu-open
   .navigation
@@ -48,6 +51,8 @@
                   background-color: #000
         &:last-child
           margin-top: 0
+    img
+      filter: hue-rotate(-10deg) brightness(1.2)
 
 @media (min-width: 730px)
   .navigation
