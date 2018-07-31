@@ -8,7 +8,7 @@
             let wrapper = this.etiedeken.element('li', ['item'], []);
             let link = this.etiedeken.link(['link', versions.link], [], [], versions.link, false);
 
-            const image = this.etiedeken.image([], [], '/images/' + versions.image, versions.name);
+            const image = this.etiedeken.image([], [], versions.image, versions.name);
             const span = this.etiedeken.element('span', ['h5'], [], versions.name);
 
             link.appendChild(image);
