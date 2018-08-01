@@ -68,16 +68,22 @@
             ]
         },
         {
+            "name": "Experience",
+            "link": "#Experience",
+            "nest": [
+                {
+                    "name": "Employers",
+                    "link": "#experience"
+                },
+                {
+                    "name": "Education",
+                    "link": "#education"
+                }
+            ]
+        },
+        {
             "name": "Portfolio",
             "link": "#portfolio"
-        },
-        {
-            "name": "Experience",
-            "link": "#experience"
-        },
-        {
-            "name": "Education",
-            "link": "#education"
         }
     ]
 }
