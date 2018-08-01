@@ -151,10 +151,6 @@
                 self.fulfiller(this);
             });
         }
-
-        style(style) {
-            this.etiedeken.loadDeferredStyles(style);
-        }
     }
 
     const check = (window) => {
@@ -162,9 +158,6 @@
             window.requestAnimationFrame(() => {
                 let load = new Setup(window.etiedeken);
                 load.ajax('/javascripts/about/source.json');
-                load.style('/stylesheets/about/styles.css');
-                load.style('/stylesheets/background/styles.css');
-                load.style('/stylesheets/sphere/styles.css');
             }) :
             window.requestAnimationFrame(() => {
                 check(window);

@@ -52,12 +52,24 @@
         '/javascripts/versions/script',
         '/javascripts/skills/script',
         '/javascripts/experience/script',
+        '/javascripts/portfolio/script',
         '/javascripts/education/script',
         '/javascripts/social/script'
     ];
 
     const cssfiles = [
-        '/stylesheets/global/styles'
+        '/stylesheets/global/styles',
+        '/stylesheets/navigation/styles',
+        '/stylesheets/about/styles',
+        '/stylesheets/versions/styles',
+        '/stylesheets/skills/styles',
+        '/stylesheets/experience/styles',
+        '/stylesheets/portfolio/styles',
+        '/stylesheets/education/styles',
+        '/stylesheets/social/styles',
+
+        '/stylesheets/background/styles',
+        '/stylesheets/sphere/styles'
     ];
 
     window.requestAnimationFrame(() => {

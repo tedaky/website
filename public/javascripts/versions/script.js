@@ -44,10 +44,6 @@
                 self.fulfiller(this);
             });
         }
-
-        style(style) {
-            this.etiedeken.loadDeferredStyles(style);
-        }
     }
 
     const check = (window) => {
@@ -55,7 +51,6 @@
             window.requestAnimationFrame(() => {
                 let load = new Setup(window.etiedeken);
                 load.ajax('/javascripts/versions/source.json');
-                load.style('/stylesheets/versions/styles.css');
             }) :
             window.requestAnimationFrame(() => {
                 check(window);

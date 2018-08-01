@@ -40,10 +40,6 @@
                 self.fulfiller(this);
             });
         }
-
-        style(style) {
-            this.etiedeken.loadDeferredStyles(style);
-        }
     }
 
     const callEtiedeken = (window) => {
@@ -51,7 +47,6 @@
             window.requestAnimationFrame(() => {
                 let load = new Setup(window.etiedeken);
                 load.ajax('/javascripts/social/source.json');
-                load.style('/stylesheets/social/styles.css');
             }) :
             window.requestAnimationFrame(() => {
                 callEtiedeken(window);
