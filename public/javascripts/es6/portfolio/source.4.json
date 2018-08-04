@@ -1,0 +1,35 @@
+{
+    "portfolio": [
+        {
+            "name": "Metal Plating",
+            "cover": "/images/portfolio/metal-plating-full.jpeg",
+            "description": "First project in Substance Designer. Use for metal plating. From the Substance Designer tutorial.",
+            "set": [
+                "/images/portfolio/metal-plating-maps.jpeg",
+                "/images/portfolio/metal-plating-surface.jpeg",
+                "/images/portfolio/metal-plating-nodes.jpeg"
+            ]
+        },
+        {
+            "name": "Metal Plating",
+            "cover": "/images/portfolio/metal-plating-full.jpeg",
+            "description": "First project in Substance Designer. Use for metal plating. From the Substance Designer tutorial.",
+            "set": [
+                "/images/portfolio/metal-plating-maps.jpeg",
+                "/images/portfolio/metal-plating-surface.jpeg",
+                "/images/portfolio/metal-plating-nodes.jpeg"
+            ]
+        },
+        {
+            "name": "Metal Plating",
+            "cover": "/images/portfolio/metal-plating-full.jpeg",
+            "description": "First project in Substance Designer. Use for metal plating. From the Substance Designer tutorial.",
+            "set": [
+                "/images/portfolio/metal-plating-maps.jpeg",
+                "/images/portfolio/metal-plating-surface.jpeg",
+                "/images/portfolio/metal-plating-nodes.jpeg"
+            ]
+        }
+    ],
+    "next": 5
+}

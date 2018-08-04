@@ -5,8 +5,16 @@
         }
 
         setImage(ajax) {
-            let container = this.etiedeken.accessibleElement('li', [], [{'backgroundImage': 'url(' + ajax.cover + ')'}], [{'aria-label': ajax.name}, {'data-set': [ajax.set]}], []);
+            let container = this.etiedeken.accessibleElement('li', [], [{'backgroundImage': 'url(' + ajax.cover + ')'}], [{'aria-label': ajax.name}, {'data-set': [ajax.cover,ajax.set]}, {'role': 'button'}], []);
 
+            return container;
+        }
+
+        more(next) {
+            let container = this.etiedeken.element('div', ['text-center'], []);
+            const button = this.etiedeken.element('button', ['portfolio-btn'], [], '+');
+            button.setAttribute('data-next', next);
+            container.appendChild(button);
             return container;
         }
 
@@ -26,8 +34,11 @@
                 items.appendChild(item);
             }
 
+            let button = this.more(ajax.next);
+
             container.appendChild(label);
             container.appendChild(items);
+            container.appendChild(button);
             portfolioWrapper.appendChild(container);
 
             window.load.downloadjs('/javascripts/es6/portfolio/events');
@@ -45,7 +56,7 @@
         (window.etiedeken) ?
             window.requestAnimationFrame(() => {
                 let load = new Setup(window.etiedeken);
-                load.ajax('/javascripts/es6/portfolio/source.json');
+                load.ajax('/javascripts/es6/portfolio/source.1.json');
             }) :
             window.requestAnimationFrame(() => {
                 check(window);

@@ -1,9 +1,15 @@
 .portfolio
+  transition: height 350ms
   list-style-type: none
   grid-gap: 50px
   display: grid
   padding: 0
   margin: 0
+    bottom: 50px
+  &.animating, &.closed
+    overflow: hidden
+  &.closed
+    height: 0
 
   li
     padding: 0 0 100% 0
@@ -14,8 +20,29 @@
       repeat: no-repeat
       size: cover
 
+.portfolio-btn
+  box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.0), 0 0 0 0 rgba(0, 0, 0, 0.0)
+  background-color: transparent
+  transition: box-shadow 500ms
+  border: 1px solid #cecece
+  display: inline-block
+  padding: 18px 22px
+  color: #767676
+  line-height: 1
+  font:
+    weight: bold
+    size: 20px
+  text:
+    transform: uppercase
+    decoration: none
+  &:hover, &:focus
+    box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15)
+  &.remove
+    display: none
+
 @media (min-width: 480px)
   .portfolio
+    margin-bottom: 40px
     grid:
       template-columns: 1fr 1fr
       gap: 40px
@@ -26,7 +53,7 @@
           row: auto / span 2
 
 @media (min-width: 720px)
-  .portfolio 
+  .portfolio
     grid-template-columns: 1fr 1fr 1fr
     li
       &:nth-child(3n + 1)
