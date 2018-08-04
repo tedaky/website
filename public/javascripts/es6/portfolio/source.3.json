@@ -1,33 +1,35 @@
 {
     "portfolio": [
         {
-            "name": "Metal Plating",
-            "cover": "/images/portfolio/metal-plating-full.jpeg",
+            "name": "Hard Drive Racer",
+            "cover": "/images/portfolio/3d-racing-game-1.jpeg",
             "description": "First project in Substance Designer. Use for metal plating. From the Substance Designer tutorial.",
+            "category": "Games",
             "set": [
-                "/images/portfolio/metal-plating-maps.jpeg",
-                "/images/portfolio/metal-plating-surface.jpeg",
-                "/images/portfolio/metal-plating-nodes.jpeg"
+                "/images/portfolio/3d-racing-game-1.jpeg",
+                "/images/portfolio/3d-racing-game-2.jpeg",
+                "/images/portfolio/3d-racing-game-3.jpeg",
+                "/images/portfolio/3d-racing-game-4.jpeg"
             ]
         },
         {
-            "name": "Metal Plating",
-            "cover": "/images/portfolio/metal-plating-full.jpeg",
+            "name": "Barrels",
+            "cover": "/images/portfolio/wood-barrels-set.jpeg",
             "description": "First project in Substance Designer. Use for metal plating. From the Substance Designer tutorial.",
+            "category": "3D",
             "set": [
-                "/images/portfolio/metal-plating-maps.jpeg",
-                "/images/portfolio/metal-plating-surface.jpeg",
-                "/images/portfolio/metal-plating-nodes.jpeg"
+                "/images/portfolio/wood-barrels-set.jpeg",
+                "/images/portfolio/metal-barrels-set.jpeg"
             ]
         },
         {
-            "name": "Metal Plating",
-            "cover": "/images/portfolio/metal-plating-full.jpeg",
+            "name": "Stairs",
+            "cover": "/images/portfolio/stairs-set.jpeg",
             "description": "First project in Substance Designer. Use for metal plating. From the Substance Designer tutorial.",
+            "category": "3D",
             "set": [
-                "/images/portfolio/metal-plating-maps.jpeg",
-                "/images/portfolio/metal-plating-surface.jpeg",
-                "/images/portfolio/metal-plating-nodes.jpeg"
+                "/images/portfolio/stairs-set.jpeg",
+                "/images/portfolio/stairs-1.jpeg"
             ]
         }
     ],

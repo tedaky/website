@@ -1,33 +1,30 @@
 {
     "portfolio": [
         {
-            "name": "Metal Plating",
-            "cover": "/images/portfolio/metal-plating-full.jpeg",
+            "name": "3D Defend Game",
+            "cover": "/images/portfolio/3d-defend-game.jpeg",
             "description": "First project in Substance Designer. Use for metal plating. From the Substance Designer tutorial.",
+            "category": "Games",
             "set": [
-                "/images/portfolio/metal-plating-maps.jpeg",
-                "/images/portfolio/metal-plating-surface.jpeg",
-                "/images/portfolio/metal-plating-nodes.jpeg"
+                "/images/portfolio/3d-defend-game.jpeg"
             ]
         },
         {
-            "name": "Metal Plating",
-            "cover": "/images/portfolio/metal-plating-full.jpeg",
+            "name": "Pipes",
+            "cover": "/images/portfolio/pipes-set.jpeg",
             "description": "First project in Substance Designer. Use for metal plating. From the Substance Designer tutorial.",
+            "category": "3D",
             "set": [
-                "/images/portfolio/metal-plating-maps.jpeg",
-                "/images/portfolio/metal-plating-surface.jpeg",
-                "/images/portfolio/metal-plating-nodes.jpeg"
+                "/images/portfolio/pipes-set.jpeg"
             ]
         },
         {
-            "name": "Metal Plating",
-            "cover": "/images/portfolio/metal-plating-full.jpeg",
+            "name": "Propane Tanks",
+            "cover": "/images/portfolio/propane-tanks.jpeg",
             "description": "First project in Substance Designer. Use for metal plating. From the Substance Designer tutorial.",
+            "category": "3D",
             "set": [
-                "/images/portfolio/metal-plating-maps.jpeg",
-                "/images/portfolio/metal-plating-surface.jpeg",
-                "/images/portfolio/metal-plating-nodes.jpeg"
+                "/images/portfolio/propane-tanks.jpeg"
             ]
         }
     ],

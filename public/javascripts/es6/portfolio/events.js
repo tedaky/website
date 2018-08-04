@@ -2,10 +2,12 @@
     class Events {
         constructor(etiedeken) {
             this.etiedeken = etiedeken;
+            this.timeout = undefined;
+            this.time = 350
         }
 
         setImage(ajax) {
-            let container = this.etiedeken.accessibleElement('li', [], [{'backgroundImage': 'url(' + ajax.cover + ')'}], [{'aria-label': ajax.name}, {'data-set': [ajax.cover,ajax.set]}, {'role': 'button'}], []);
+            let container = this.etiedeken.accessibleElement('li', [], [{'backgroundImage': 'url(' + ajax.cover + ')'}], [{'aria-label': ajax.name}, {'data-set': [ajax.set]}, {'role': 'button'}], []);
 
             return container;
         }
@@ -26,11 +28,14 @@
         load(button) {
             let self = this;
             const next = button.getAttribute('data-next');
+            button.setAttribute('disabled', 'disabled');
+
             if (next > 0)
                 this.etiedeken.ajax('GET', '/javascripts/es6/portfolio/source.' + next + '.json', function() {
                     button.setAttribute('data-next', this.next);
                     self.append(this.portfolio);
                     self.thumbClick();
+                    button.removeAttribute('disabled');
                     if (this.next == 0)
                         button.classList.add('remove');
                 });

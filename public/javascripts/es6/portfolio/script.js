@@ -5,7 +5,7 @@
         }
 
         setImage(ajax) {
-            let container = this.etiedeken.accessibleElement('li', [], [{'backgroundImage': 'url(' + ajax.cover + ')'}], [{'aria-label': ajax.name}, {'data-set': [ajax.cover,ajax.set]}, {'role': 'button'}], []);
+            let container = this.etiedeken.accessibleElement('li', [], [{'backgroundImage': 'url(' + ajax.cover + ')'}], [{'aria-label': ajax.name}, {'data-set': [ajax.set]}, {'role': 'button'}], []);
 
             return container;
         }

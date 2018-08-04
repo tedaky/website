@@ -1,33 +1,37 @@
 {
     "portfolio": [
         {
-            "name": "Metal Plating",
-            "cover": "/images/portfolio/metal-plating-full.jpeg",
+            "name": "Metal Crates",
+            "cover": "/images/portfolio/metal-crates-set.jpeg",
             "description": "First project in Substance Designer. Use for metal plating. From the Substance Designer tutorial.",
+            "category": "3D",
             "set": [
-                "/images/portfolio/metal-plating-maps.jpeg",
-                "/images/portfolio/metal-plating-surface.jpeg",
-                "/images/portfolio/metal-plating-nodes.jpeg"
+                "/images/portfolio/metal-crates-set.jpeg",
+                "/images/portfolio/metal-box-1.jpeg",
+                "/images/portfolio/metal-box-2.jpeg"
             ]
         },
         {
-            "name": "Metal Plating",
-            "cover": "/images/portfolio/metal-plating-full.jpeg",
+            "name": "Wood Crates",
+            "cover": "/images/portfolio/wood-crates-set-2.jpeg",
             "description": "First project in Substance Designer. Use for metal plating. From the Substance Designer tutorial.",
+            "category": "3D",
             "set": [
-                "/images/portfolio/metal-plating-maps.jpeg",
-                "/images/portfolio/metal-plating-surface.jpeg",
-                "/images/portfolio/metal-plating-nodes.jpeg"
+                "/images/portfolio/wood-crates-set-2.jpeg",
+                "/images/portfolio/crate-holder.jpeg",
+                "/images/portfolio/wood-box-1.jpeg",
+                "/images/portfolio/wood-box-2.jpeg",
+                "/images/portfolio/wood-box-3.jpeg",
+                "/images/portfolio/wood-crates-set-1.jpeg"
             ]
         },
         {
-            "name": "Metal Plating",
-            "cover": "/images/portfolio/metal-plating-full.jpeg",
+            "name": "Plastic Crates",
+            "cover": "/images/portfolio/plastic-crates-set.jpeg",
             "description": "First project in Substance Designer. Use for metal plating. From the Substance Designer tutorial.",
+            "category": "3D",
             "set": [
-                "/images/portfolio/metal-plating-maps.jpeg",
-                "/images/portfolio/metal-plating-surface.jpeg",
-                "/images/portfolio/metal-plating-nodes.jpeg"
+                "/images/portfolio/plastic-crates-set.jpeg"
             ]
         }
     ],
