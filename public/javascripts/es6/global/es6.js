@@ -46,15 +46,15 @@
     }
 
     const jsfiles = [
-        '/javascripts/global/script',
-        '/javascripts/navigation/script',
-        '/javascripts/about/script',
-        '/javascripts/versions/script',
-        '/javascripts/skills/script',
-        '/javascripts/experience/script',
-        '/javascripts/portfolio/script',
-        '/javascripts/education/script',
-        '/javascripts/social/script'
+        '/javascripts/es6/global/script',
+        '/javascripts/es6/navigation/script',
+        '/javascripts/es6/about/script',
+        '/javascripts/es6/versions/script',
+        '/javascripts/es6/skills/script',
+        '/javascripts/es6/experience/script',
+        '/javascripts/es6/portfolio/script',
+        '/javascripts/es6/education/script',
+        '/javascripts/es6/social/script'
     ];
 
     const cssfiles = [

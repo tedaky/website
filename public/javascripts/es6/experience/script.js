@@ -39,7 +39,7 @@
 
             const label = this.etiedeken.element('h2', ['text-center'], [], 'Experience');
             let company = this.etiedeken.element('ul', ['experience'], []);
-            
+
             ajax.experience.reverse();
 
             for (let i = ajax.experience.length; i > 0; --i) {
@@ -60,7 +60,7 @@
 
             container.appendChild(label);
             container.appendChild(company);
-            
+
             experienceElement.appendChild(container);
         }
 
@@ -76,7 +76,7 @@
         (window.etiedeken) ?
             window.requestAnimationFrame(() => {
                 let load = new Setup(window.etiedeken);
-                load.ajax('/javascripts/experience/source.json');
+                load.ajax('/javascripts/es6/experience/source.json');
             }) :
             window.requestAnimationFrame(() => {
                 check(window);

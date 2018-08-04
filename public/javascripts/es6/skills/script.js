@@ -44,7 +44,7 @@
                 container.appendChild(skills);
                 skillsWrapper.appendChild(container);
             }
-            window.load.downloadjs('/javascripts/skills/events');
+            window.load.downloadjs('/javascripts/es6/skills/events');
         }
 
         ajax(ajax) {
@@ -59,7 +59,7 @@
         (window.etiedeken) ?
             window.requestAnimationFrame(() => {
                 let load = new Setup(window.etiedeken);
-                load.ajax('/javascripts/skills/source.json');
+                load.ajax('/javascripts/es6/skills/source.json');
             }) :
             window.requestAnimationFrame(() => {
                 check(window);
