@@ -15,6 +15,8 @@
 
             let container = this.etiedeken.element('div', ['container', 'no-bg'], []);
 
+            const label = this.etiedeken.element('h2', ['text-center'], [], 'Portfolio');
+
             let items = this.etiedeken.element('ul', ['portfolio'], []);
 
             ajax.portfolio.reverse();
@@ -23,11 +25,12 @@
                 const item = this.setImage(ajax.portfolio[i-1]);
                 items.appendChild(item);
             }
-            
+
+            container.appendChild(label);
             container.appendChild(items);
             portfolioWrapper.appendChild(container);
 
-            window.load.downloadjs('/javascripts/portfolio/events');
+            window.load.downloadjs('/javascripts/es6/portfolio/events');
         }
 
         ajax(ajax) {
@@ -42,7 +45,7 @@
         (window.etiedeken) ?
             window.requestAnimationFrame(() => {
                 let load = new Setup(window.etiedeken);
-                load.ajax('/javascripts/portfolio/source.json');
+                load.ajax('/javascripts/es6/portfolio/source.json');
             }) :
             window.requestAnimationFrame(() => {
                 check(window);
