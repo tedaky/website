@@ -2,6 +2,7 @@
     class Setup {
         constructor(etiedeken) {
             this.etiedeken = etiedeken;
+            this.version = 'You are viewing this page developed using JavaScript ES6. Want more details? Take a look at Dev Tools.';
         }
 
         versions(versions) {
@@ -35,6 +36,13 @@
 
             container.appendChild(label);
             container.appendChild(versionsContainer);
+            
+            const whichVersion = this.etiedeken.element('h3', ['text-center'], [], 'Which Version');
+            const version = this.etiedeken.element('p', ['text-center'], [], this.version);
+
+            container.appendChild(whichVersion);
+            container.appendChild(version);
+
             versionsWrapper.appendChild(container);
         }
 

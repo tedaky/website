@@ -1,0 +1,39 @@
+.portfolio
+  list-style-type: none
+  grid-gap: 50px
+  display: grid
+  padding: 0
+  margin: 0
+
+  li
+    padding: 0 0 100% 0
+    position: relative
+    margin: 0
+    height: 0
+    background:
+      repeat: no-repeat
+      size: cover
+
+@media (min-width: 480px)
+  .portfolio
+    grid:
+      template-columns: 1fr 1fr
+      gap: 40px
+    li
+      &:nth-child(3n + 1)
+        grid:
+          column: auto / span 2
+          row: auto / span 2
+
+@media (min-width: 720px)
+  .portfolio 
+    grid-template-columns: 1fr 1fr 1fr
+    li
+      &:nth-child(3n + 1)
+        grid:
+          column: auto
+          row: auto
+      &:nth-child(9n + 1), &:nth-child(9n + 5)
+        grid:
+          column: auto / span 2
+          row: auto / span 2

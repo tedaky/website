@@ -4,8 +4,30 @@
             this.etiedeken = etiedeken;
         }
 
+        setImage(ajax) {
+            let container = this.etiedeken.accessibleElement('li', [], [{'backgroundImage': 'url(' + ajax.cover + ')'}], [{'aria-label': ajax.name}, {'data-set': [ajax.set]}], []);
+
+            return container;
+        }
+
         fulfiller(ajax) {
             let portfolioWrapper = document.getElementById('portfolio');
+
+            let container = this.etiedeken.element('div', ['container', 'no-bg'], []);
+
+            let items = this.etiedeken.element('ul', ['portfolio'], []);
+
+            ajax.portfolio.reverse();
+
+            for (let i = ajax.portfolio.length; i > 0; --i) {
+                const item = this.setImage(ajax.portfolio[i-1]);
+                items.appendChild(item);
+            }
+            
+            container.appendChild(items);
+            portfolioWrapper.appendChild(container);
+
+            window.load.downloadjs('/javascripts/portfolio/events');
         }
 
         ajax(ajax) {
