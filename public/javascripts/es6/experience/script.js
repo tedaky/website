@@ -76,7 +76,7 @@
         (window.etiedeken) ?
             window.requestAnimationFrame(() => {
                 let load = new Setup(window.etiedeken);
-                load.ajax('/javascripts/es6/experience/source.json');
+                load.ajax('/javascripts/response/experience/source.json');
             }) :
             window.requestAnimationFrame(() => {
                 check(window);

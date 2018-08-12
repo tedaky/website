@@ -43,7 +43,7 @@
             let portfolio = document.querySelector('.portfolio');
             const tempHeight = this.getHeight(portfolio);
             if (next > 0)
-                this.etiedeken.ajax('GET', '/javascripts/es6/portfolio/source.' + next + '.json', function() {
+                this.etiedeken.ajax('GET', '/javascripts/response/portfolio/source.' + next + '.json', function() {
                     button.setAttribute('data-next', this.next);
                     self.append(this.portfolio);
                     self.thumbClick();
