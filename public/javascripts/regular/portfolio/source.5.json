@@ -1,0 +1,32 @@
+{
+    "portfolio": [
+        {
+            "name": "3D Defend Game",
+            "cover": "/images/portfolio/3d-defend-game.jpeg",
+            "description": "First project in Substance Designer. Use for metal plating. From the Substance Designer tutorial.",
+            "category": "Games",
+            "set": [
+                "/images/portfolio/3d-defend-game.jpeg"
+            ]
+        },
+        {
+            "name": "Pipes",
+            "cover": "/images/portfolio/pipes-set.jpeg",
+            "description": "First project in Substance Designer. Use for metal plating. From the Substance Designer tutorial.",
+            "category": "3D",
+            "set": [
+                "/images/portfolio/pipes-set.jpeg"
+            ]
+        },
+        {
+            "name": "Propane Tanks",
+            "cover": "/images/portfolio/propane-tanks.jpeg",
+            "description": "First project in Substance Designer. Use for metal plating. From the Substance Designer tutorial.",
+            "category": "3D",
+            "set": [
+                "/images/portfolio/propane-tanks.jpeg"
+            ]
+        }
+    ],
+    "next": 0
+}

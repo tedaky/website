@@ -1,6 +1,5 @@
 .portfolio
   transition: height 350ms
-  list-style-type: none
   grid-gap: 50px
   display: grid
   padding: 0
@@ -11,15 +10,20 @@
   &.closed
     height: 0
 
-  li
+  button
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.0), 0 0 0 0 rgba(0, 0, 0, 0.0)
+    transition: box-shadow 500ms
     padding: 0 0 100% 0
     position: relative
     margin: 0
     height: 0
+    border: 0
     background:
       repeat: no-repeat
       position: center
       size: cover
+    &:hover, &:focus
+      box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15)
 
 .portfolio-btn
   box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.0), 0 0 0 0 rgba(0, 0, 0, 0.0)
@@ -30,12 +34,12 @@
   padding: 18px 22px
   color: #767676
   line-height: 1
-  font:
-    weight: bold
-    size: 20px
   text:
     transform: uppercase
     decoration: none
+  font:
+    weight: bold
+    size: 20px
   &:hover, &:focus
     box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15)
   &.remove
@@ -47,7 +51,7 @@
     grid:
       template-columns: 1fr 1fr
       gap: 40px
-    li
+    button
       &:nth-child(3n + 1)
         grid:
           column: auto / span 2
@@ -56,7 +60,7 @@
 @media (min-width: 720px)
   .portfolio
     grid-template-columns: 1fr 1fr 1fr
-    li
+    button
       &:nth-child(3n + 1)
         grid:
           column: auto

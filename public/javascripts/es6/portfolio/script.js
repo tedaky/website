@@ -5,8 +5,8 @@
         }
 
         setImage(ajax) {
-            let container = this.etiedeken.accessibleElement('li', [], [{'backgroundImage': 'url(' + ajax.cover + ')'}], [{'aria-label': ajax.name}, {'data-set': [ajax.set]}, {'role': 'button'}], []);
-
+            let container = this.etiedeken.accessibleElement('button', ['category-' + ajax.category.toLowerCase()], [{'backgroundImage': 'url(' + ajax.cover + ')'}], [{'aria-label': ajax.name}, {'data-set': [ajax.set]}], []);
+            container.description = ajax.description;
             return container;
         }
 
@@ -25,7 +25,7 @@
 
             const label = this.etiedeken.element('h2', ['text-center'], [], 'Portfolio');
 
-            let items = this.etiedeken.element('ul', ['portfolio'], []);
+            let items = this.etiedeken.element('div', ['portfolio'], []);
 
             ajax.portfolio.reverse();
 

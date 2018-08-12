@@ -1,0 +1,33 @@
+{
+    "portfolio": [
+        {
+            "name": "Mastercook",
+            "cover": "/images/portfolio/mastercook.jpeg",
+            "description": "First project in Substance Designer. Use for metal plating. From the Substance Designer tutorial.",
+            "category": "Website",
+            "set": [
+                "/images/portfolio/mastercook.jpeg"
+            ]
+        },
+        {
+            "name": "Projectbook",
+            "cover": "/images/portfolio/projectbook.jpeg",
+            "description": "First project in Substance Designer. Use for metal plating. From the Substance Designer tutorial.",
+            "category": "Website",
+            "set": [
+                "/images/portfolio/projectbook.jpeg"
+            ]
+        },
+        {
+            "name": "First Person Shooter",
+            "cover": "/images/portfolio/first-person-shooter-game-1.jpeg",
+            "description": "First project in Substance Designer. Use for metal plating. From the Substance Designer tutorial.",
+            "category": "Games",
+            "set": [
+                "/images/portfolio/first-person-shooter-game-1.jpeg",
+                "/images/portfolio/first-person-shooter-game-2.jpeg"
+            ]
+        }
+    ],
+    "next": 5
+}

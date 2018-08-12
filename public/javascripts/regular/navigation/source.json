@@ -1,0 +1,89 @@
+{
+    "home": {
+        "name": "Home",
+        "link": "/",
+        "image": "/images/logo.png",
+        "buttonIconClose": "×",
+        "buttonText": "Toggle Navigation"
+    },
+    "navigation": [
+        {
+            "name": "About",
+            "link": "#profile"
+        },
+        {
+            "name": "Versions",
+            "link": "#versions",
+            "nest": [
+                {
+                    "name": "All Versions",
+                    "link": "#versions"
+                },
+                {
+                    "name": "AMP",
+                    "link": "/amp"
+                },
+                {
+                    "name": "AngularJS",
+                    "link": "/angularjs"
+                },
+                {
+                    "name": "Angular",
+                    "link": "/angular"
+                },
+                {
+                    "name": "JavaScript ES6",
+                    "link": "/"
+                },
+                {
+                    "name": "ReactJS",
+                    "link": "/reactjs"
+                }
+            ]
+        },
+        {
+            "name": "Skills",
+            "link": "#skills",
+            "nest": [
+                {
+                    "name": "Project Management",
+                    "link": "#project-management"
+                },
+                {
+                    "name": "Software",
+                    "link": "#software"
+                },
+                {
+                    "name": "Description",
+                    "link": "#description"
+                },
+                {
+                    "name": "Frameworks",
+                    "link": "#frameworks"
+                },
+                {
+                    "name": "Languages",
+                    "link": "#languages"
+                }
+            ]
+        },
+        {
+            "name": "Experience",
+            "link": "#Experience",
+            "nest": [
+                {
+                    "name": "Employers",
+                    "link": "#experience"
+                },
+                {
+                    "name": "Education",
+                    "link": "#education"
+                }
+            ]
+        },
+        {
+            "name": "Portfolio",
+            "link": "#portfolio"
+        }
+    ]
+}

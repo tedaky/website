@@ -1,0 +1,29 @@
+{
+    "versions": [
+        {
+            "name": "AMP",
+            "link": "/amp",
+            "image": "/images/versions/amp.png"
+        },
+        {
+            "name": "AngularJS",
+            "link": "/angularjs",
+            "image": "/images/versions/angularjs.png"
+        },
+        {
+            "name": "Angular",
+            "link": "/angular",
+            "image": "/images/versions/angular.png"
+        },
+        {
+            "name": "ES6",
+            "link": "/",
+            "image": "/images/versions/javascript-es6.png"
+        },
+        {
+            "name": "ReactJS",
+            "link": "/reactjs",
+            "image": "/images/versions/reactjs.png"
+        }
+    ]
+}

@@ -1,0 +1,70 @@
+{
+    "experience": [
+        {
+            "company": "Encore Software",
+            "image": "/images/experience/encore.png",
+            "position": "Web Developer",
+            "time": {
+                "start": "August 2012",
+                "end": "Present"
+            },
+            "description": "Creating and updating product web pages and product emails is my primary position. I also have a secondary position as Quality Assurance. I check products for quality that are in development and products that have already been released for current technologies.",
+            "link": "https://www.encore.com/"
+        },
+        {
+            "company": "B507",
+            "image": "/images/experience/b507.png",
+            "position": "Front End Team Leader",
+            "time": {
+                "start": "August 2016",
+                "end": "June 2018"
+            },
+            "description": "Used the latest web technologies (Angular, AngularJS, Laravel PHP Blade) to build web applications for our clients both on Minnesota State University, Mankato campus and off campus.",
+            "link": "https://www.b507.us/"
+        },
+        {
+            "company": "ValuSoft Cosmi",
+            "image": "/images/experience/valusoft_cosmi.png",
+            "position": "Web Developer",
+            "time": {
+                "start": "August 2012",
+                "end": "December 2013"
+            },
+            "description": "Use a variety of web programming laguages for user interface development.",
+            "link": "https://www.mastercook.com/"
+        },
+        {
+            "company": "Theory.io",
+            "image": "/images/experience/theoryio.png",
+            "position": "Web Developer",
+            "time": {
+                "start": "March 2012",
+                "end": "December 2012"
+            },
+            "description": "Developed company website to provide helpful information for series of organizational iPad apps developed by the iPad team.",
+            "link": "http://theory.io/"
+        },
+        {
+            "company": "Preferred Interactive",
+            "image": "/images/experience/preferred_interactive.png",
+            "position": "Image Detailer",
+            "time": {
+                "start": "March 2012",
+                "end": "June 2012"
+            },
+            "description": "Used Photoshop batch scripts to add materials to house images such as counters, walls, floors and ceilings.",
+            "link": "http://theory.io/"
+        },
+        {
+            "company": "ValuSoft THQ",
+            "image": "/images/experience/valusoft_thq.png",
+            "position": "QA Lead",
+            "time": {
+                "start": "July 2011",
+                "end": "March 2012"
+            },
+            "description": "Test bugs/glitches with games, created steam depots for steam game release, disc setup, and game play video for retail presentations and marketing events.",
+            "link": "https://www.thqnordic.com/"
+        }
+    ]
+}

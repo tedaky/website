@@ -3,12 +3,12 @@
         constructor(etiedeken) {
             this.etiedeken = etiedeken;
             this.timeout = undefined;
-            this.time = 350
+            this.time = 350;
         }
 
         setImage(ajax) {
-            let container = this.etiedeken.accessibleElement('li', [], [{'backgroundImage': 'url(' + ajax.cover + ')'}], [{'aria-label': ajax.name}, {'data-set': [ajax.set]}, {'role': 'button'}], []);
-
+            let container = this.etiedeken.accessibleElement('button', ['category-' + ajax.category.toLowerCase()], [{'backgroundImage': 'url(' + ajax.cover + ')'}], [{'aria-label': ajax.name}, {'data-set': [ajax.set]}], []);
+            container.description = ajax.description;
             return container;
         }
 
@@ -25,17 +25,38 @@
             return container;
         }
 
+        getHeight(container) {
+            return container.clientHeight;
+        }
+
+        removeAnimation(container, button, self) {
+            container.classList.remove('animating');
+            container.style.height = null;
+            self.timeout = undefined;
+            button.removeAttribute('disabled');
+        }
+
         load(button) {
             let self = this;
             const next = button.getAttribute('data-next');
             button.setAttribute('disabled', 'disabled');
-
+            let portfolio = document.querySelector('.portfolio');
+            const tempHeight = this.getHeight(portfolio);
             if (next > 0)
                 this.etiedeken.ajax('GET', '/javascripts/es6/portfolio/source.' + next + '.json', function() {
                     button.setAttribute('data-next', this.next);
                     self.append(this.portfolio);
                     self.thumbClick();
-                    button.removeAttribute('disabled');
+
+                    const newHeight = self.getHeight(portfolio);
+
+                    portfolio.style.height = tempHeight + 'px';
+                    const animateHeight = self.getHeight(portfolio);
+                    portfolio.classList.add('animating');
+                    portfolio.style.height = newHeight + 'px';
+
+                    self.timeout = setTimeout(self.removeAnimation, self.time, portfolio, button, self);
+
                     if (this.next == 0)
                         button.classList.add('remove');
                 });
