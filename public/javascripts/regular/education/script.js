@@ -50,7 +50,7 @@
         (window.etiedeken) ?
             window.requestAnimationFrame(function () {
                 var load = new Setup(window.etiedeken);
-                load.ajax('/javascripts/regular/education/source.json');
+                load.ajax('/javascripts/response/education/source.json');
             }) :
             window.requestAnimationFrame(function () {
                 check(window);

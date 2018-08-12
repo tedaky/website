@@ -34,7 +34,7 @@
         (window.etiedeken) ?
             window.requestAnimationFrame(function () {
                 var load = new Setup(window.etiedeken);
-                load.ajax('/javascripts/regular/social/source.json');
+                load.ajax('/javascripts/response/social/source.json');
             }) :
             window.requestAnimationFrame(function () {
                 callEtiedeken(window);

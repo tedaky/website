@@ -81,7 +81,7 @@
         (window.etiedeken) ?
             window.requestAnimationFrame(function () {
                 var load = new Setup(window.etiedeken);
-                load.ajax('/javascripts/regular/navigation/source.json');
+                load.ajax('/javascripts/response/navigation/source.json');
             }) :
             window.requestAnimationFrame(function () {
                 check(window);

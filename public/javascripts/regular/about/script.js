@@ -119,7 +119,7 @@
         (window.etiedeken) ?
             window.requestAnimationFrame(function () {
                 var load = new Setup(window.etiedeken);
-                load.ajax('/javascripts/regular/about/source.json');
+                load.ajax('/javascripts/response/about/source.json');
             }) :
             window.requestAnimationFrame(function () {
                 check(window);

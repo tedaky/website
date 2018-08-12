@@ -44,7 +44,7 @@
         (window.etiedeken) ?
             window.requestAnimationFrame(function () {
                 var load = new Setup(window.etiedeken);
-                load.ajax('/javascripts/regular/portfolio/source.1.json');
+                load.ajax('/javascripts/response/portfolio/source.1.json');
             }) :
             window.requestAnimationFrame(function () {
                 check(window);
