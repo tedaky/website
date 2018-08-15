@@ -8,6 +8,7 @@ var sassMiddleware = require('node-sass-middleware');
 var regularRouter = require('./routes/regular');
 var ampRouter = require('./routes/amp');
 var es6Router = require('./routes/es6');
+var angularjsRouter = require('./routes/angularjs');
 
 var app = express();
 
@@ -30,6 +31,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', regularRouter);
 app.use('/amp/', ampRouter);
 app.use('/es6/', es6Router);
+app.use('/angularjs/', angularjsRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
