@@ -1,3 +1,4 @@
+/* jshint esversion: 6 */
 ((window, document) => {
     class Events {
         constructor(button, menu, submenu, close) {
@@ -82,9 +83,17 @@
                 button.setAttribute(this.aria[0], this.aria[2]);
             }
         }
+        submenuEvent(button, menu) {
+            let self = this;
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                self.toggleSubmenu(button, menu);
+            });
+        }
         toggleSubmenu(button, menu) {
-            (menu.classList.contains(this.navigation[4])) ?
-                this.closeSubmenu(button, menu) :
+            if (menu.classList.contains(this.navigation[4]))
+                this.closeSubmenu(button, menu);
+            else
                 this.openSubmenu(button, menu);
         }
         clickSubmenu() {
@@ -94,10 +103,7 @@
             for (let i = submenus.length; i > 0; --i) {
                 let menu = submenus[i-1];
                 let button = menu.firstChild;
-                button.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    self.toggleSubmenu(button, menu);
-                });
+                self.submenuEvent(button, menu);
             }
         }
 
@@ -111,6 +117,15 @@
             });
         }
 
+        menuItemEvent(item, menu, button, navbar) {
+            let self = this;
+            item.addEventListener('click', (e) => {
+                e.preventDefault();
+                self.closeSubmenu();
+                self.closeMenu(menu, button, navbar);
+                self.scrollingToCalculations(item);
+            });
+        }
         clickMenuItem() {
             let self = this;
             let menu = document.querySelector(this.menu);
@@ -121,12 +136,7 @@
 
             for (let i = menuItem.length; i > 0; --i) {
                 let item = menuItem[i-1];
-                item.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    self.closeSubmenu();
-                    self.closeMenu(menu, button, navbar);
-                    self.scrollingToCalculations(item);
-                });
+                self.menuItemEvent(item, menu, button, navbar);
             }
         }
 
@@ -143,9 +153,9 @@
                 do
                     if (!isNaN(elem.offsetTop))
                         offsetTop += elem.offsetTop;
-                while(elem = elem.offsetParent);
+                while (elem == elem.offsetParent);
                 return offsetTop;
-            }
+            };
             const navBarHeight = navbar.innerHeight || navbar.clientHeight;
             const toElementPos = getOffsetTop(pageToElement) - navBarHeight - 24;
             const leftPosition = window.pageXOffset || document.documentElement.scrollLeft;
@@ -174,8 +184,9 @@
 
         scroll() {
             const topPosition = window.pageYOffset || document.documentElement.scrollTop;
-            (topPosition > 70) ?
-                document.body.classList.add('top-scroll') :
+            if (topPosition > 70)
+                document.body.classList.add('top-scroll');
+            else
                 document.body.classList.remove('top-scroll');
         }
 
@@ -188,8 +199,9 @@
             window.addEventListener('keydown', (e) => {
                 let openSubmenus = document.querySelectorAll(this.menu + ' .' + this.navigation[4]);
                 if (e.keyCode === 27)
-                    (openSubmenus.length) ?
-                        self.closeSubmenu() :
+                    if (openSubmenus.length)
+                        self.closeSubmenu();
+                    else
                         self.closeMenu(menu, button, navbar);
             });
             window.addEventListener('scroll', (e) => {

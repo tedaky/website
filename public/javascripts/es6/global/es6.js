@@ -1,3 +1,4 @@
+/* jshint esversion: 6 */
 ((window, document) => {
     class Loader {
         constructor(jsfiles, cssfiles) {

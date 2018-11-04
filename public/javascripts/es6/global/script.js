@@ -1,3 +1,4 @@
+/* jshint esversion: 6 */
 ((window, document) => {
     class Tiedeken {
         constructor () {}
@@ -16,7 +17,7 @@
                 // }
                 if (this.readyState == 4 && this.status == 200)
                     callback.call(JSON.parse(this.responseText));
-            }
+            };
             xhttp.open(method, url, true);
             xhttp.send();
 

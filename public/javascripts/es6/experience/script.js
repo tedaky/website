@@ -1,3 +1,4 @@
+/* jshint esversion: 6 */
 ((window, document) => {
     class Setup {
         constructor(etiedeken) {
@@ -73,11 +74,12 @@
     }
 
     const check = (window) => {
-        (window.etiedeken) ?
+        if (window.etiedeken)
             window.requestAnimationFrame(() => {
                 let load = new Setup(window.etiedeken);
                 load.ajax('/javascripts/response/experience/source.json');
-            }) :
+            });
+        else
             window.requestAnimationFrame(() => {
                 check(window);
             });

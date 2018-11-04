@@ -66,24 +66,26 @@
                 button.setAttribute(this.aria[0], this.aria[2]);
             }
         };
+        Events.prototype.submenuEvent = function (button, menu) {
+            var self = this;
+            button.addEventListener('click', function (e) {
+                e.preventDefault();
+                self.toggleSubmenu(button, menu);
+            });
+        };
         Events.prototype.toggleSubmenu = function (button, menu) {
-            (menu.classList.contains(this.navigation[4])) ?
-                this.closeSubmenu(button, menu) :
+            if (menu.classList.contains(this.navigation[4]))
+                this.closeSubmenu(button, menu);
+            else
                 this.openSubmenu(button, menu);
         };
         Events.prototype.clickSubmenu = function () {
             var self = this;
             var submenus = document.querySelectorAll(this.menu + ' ' + this.submenu);
-            var _loop_1 = function (i) {
+            for (var i = submenus.length; i > 0; --i) {
                 var menu = submenus[i - 1];
                 var button = menu.firstChild;
-                button.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    self.toggleSubmenu(button, menu);
-                });
-            };
-            for (var i = submenus.length; i > 0; --i) {
-                _loop_1(i);
+                self.submenuEvent(button, menu);
             }
         };
         Events.prototype.clickMenu = function () {
@@ -95,23 +97,24 @@
                 self.toggleMenu();
             });
         };
+        Events.prototype.menuItemEvent = function (item, menu, button, navbar) {
+            var self = this;
+            item.addEventListener('click', function (e) {
+                e.preventDefault();
+                self.closeSubmenu();
+                self.closeMenu(menu, button, navbar);
+                self.scrollingToCalculations(item);
+            });
+        };
         Events.prototype.clickMenuItem = function () {
             var self = this;
             var menu = document.querySelector(this.menu);
             var button = document.querySelector(this.button);
             var navbar = document.getElementById('navbar');
             var menuItem = document.querySelectorAll(this.menu + ' .container > .nav:last-child .nav-item:not(' + this.submenu + ') .nav-click[href^="#"]');
-            var _loop_2 = function (i) {
-                var item = menuItem[i - 1];
-                item.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    self.closeSubmenu();
-                    self.closeMenu(menu, button, navbar);
-                    self.scrollingToCalculations(item);
-                });
-            };
             for (var i = menuItem.length; i > 0; --i) {
-                _loop_2(i);
+                var item = menuItem[i - 1];
+                self.menuItemEvent(item, menu, button, navbar);
             }
         };
         Events.prototype.scrollingToCalculations = function (menuItem) {
@@ -127,7 +130,7 @@
                 do
                     if (!isNaN(elem.offsetTop))
                         offsetTop += elem.offsetTop;
-                while (elem = elem.offsetParent);
+                while (elem == elem.offsetParent);
                 return offsetTop;
             };
             var navBarHeight = navbar.innerHeight || navbar.clientHeight;
@@ -158,8 +161,9 @@
         };
         Events.prototype.scroll = function () {
             var topPosition = window.pageYOffset || document.documentElement.scrollTop;
-            (topPosition > 70) ?
-                document.body.classList.add('top-scroll') :
+            if (topPosition > 70)
+                document.body.classList.add('top-scroll');
+            else
                 document.body.classList.remove('top-scroll');
         };
         Events.prototype.window = function () {
@@ -171,8 +175,9 @@
             window.addEventListener('keydown', function (e) {
                 var openSubmenus = document.querySelectorAll(_this.menu + ' .' + _this.navigation[4]);
                 if (e.keyCode === 27)
-                    (openSubmenus.length) ?
-                        self.closeSubmenu() :
+                    if (openSubmenus.length)
+                        self.closeSubmenu();
+                    else
                         self.closeMenu(menu, button, navbar);
             });
             window.addEventListener('scroll', function (e) {

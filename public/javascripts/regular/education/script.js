@@ -47,11 +47,12 @@
         return Setup;
     }());
     var check = function (window) {
-        (window.etiedeken) ?
+        if (window.etiedeken)
             window.requestAnimationFrame(function () {
                 var load = new Setup(window.etiedeken);
                 load.ajax('/javascripts/response/education/source.json');
-            }) :
+            });
+        else
             window.requestAnimationFrame(function () {
                 check(window);
             });

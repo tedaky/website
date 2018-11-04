@@ -4,7 +4,7 @@
             this.etiedeken = etiedeken;
         }
         Setup.prototype.setImage = function (ajax) {
-            var container = this.etiedeken.accessibleElement('button', ['category-' + ajax.category.toLowerCase()], [{ 'backgroundImage': 'url(' + ajax.cover + ')' }], [{ 'aria-label': ajax.name }, { 'data-set': [ajax.set] }], []);
+            var container = this.etiedeken.accessibleElement('button', ['category-' + ajax.category.toLowerCase(), 'portfolio-item'], [{ 'backgroundImage': 'url(' + ajax.cover + ')' }], [{ 'aria-label': ajax.name }, { 'data-set': [ajax.set] }], []);
             container.description = ajax.description;
             return container;
         };
@@ -41,11 +41,12 @@
         return Setup;
     }());
     var check = function (window) {
-        (window.etiedeken) ?
+        if (window.etiedeken)
             window.requestAnimationFrame(function () {
                 var load = new Setup(window.etiedeken);
                 load.ajax('/javascripts/response/portfolio/source.1.json');
-            }) :
+            });
+        else
             window.requestAnimationFrame(function () {
                 check(window);
             });

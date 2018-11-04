@@ -1,3 +1,4 @@
+/* jshint esversion: 6 */
 ((window, document) => {
     class Events {
         constructor(main) {
@@ -47,8 +48,9 @@
         toggle(container, activator) {
             if(this.timeout)
                 return;
-            (container.clientHeight > 0) ?
-                this.zeroHeight(container, activator) :
+            if (container.clientHeight > 0)
+                this.zeroHeight(container, activator);
+            else
                 this.setHeight(container, activator);
         }
         setButton(element) {

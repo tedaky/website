@@ -1,3 +1,4 @@
+/* jshint esversion: 6 */
 ((window, document) => {
     class Setup {
         constructor(etiedeken) {
@@ -32,9 +33,12 @@
             return home;
         }
 
-        navItem(item) {
+        navItem(item, hasChildren) {
             let nav = this.etiedeken.element('li', ['nav-item'], []);
-            let text = this.etiedeken.link(['nav-click'], [], item.name, item.link, false);
+            
+            let text = hasChildren ?
+                this.etiedeken.element('button', ['nav-click'], [], item.name) :
+                this.etiedeken.link(['nav-click'], [], item.name, item.link, false);
 
             nav.appendChild(text);
 
@@ -52,7 +56,8 @@
             for (let i = nav.length; i > 0; --i) {
                 let curItem;
                 if (nav[i-1].nest) {
-                    curItem = this.navItem(nav[i-1]);
+                    //curItem = this.navItem(nav[i-1]);
+                    curItem = this.navItem(nav[i-1], true);
                     curItem.classList.add('sub-nav');
                     curItem.firstChild.id = 'subnav' + (i - 1);
                     curItem.firstChild.setAttribute('aria-haspopup', 'true');
@@ -101,11 +106,12 @@
     }
 
     const check = (window) => {
-        (window.etiedeken) ?
+        if (window.etiedeken)
             window.requestAnimationFrame(() => {
                 let load = new Setup(window.etiedeken);
                 load.ajax('/javascripts/response/navigation/source.json');
-            }) :
+            });
+        else
             window.requestAnimationFrame(() => {
                 check(window);
             });

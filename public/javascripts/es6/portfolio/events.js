@@ -1,3 +1,4 @@
+/* jshint esversion: 6 */
 ((window, document) => {
     class Events {
         constructor(etiedeken) {
@@ -7,7 +8,7 @@
         }
 
         setImage(ajax) {
-            let container = this.etiedeken.accessibleElement('button', ['category-' + ajax.category.toLowerCase()], [{'backgroundImage': 'url(' + ajax.cover + ')'}], [{'aria-label': ajax.name}, {'data-set': [ajax.set]}], []);
+            let container = this.etiedeken.accessibleElement('button', ['category-' + ajax.category.toLowerCase(), 'portfolio-item'], [{'backgroundImage': 'url(' + ajax.cover + ')'}], [{'aria-label': ajax.name}, {'data-set': [ajax.set]}], []);
             container.description = ajax.description;
             return container;
         }
@@ -62,16 +63,23 @@
                 });
         }
 
+        thumbEvent(item) {
+            let self = this;
+
+            item.addEventListener('click', (e) => {
+                const dataSet = item.getAttribute('data-set').split(',');
+                item.blur();
+                console.log(dataSet);
+            });
+        }
         thumbClick() {
             let self = this;
-            let items = document.querySelectorAll('.portfolio li:not(.loaded)');
+            let items = document.querySelectorAll('.portfolio .portfolio-item:not(.loaded)');
 
             for (let i = items.length; i > 0; --i) {
                 let item = items[i-1];
                 item.classList.add('loaded');
-                item.addEventListener('click', (e) => {
-
-                });
+                self.thumbEvent(item);
             }
         }
 

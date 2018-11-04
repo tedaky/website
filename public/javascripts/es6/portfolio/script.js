@@ -1,3 +1,4 @@
+/* jshint esversion: 6 */
 ((window, document) => {
     class Setup {
         constructor(etiedeken) {
@@ -5,7 +6,7 @@
         }
 
         setImage(ajax) {
-            let container = this.etiedeken.accessibleElement('button', ['category-' + ajax.category.toLowerCase()], [{'backgroundImage': 'url(' + ajax.cover + ')'}], [{'aria-label': ajax.name}, {'data-set': [ajax.set]}], []);
+            let container = this.etiedeken.accessibleElement('button', ['category-' + ajax.category.toLowerCase(), 'portfolio-item'], [{'backgroundImage': 'url(' + ajax.cover + ')'}], [{'aria-label': ajax.name}, {'data-set': [ajax.set]}], []);
             container.description = ajax.description;
             return container;
         }
@@ -53,11 +54,12 @@
     }
 
     const check = (window) => {
-        (window.etiedeken) ?
+        if (window.etiedeken)
             window.requestAnimationFrame(() => {
                 let load = new Setup(window.etiedeken);
                 load.ajax('/javascripts/response/portfolio/source.1.json');
-            }) :
+            });
+        else
             window.requestAnimationFrame(() => {
                 check(window);
             });

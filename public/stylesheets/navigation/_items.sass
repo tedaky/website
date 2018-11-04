@@ -8,10 +8,14 @@
             & + .nav
               display: block
         .nav-click
+          background-color: transparent
           text-decoration: none
+          line-height: 1.2
           cursor: pointer
+          font-size: 1em
           color: white
           padding: 8px
+          border: 0
           & + .nav
             display: none
         .sub-nav
@@ -19,17 +23,20 @@
             &::after
               display: inline-block
               vertical-align: top
-              content: '\22CE'
+              content: '\25bc'
               line-height: 1
               margin:
-                left: 15px
-                top: .2em
+                left: 12px
+                top: .3em
               font:
                 weight: bold
-                size: .7em
+                size: .6em
 
   a
     display: block
+  button
+    text-align: left
+    width: 100%
   img
     display: block
     height: 40px

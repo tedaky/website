@@ -23,9 +23,11 @@
             home.appendChild(button);
             return home;
         };
-        Setup.prototype.navItem = function (item) {
+        Setup.prototype.navItem = function (item, hasChildren) {
             var nav = this.etiedeken.element('li', ['nav-item'], []);
-            var text = this.etiedeken.link(['nav-click'], [], item.name, item.link, false);
+            var text = hasChildren ?
+                this.etiedeken.element('button', ['nav-click'], [], item.name) :
+                this.etiedeken.link(['nav-click'], [], item.name, item.link, false);
             nav.appendChild(text);
             return nav;
         };
@@ -37,7 +39,8 @@
             for (var i = nav.length; i > 0; --i) {
                 var curItem = void 0;
                 if (nav[i - 1].nest) {
-                    curItem = this.navItem(nav[i - 1]);
+                    //curItem = this.navItem(nav[i-1]);
+                    curItem = this.navItem(nav[i - 1], true);
                     curItem.classList.add('sub-nav');
                     curItem.firstChild.id = 'subnav' + (i - 1);
                     curItem.firstChild.setAttribute('aria-haspopup', 'true');
@@ -78,11 +81,12 @@
         return Setup;
     }());
     var check = function (window) {
-        (window.etiedeken) ?
+        if (window.etiedeken)
             window.requestAnimationFrame(function () {
                 var load = new Setup(window.etiedeken);
                 load.ajax('/javascripts/response/navigation/source.json');
-            }) :
+            });
+        else
             window.requestAnimationFrame(function () {
                 check(window);
             });

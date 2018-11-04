@@ -31,11 +31,12 @@
         return Setup;
     }());
     var callEtiedeken = function (window) {
-        (window.etiedeken) ?
+        if (window.etiedeken)
             window.requestAnimationFrame(function () {
                 var load = new Setup(window.etiedeken);
                 load.ajax('/javascripts/response/social/source.json');
-            }) :
+            });
+        else
             window.requestAnimationFrame(function () {
                 callEtiedeken(window);
             });

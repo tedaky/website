@@ -6,7 +6,7 @@
             this.time = 350;
         }
         Events.prototype.setImage = function (ajax) {
-            var container = this.etiedeken.accessibleElement('button', ['category-' + ajax.category.toLowerCase()], [{ 'backgroundImage': 'url(' + ajax.cover + ')' }], [{ 'aria-label': ajax.name }, { 'data-set': [ajax.set] }], []);
+            var container = this.etiedeken.accessibleElement('button', ['category-' + ajax.category.toLowerCase(), 'portfolio-item'], [{ 'backgroundImage': 'url(' + ajax.cover + ')' }], [{ 'aria-label': ajax.name }, { 'data-set': [ajax.set] }], []);
             container.description = ajax.description;
             return container;
         };
@@ -49,14 +49,21 @@
                         button.classList.add('remove');
                 });
         };
+        Events.prototype.thumbEvent = function (item) {
+            var self = this;
+            item.addEventListener('click', function (e) {
+                var dataSet = item.getAttribute('data-set').split(',');
+                item.blur();
+                console.log(dataSet);
+            });
+        };
         Events.prototype.thumbClick = function () {
             var self = this;
-            var items = document.querySelectorAll('.portfolio li:not(.loaded)');
+            var items = document.querySelectorAll('.portfolio .portfolio-item:not(.loaded)');
             for (var i = items.length; i > 0; --i) {
                 var item = items[i - 1];
                 item.classList.add('loaded');
-                item.addEventListener('click', function (e) {
-                });
+                self.thumbEvent(item);
             }
         };
         Events.prototype.loadClick = function () {
