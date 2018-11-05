@@ -130,7 +130,7 @@
                 do
                     if (!isNaN(elem.offsetTop))
                         offsetTop += elem.offsetTop;
-                while (elem == elem.offsetParent);
+                while ((elem = elem.offsetParent));
                 return offsetTop;
             };
             var navBarHeight = navbar.innerHeight || navbar.clientHeight;

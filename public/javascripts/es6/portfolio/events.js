@@ -8,8 +8,7 @@
         }
 
         setImage(ajax) {
-            let container = this.etiedeken.accessibleElement('button', ['category-' + ajax.category.toLowerCase(), 'portfolio-item'], [{'backgroundImage': 'url(' + ajax.cover + ')'}], [{'aria-label': ajax.name}, {'data-set': [ajax.set]}], []);
-            container.description = ajax.description;
+            let container = this.etiedeken.accessibleElement('button', ['category-' + ajax.category.toLowerCase(), 'portfolio-item'], [{'backgroundImage': 'url(' + ajax.cover + ')'}], [{'aria-label': ajax.name}, {'data-set': [ajax.set]}, {'data-description': ajax.description}, {'data-name': ajax.name}], []);
             return container;
         }
 
@@ -63,13 +62,72 @@
                 });
         }
 
+        createPopupWrapper() {
+            let body = document.body;
+            let popupWrapper = this.etiedeken.element('div', ['portfolio-popup'], []);
+            popupWrapper.id = 'portfolio_popup';
+
+            let close = this.etiedeken.accessibleElement('button', ['portfolio-close'], [], [{'aria-label': 'Close'}, {'type': 'button'}]);
+            popupWrapper.appendChild(close);
+
+            let name = this.etiedeken.element('div', ['portfolio-name'], []);
+            popupWrapper.appendChild(name);
+
+            let description = this.etiedeken.element('div', ['portfolio-description'], []);
+            popupWrapper.appendChild(description);
+
+            let images = this.etiedeken.element('div', ['portfolio-images'], []);
+            popupWrapper.appendChild(images);
+
+            let prevNext = this.etiedeken.element('div', ['portfolio-prev-next'], []);
+            popupWrapper.appendChild(prevNext);
+            
+            let slides = this.etiedeken.element('div', ['portfolio-slides'], []);
+            popupWrapper.appendChild(slides);
+
+            body.appendChild(popupWrapper);
+        }
+        populatePopup(dataDescription, dataName, dataSet) {
+            dataSet.reverse();
+
+            let popupWrapper = document.getElementById('portfolio_popup');
+
+            let images = popupWrapper.getElementsByClassName('portfolio-images')[0];
+            for (let i = dataSet.length; i > 0; --i) {
+                let imageSet = this.etiedeken.image([], [], dataSet[i-1], []);
+                images.appendChild(imageSet);
+            }
+
+            let name = popupWrapper.getElementsByClassName('portfolio-name')[0];
+            let nameText = this.etiedeken.element('span', [], [], dataName);
+            name.appendChild(nameText);
+
+            let description = popupWrapper.getElementsByClassName('portfolio-description')[0];
+            let descriptionText = this.etiedeken.element('span', [], [], dataDescription);
+            description.appendChild(descriptionText);
+        }
+        createPopup(dataDescription, dataName, dataSet) {
+            this.createPopupWrapper();
+            this.populatePopup(dataDescription, dataName, dataSet);
+        }
+        removePopup() {
+            let popupWrapper = document.getElementById('portfolio_popup');
+            if (popupWrapper)
+                popupWrapper.parentElement.removeChild(popupWrapper);
+        }
+        popup(dataDescription, dataName, dataSet) {
+            this.removePopup();
+            this.createPopup(dataDescription, dataName, dataSet);
+        }
         thumbEvent(item) {
             let self = this;
 
             item.addEventListener('click', (e) => {
+                const dataDescription = item.getAttribute('data-description');
+                const dataName = item.getAttribute('data-name');
                 const dataSet = item.getAttribute('data-set').split(',');
                 item.blur();
-                console.log(dataSet);
+                self.popup(dataDescription, dataName, dataSet);
             });
         }
         thumbClick() {

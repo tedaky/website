@@ -153,7 +153,7 @@
                 do
                     if (!isNaN(elem.offsetTop))
                         offsetTop += elem.offsetTop;
-                while (elem == elem.offsetParent);
+                while ((elem = elem.offsetParent));
                 return offsetTop;
             };
             const navBarHeight = navbar.innerHeight || navbar.clientHeight;
@@ -182,7 +182,7 @@
             scroll();
         }
 
-        scroll() {
+        scrolling() {
             const topPosition = window.pageYOffset || document.documentElement.scrollTop;
             if (topPosition > 70)
                 document.body.classList.add('top-scroll');
@@ -205,7 +205,7 @@
                         self.closeMenu(menu, button, navbar);
             });
             window.addEventListener('scroll', (e) => {
-                self.scroll();
+                self.scrolling();
             });
         }
     }
