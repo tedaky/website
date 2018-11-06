@@ -55,9 +55,8 @@
         }
         setButton(element) {
             let self = this;
-            const container = element.nextElementSibling;
+            const container = element.parentNode.nextElementSibling;
             element.addEventListener('click', (e) => {
-                e.preventDefault();
                 self.toggle(container, element);
             });
         }

@@ -86,7 +86,6 @@
         submenuEvent(button, menu) {
             let self = this;
             button.addEventListener('click', (e) => {
-                e.preventDefault();
                 self.toggleSubmenu(button, menu);
             });
         }
@@ -197,12 +196,13 @@
             let navbar = document.getElementById('navbar');
 
             window.addEventListener('keydown', (e) => {
-                let openSubmenus = document.querySelectorAll(this.menu + ' .' + this.navigation[4]);
+                let openSubmenus = document.querySelectorAll(self.menu + ' .' + self.navigation[4]);
                 if (e.keyCode === 27)
                     if (openSubmenus.length)
                         self.closeSubmenu();
                     else
-                        self.closeMenu(menu, button, navbar);
+                        if (menu.classList.contains('menu-open'))
+                            self.closeMenu(menu, button, navbar);
             });
             window.addEventListener('scroll', (e) => {
                 self.scrolling();

@@ -6,14 +6,13 @@
         }
 
         setImage(ajax) {
-            let container = this.etiedeken.accessibleElement('button', ['category-' + ajax.category.toLowerCase(), 'portfolio-item'], [{'backgroundImage': 'url(' + ajax.cover + ')'}], [{'aria-label': ajax.name}, {'data-set': [ajax.set]}, {'data-description': ajax.description}, {'data-name': ajax.name}], []);
+            let container = this.etiedeken.accessibleElement('button', ['category-' + ajax.category.toLowerCase(), 'portfolio-item'], [{'backgroundImage': 'url(' + ajax.cover + ')'}], [{'aria-label': ajax.name}, {'data-set': [ajax.set]}, {'data-description': ajax.description}, {'data-name': ajax.name}, {'type': 'button'}], []);
             return container;
         }
 
         more(next) {
             let container = this.etiedeken.element('div', ['text-center'], []);
-            const button = this.etiedeken.element('button', ['portfolio-btn'], [], '+');
-            button.setAttribute('data-next', next);
+            const button = this.etiedeken.accessibleElement('button', ['portfolio-btn'], [], [{'type': 'button'}, {'data-next': next}], '+');
             container.appendChild(button);
             return container;
         }

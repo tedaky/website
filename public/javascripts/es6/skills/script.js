@@ -33,7 +33,8 @@
             for (let i = ajax.skills.length; i > 0; --i) {
                 let container = this.etiedeken.element('div', ['container'], []);
                 container.id = ajax.skills[i-1].group.replace(' ', '-').toLowerCase();
-                let group = this.etiedeken.accessibleElement('button', ['text-center', 'h3'], [], [{'aria-expanded': 'true'}, {'aria-controls': 'skills' + i}], ajax.skills[i-1].group);
+                let heading = this.etiedeken.element('h3', [], []);
+                let group = this.etiedeken.accessibleElement('button', ['text-center', 'h3'], [], [{'aria-expanded': 'true'}, {'aria-controls': 'skills' + i}, {'type': 'button'}], ajax.skills[i-1].group);
                 let skills = this.etiedeken.accessibleElement('ul', ['skills'], [], [{'aria-expanded': 'true'}]);
                 skills.id = 'skills' + i;
                 ajax.skills[i-1].skill.reverse();
@@ -41,7 +42,8 @@
                 for (let y = ajax.skills[i-1].skill.length; y > 0; --y)
                     skills.appendChild(this.skill(ajax.skills[i-1].skill[y-1]));
 
-                container.appendChild(group);
+                heading.appendChild(group);
+                container.appendChild(heading);
                 container.appendChild(skills);
                 skillsWrapper.appendChild(container);
             }
