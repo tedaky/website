@@ -89,6 +89,25 @@
                 });
         }
 
+        prevPortfolioImage() {
+            let portfolioImagesContainer = document.getElementsByClassName('portfolio-images')[0];
+            let currentImage = portfolioImagesContainer.getElementsByClassName('active')[0];
+            let prevSibling = currentImage.previousElementSibling;
+            if (prevSibling) {
+                currentImage.classList.remove('active');
+                prevSibling.classList.add('active');
+            }
+        }
+        nextPortfolioImage() {
+            let portfolioImagesContainer = document.getElementsByClassName('portfolio-images')[0];
+            let currentImage = portfolioImagesContainer.getElementsByClassName('active')[0];
+            let nextSibling = currentImage.nextElementSibling;
+            if (nextSibling) {
+                currentImage.classList.remove('active');
+                nextSibling.classList.add('active');
+            }
+        }
+
         createPopupWrapper() {
             let self = this;
             let body = document.body;
@@ -102,11 +121,21 @@
                 self.removePopup();
             });
 
+            let prevNext = this.etiedeken.element('div', ['portfolio-prev-next'], []);
+            let prevButton = this.etiedeken.accessibleElement('button', ['portfolio-prev'], [], [{'aria-label': 'Previous Image'}, {'type': 'button'}], '‹');
+            let nextButton = this.etiedeken.accessibleElement('button', ['portfolio-next'], [], [{'aria-label': 'Next Image'}, {'type': 'button'}], '›');
+            prevNext.appendChild(prevButton);
+            prevNext.appendChild(nextButton);
+            popupContainer.appendChild(prevNext);
+            prevButton.addEventListener('click', (e) => {
+                self.prevPortfolioImage();
+            });
+            nextButton.addEventListener('click', (e) => {
+                self.nextPortfolioImage();
+            });
+
             let images = this.etiedeken.element('div', ['portfolio-images'], []);
             popupContainer.appendChild(images);
-
-            let prevNext = this.etiedeken.element('div', ['portfolio-prev-next'], []);
-            popupContainer.appendChild(prevNext);
             
             let slides = this.etiedeken.element('div', ['portfolio-slides'], []);
             popupContainer.appendChild(slides);

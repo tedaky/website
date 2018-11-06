@@ -3,7 +3,7 @@
         {
             "name": "3D Defend Game",
             "cover": "/images/portfolio/3d-defend-game.jpeg",
-            "description": "First project in Substance Designer. Use for metal plating. From the Substance Designer tutorial.",
+            "description": "This is my first 3D game using the game engine Torque3D. The opbjective of the game is to protect the central location as a horde of enemies grew closer.",
             "category": "Games",
             "set": [
                 "/images/portfolio/3d-defend-game.jpeg"
@@ -12,7 +12,7 @@
         {
             "name": "Pipes",
             "cover": "/images/portfolio/pipes-set.jpeg",
-            "description": "First project in Substance Designer. Use for metal plating. From the Substance Designer tutorial.",
+            "description": "These pipes are part of a 3D asset library that I created for my final graduation presentation.",
             "category": "3D",
             "set": [
                 "/images/portfolio/pipes-set.jpeg"
@@ -21,7 +21,7 @@
         {
             "name": "Propane Tanks",
             "cover": "/images/portfolio/propane-tanks.jpeg",
-            "description": "First project in Substance Designer. Use for metal plating. From the Substance Designer tutorial.",
+            "description": "These propane tanks are part of a 3D asset library that I created for my final graduation presentation.",
             "category": "3D",
             "set": [
                 "/images/portfolio/propane-tanks.jpeg"

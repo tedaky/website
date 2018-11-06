@@ -9,6 +9,7 @@
         "address": "Minnesota",
         "age": "28",
         "resume": "/media/EricTiedeken_resume.docx",
-        "description": "Hello! I'm Eric Tiedeken, web developer specializing in front end development and performance."
+        "description": "Hello! I'm Eric Tiedeken, web developer specializing in front end development and performance. Experienced with all stages of the development cycle.",
+        "footer": "©2018 Eric Tiedeken"
     }
 }

@@ -1,3 +1,4 @@
+/* jshint esversion: 6 */
 (function (window, document) {
     var Loader = /** @class */ (function () {
         function Loader(jsfiles, cssfiles) {

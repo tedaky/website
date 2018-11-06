@@ -1,3 +1,4 @@
+/* jshint esversion: 6 */
 (function (window, document) {
     var Setup = /** @class */ (function () {
         function Setup(etiedeken) {
@@ -76,6 +77,12 @@
             container.appendChild(description);
             return container;
         };
+        Setup.prototype.footer = function (footer) {
+            var container = this.etiedeken.element('div', ['container', 'no-bg'], []);
+            var text = this.etiedeken.element('p', ['copyright', 'text-center'], [], footer);
+            container.appendChild(text);
+            return container;
+        };
         Setup.prototype.sphere = function () {
             var ballWrapper = this.etiedeken.element('div', ['ball-wrapper'], []);
             var inner = this.etiedeken.element('div', ['inner'], []);
@@ -99,13 +106,17 @@
             var aboutWrapper = document.getElementById('about');
             var background = this.etiedeken.element('div', ['background'], []);
             var sphereBackground = this.etiedeken.element('div', ['sphere'], []);
+            var footer = document.getElementById('footer');
             profileWrapper.classList.add('profile');
             profileWrapper.appendChild(this.profile(ajax.about));
             aboutWrapper.appendChild(this.resume(ajax.about));
             aboutWrapper.appendChild(this.about(ajax.about));
+            footer.appendChild(this.footer(ajax.about.footer));
             document.body.insertBefore(background, profileWrapper);
             sphereBackground.appendChild(this.sphere());
             document.body.insertBefore(sphereBackground, aboutWrapper);
+            aboutWrapper.classList.add('about');
+            footer.classList.add('footer');
         };
         Setup.prototype.ajax = function (ajax) {
             var self = this;

@@ -1,3 +1,4 @@
+/* jshint esversion: 6 */
 (function (window, document) {
     var Setup = /** @class */ (function () {
         function Setup(etiedeken) {

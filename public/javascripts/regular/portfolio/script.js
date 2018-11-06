@@ -1,17 +1,16 @@
+/* jshint esversion: 6 */
 (function (window, document) {
     var Setup = /** @class */ (function () {
         function Setup(etiedeken) {
             this.etiedeken = etiedeken;
         }
         Setup.prototype.setImage = function (ajax) {
-            var container = this.etiedeken.accessibleElement('button', ['category-' + ajax.category.toLowerCase(), 'portfolio-item'], [{ 'backgroundImage': 'url(' + ajax.cover + ')' }], [{ 'aria-label': ajax.name }, { 'data-set': [ajax.set] }], []);
-            container.description = ajax.description;
+            var container = this.etiedeken.accessibleElement('button', ['category-' + ajax.category.toLowerCase(), 'portfolio-item'], [{ 'backgroundImage': 'url(' + ajax.cover + ')' }], [{ 'aria-label': ajax.name }, { 'data-set': [ajax.set] }, { 'data-description': ajax.description }, { 'data-name': ajax.name }, { 'type': 'button' }], []);
             return container;
         };
         Setup.prototype.more = function (next) {
             var container = this.etiedeken.element('div', ['text-center'], []);
-            var button = this.etiedeken.element('button', ['portfolio-btn'], [], '+');
-            button.setAttribute('data-next', next);
+            var button = this.etiedeken.accessibleElement('button', ['portfolio-btn'], [], [{ 'type': 'button' }, { 'data-next': next }], '+');
             container.appendChild(button);
             return container;
         };

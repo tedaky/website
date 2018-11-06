@@ -1,3 +1,4 @@
+/* jshint esversion: 6 */
 (function (window, document) {
     var Events = /** @class */ (function () {
         function Events(main) {
@@ -53,9 +54,8 @@
         };
         Events.prototype.setButton = function (element) {
             var self = this;
-            var container = element.nextElementSibling;
+            var container = element.parentNode.nextElementSibling;
             element.addEventListener('click', function (e) {
-                e.preventDefault();
                 self.toggle(container, element);
             });
         };

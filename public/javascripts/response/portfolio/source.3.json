@@ -3,7 +3,7 @@
         {
             "name": "Hard Drive Racer",
             "cover": "/images/portfolio/3d-racing-game-1.jpeg",
-            "description": "First project in Substance Designer. Use for metal plating. From the Substance Designer tutorial.",
+            "description": "This is a group project racing game using the game engine Torque3D. This is a racing game to avoid obstacles and get the fastest time and one of my most favourite projects that I've worked on.",
             "category": "Games",
             "set": [
                 "/images/portfolio/3d-racing-game-1.jpeg",
@@ -15,7 +15,7 @@
         {
             "name": "Barrels",
             "cover": "/images/portfolio/wood-barrels-set.jpeg",
-            "description": "First project in Substance Designer. Use for metal plating. From the Substance Designer tutorial.",
+            "description": "These barrels are part of a 3D asset library that I created for my final graduation presentation.",
             "category": "3D",
             "set": [
                 "/images/portfolio/wood-barrels-set.jpeg",
@@ -25,7 +25,7 @@
         {
             "name": "Stairs",
             "cover": "/images/portfolio/stairs-set.jpeg",
-            "description": "First project in Substance Designer. Use for metal plating. From the Substance Designer tutorial.",
+            "description": "These stairs are part of a 3D asset library that I created for my final graduation presentation.",
             "category": "3D",
             "set": [
                 "/images/portfolio/stairs-set.jpeg",

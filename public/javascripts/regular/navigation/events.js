@@ -1,3 +1,4 @@
+/* jshint esversion: 6 */
 (function (window, document) {
     var Events = /** @class */ (function () {
         function Events(button, menu, submenu, close) {
@@ -69,7 +70,6 @@
         Events.prototype.submenuEvent = function (button, menu) {
             var self = this;
             button.addEventListener('click', function (e) {
-                e.preventDefault();
                 self.toggleSubmenu(button, menu);
             });
         };
@@ -159,7 +159,7 @@
             };
             scroll();
         };
-        Events.prototype.scroll = function () {
+        Events.prototype.scrolling = function () {
             var topPosition = window.pageYOffset || document.documentElement.scrollTop;
             if (topPosition > 70)
                 document.body.classList.add('top-scroll');
@@ -167,21 +167,20 @@
                 document.body.classList.remove('top-scroll');
         };
         Events.prototype.window = function () {
-            var _this = this;
             var self = this;
             var menu = document.querySelector(this.menu);
             var button = document.querySelector(this.button);
             var navbar = document.getElementById('navbar');
             window.addEventListener('keydown', function (e) {
-                var openSubmenus = document.querySelectorAll(_this.menu + ' .' + _this.navigation[4]);
+                var openSubmenus = document.querySelectorAll(self.menu + ' .' + self.navigation[4]);
                 if (e.keyCode === 27)
                     if (openSubmenus.length)
                         self.closeSubmenu();
-                    else
+                    else if (menu.classList.contains('menu-open'))
                         self.closeMenu(menu, button, navbar);
             });
             window.addEventListener('scroll', function (e) {
-                self.scroll();
+                self.scrolling();
             });
         };
         return Events;

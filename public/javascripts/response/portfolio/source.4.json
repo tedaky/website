@@ -3,7 +3,7 @@
         {
             "name": "Mastercook",
             "cover": "/images/portfolio/mastercook.jpeg",
-            "description": "First project in Substance Designer. Use for metal plating. From the Substance Designer tutorial.",
+            "description": "This is a website I helped to create to allow customers to store recipes online and access anywhere they have an internet connection and internet browser.",
             "category": "Website",
             "set": [
                 "/images/portfolio/mastercook.jpeg"
@@ -12,7 +12,7 @@
         {
             "name": "Projectbook",
             "cover": "/images/portfolio/projectbook.jpeg",
-            "description": "First project in Substance Designer. Use for metal plating. From the Substance Designer tutorial.",
+            "description": "This is a website I created to provide information about the iPad application called Projectbook. (This website and application are no longer active)",
             "category": "Website",
             "set": [
                 "/images/portfolio/projectbook.jpeg"
@@ -21,7 +21,7 @@
         {
             "name": "First Person Shooter",
             "cover": "/images/portfolio/first-person-shooter-game-1.jpeg",
-            "description": "First project in Substance Designer. Use for metal plating. From the Substance Designer tutorial.",
+            "description": "This is a first person shooter game developed as a group using the game engine Unity3D.",
             "category": "Games",
             "set": [
                 "/images/portfolio/first-person-shooter-game-1.jpeg",

@@ -1,3 +1,4 @@
+/* jshint esversion: 6 */
 (function (window, document) {
     var Setup = /** @class */ (function () {
         function Setup(etiedeken) {
@@ -14,7 +15,7 @@
             nav.appendChild(link);
             home.appendChild(nav);
             var button = this.etiedeken.element('li', ['nav-item'], []);
-            var icon = this.etiedeken.accessibleElement('button', [], [], [{ 'aria-label': item.buttonText }, { 'aria-controls': 'navbar' }, { 'aria-expanded': 'false' }]);
+            var icon = this.etiedeken.accessibleElement('button', [], [], [{ 'aria-label': item.buttonText }, { 'aria-controls': 'navbar' }, { 'aria-expanded': 'false' }, { 'type': 'button' }]);
             var iconOpen = this.etiedeken.element('span', [], [], []);
             var iconclose = this.etiedeken.element('span', [], [], item.buttonIconClose);
             icon.appendChild(iconOpen);
@@ -39,13 +40,12 @@
             for (var i = nav.length; i > 0; --i) {
                 var curItem = void 0;
                 if (nav[i - 1].nest) {
-                    //curItem = this.navItem(nav[i-1]);
                     curItem = this.navItem(nav[i - 1], true);
                     curItem.classList.add('sub-nav');
                     curItem.firstChild.id = 'subnav' + (i - 1);
                     curItem.firstChild.setAttribute('aria-haspopup', 'true');
                     curItem.firstChild.setAttribute('aria-expanded', 'false');
-                    curItem.firstChild.setAttribute('role', 'button');
+                    curItem.firstChild.setAttribute('type', 'button');
                     nav[i - 1].nest.reverse();
                     var nestWrapper = this.etiedeken.accessibleElement('ul', ['nav'], [], [{ 'aria-labelledby': 'subnav' + (i - 1) }]);
                     for (var y = nav[i - 1].nest.length; y > 0; --y) {

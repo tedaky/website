@@ -109,6 +109,13 @@
             return container;
         }
 
+        footer(footer) {
+            let container = this.etiedeken.element('div', ['container', 'no-bg'], []);
+            let text = this.etiedeken.element('p', ['copyright', 'text-center'], [], footer);
+            container.appendChild(text);
+            return container;
+        }
+
         sphere() {
             let ballWrapper = this.etiedeken.element('div', ['ball-wrapper'], []);
             let inner = this.etiedeken.element('div', ['inner'], []);
@@ -135,15 +142,19 @@
             let aboutWrapper = document.getElementById('about');
             let background = this.etiedeken.element('div', ['background'], []);
             let sphereBackground = this.etiedeken.element('div', ['sphere'], []);
+            let footer = document.getElementById('footer');
 
             profileWrapper.classList.add('profile');
             profileWrapper.appendChild(this.profile(ajax.about));
             aboutWrapper.appendChild(this.resume(ajax.about));
             aboutWrapper.appendChild(this.about(ajax.about));
+            footer.appendChild(this.footer(ajax.about.footer));
 
             document.body.insertBefore(background, profileWrapper);
             sphereBackground.appendChild(this.sphere());
             document.body.insertBefore(sphereBackground, aboutWrapper);
+            aboutWrapper.classList.add('about');
+            footer.classList.add('footer');
         }
 
         ajax(ajax) {
