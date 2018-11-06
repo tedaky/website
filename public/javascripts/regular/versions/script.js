@@ -3,7 +3,7 @@
     var Setup = /** @class */ (function () {
         function Setup(etiedeken) {
             this.etiedeken = etiedeken;
-            this.version = 'You are viewing this page developed using JavaScript ES6. Want more details? Take a look at Dev Tools.';
+            this.version = 'You are viewing this page developed using JavaScript ES6 and transpiled to JavaScript ES5. Want more details? Take a look at Dev Tools.';
         }
         Setup.prototype.versions = function (versions) {
             var wrapper = this.etiedeken.element('li', ['item'], []);
