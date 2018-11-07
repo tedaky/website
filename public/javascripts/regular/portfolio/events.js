@@ -5,6 +5,7 @@
             this.etiedeken = etiedeken;
             this.timeout = undefined;
             this.time = 350;
+            this.lastFocus = undefined;
         }
         Events.prototype.scrollbar = function () {
             var scrollElement = document.createElement('div');
@@ -139,6 +140,8 @@
             var description = popupWrapper.getElementsByClassName('portfolio-description')[0];
             var descriptionText = this.etiedeken.element('p', [], [], dataDescription);
             description.appendChild(descriptionText);
+            var focusable = popupWrapper.querySelectorAll('a[href], button, textarea, input[type="text"], input[type="radio"], input[type="checkbox"], select');
+            focusable[0].focus();
         };
         Events.prototype.createPopup = function (dataDescription, dataName, dataSet) {
             this.createPopupWrapper();
@@ -148,8 +151,10 @@
         Events.prototype.removePopup = function () {
             this.closePadding();
             var popupWrapper = document.getElementById('portfolio_popup');
-            if (popupWrapper)
+            if (popupWrapper) {
                 popupWrapper.parentElement.removeChild(popupWrapper);
+                this.lastFocus.focus();
+            }
         };
         Events.prototype.popup = function (dataDescription, dataName, dataSet) {
             this.removePopup();
@@ -161,6 +166,7 @@
                 var dataDescription = item.getAttribute('data-description');
                 var dataName = item.getAttribute('data-name');
                 var dataSet = item.getAttribute('data-set').split(',');
+                self.lastFocus = item;
                 item.blur();
                 self.popup(dataDescription, dataName, dataSet);
             });
@@ -174,13 +180,47 @@
                 self.thumbEvent(item);
             }
         };
+        Events.prototype.windowBinding = function (e) {
+            var popup = document.getElementById('portfolio_popup');
+            if (popup) {
+                if (e.keyCode === 27)
+                    this.removePopup();
+                if (e.keyCode === 9)
+                    this.focus(e);
+            }
+        };
+        Events.prototype.isPopupFocused = function (focusable, focused) {
+            var isPopupFocused = false;
+            for (var i = focusable.length; i > 0; --i) {
+                if (focused == focusable[i - 1]) {
+                    isPopupFocused = true;
+                    break;
+                }
+            }
+            return isPopupFocused;
+        };
+        Events.prototype.focus = function (e) {
+            var popup = document.getElementById('portfolio_popup');
+            var focusable = popup.querySelectorAll('a[href], button, textarea, input[type="text"], input[type="radio"], input[type="checkbox"], select');
+            var firstFocusable = focusable[0];
+            var lastFocusable = focusable[focusable.length - 1];
+            if (e.shiftKey) {
+                if (document.activeElement === firstFocusable || !this.isPopupFocused(focusable, document.activeElement)) {
+                    e.preventDefault();
+                    lastFocusable.focus();
+                }
+            }
+            else {
+                if ((document.activeElement === lastFocusable) || !this.isPopupFocused(focusable, document.activeElement)) {
+                    e.preventDefault();
+                    firstFocusable.focus();
+                }
+            }
+        };
         Events.prototype.window = function () {
             var self = this;
             window.addEventListener('keydown', function (e) {
-                var popup = document.getElementById('portfolio_popup');
-                if (e.keyCode === 27)
-                    if (popup)
-                        self.removePopup();
+                self.windowBinding(e);
             });
         };
         Events.prototype.loadClick = function () {
