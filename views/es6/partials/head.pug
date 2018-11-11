@@ -3,9 +3,5 @@ meta(name='viewport', content='width=device-width, initial-scale=1.0, shrink-to-
 meta(http-equiv='X-UA-Compatible', content='ie=edge')
 title= title
 link(rel='shortcut icon', href='/images/favicon.ico', type='image/x-icon')
-style
-  :sass
-    #out-of-date
-      display: none
-      &.active
-        display: block
+style(type='text/css')
+  include:clean-css:sass ../sass/out-of-date.sass
