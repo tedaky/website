@@ -51,14 +51,15 @@
         // '/javascripts/es6/navigation/script',
         // '/javascripts/es6/about/script',
         // '/javascripts/es6/versions/script',
-        '/javascripts/es6/skills/script',
+        // '/javascripts/es6/skills/script',
         '/javascripts/es6/experience/script',
         '/javascripts/es6/portfolio/script',
         '/javascripts/es6/education/script',
         // '/javascripts/es6/social/script'
 
 
-        '/javascripts/es6/navigation/events'
+        '/javascripts/es6/navigation/events',
+        '/javascripts/es6/skills/events'
     ];
 
     const cssfiles = [
