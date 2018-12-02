@@ -84,15 +84,15 @@
         }
 
         fulfiller(ajax) {
-            let navigationWrapper = document.getElementById('navigation');
-            navigationWrapper.classList.add('navigation');
+            // let navigationWrapper = document.getElementById('navigation');
+            // navigationWrapper.classList.add('navigation');
 
-            let closeElement = this.etiedeken.element('div', ['close-navigation'], []);
-            navigationWrapper.parentNode.insertBefore(closeElement, navigationWrapper.nextSibling);
+            // let closeElement = this.etiedeken.element('div', ['close-navigation'], []);
+            // navigationWrapper.parentNode.insertBefore(closeElement, navigationWrapper.nextSibling);
 
-            ajax.navigation.reverse();
+            // ajax.navigation.reverse();
 
-            navigationWrapper.appendChild(this.navigating(ajax.home, ajax.navigation));
+            // navigationWrapper.appendChild(this.navigating(ajax.home, ajax.navigation));
             window.load.downloadjs('/javascripts/es6/navigation/events');
         }
 
