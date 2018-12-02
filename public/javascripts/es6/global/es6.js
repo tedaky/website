@@ -54,7 +54,7 @@
         // '/javascripts/es6/skills/script',
         // '/javascripts/es6/experience/script',
         '/javascripts/es6/portfolio/script',
-        '/javascripts/es6/education/script',
+        // '/javascripts/es6/education/script',
         // '/javascripts/es6/social/script'
 
 
