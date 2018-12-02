@@ -6,7 +6,9 @@ block content
   div(id="navigation", class="navigation")
     include sections/navigation.pug
   div(class="close-navigation")
-  div(id="profile")
+  div(class="background")
+  div(id="profile", class="profile")
+    include sections/profile.pug
   div(id="social")
   div(id="about")
   div(id="versions")
@@ -14,7 +16,8 @@ block content
   div(id="experience")
   div(id="portfolio")
   div(id="education")
-  footer(id="footer")
+  footer(id="footer", class="footer")
+    include sections/footer.pug
   //-// Start of Tawk.to Script
   //-script(type="text/javascript").
   //-  var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
