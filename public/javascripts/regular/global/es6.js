@@ -45,27 +45,32 @@
     }());
     var jsfiles = [
         '/javascripts/regular/global/script',
-        '/javascripts/regular/navigation/script',
-        '/javascripts/regular/about/script',
-        '/javascripts/regular/versions/script',
-        '/javascripts/regular/skills/script',
-        '/javascripts/regular/experience/script',
-        '/javascripts/regular/portfolio/script',
-        '/javascripts/regular/education/script',
-        '/javascripts/regular/social/script'
+        // '/javascripts/regular/navigation/script',
+        // '/javascripts/regular/about/script',
+        // '/javascripts/regular/versions/script',
+        // '/javascripts/regular/skills/script',
+        // '/javascripts/regular/experience/script',
+        // '/javascripts/regular/portfolio/script',
+        // '/javascripts/regular/education/script',
+        // '/javascripts/regular/social/script'
+
+
+        '/javascripts/regular/navigation/events',
+        '/javascripts/regular/skills/events',
+        '/javascripts/regular/portfolio/events'
     ];
     var cssfiles = [
-        '/stylesheets/global/styles',
-        '/stylesheets/navigation/styles',
-        '/stylesheets/about/styles',
-        '/stylesheets/versions/styles',
-        '/stylesheets/skills/styles',
-        '/stylesheets/experience/styles',
-        '/stylesheets/portfolio/styles',
-        '/stylesheets/education/styles',
-        '/stylesheets/social/styles',
-        '/stylesheets/background/styles',
-        '/stylesheets/sphere/styles'
+        // '/stylesheets/global/styles',
+        // '/stylesheets/navigation/styles',
+        // '/stylesheets/about/styles',
+        // '/stylesheets/versions/styles',
+        // '/stylesheets/skills/styles',
+        // '/stylesheets/experience/styles',
+        // '/stylesheets/portfolio/styles',
+        // '/stylesheets/education/styles',
+        // '/stylesheets/social/styles',
+        // '/stylesheets/background/styles',
+        // '/stylesheets/sphere/styles'
     ];
     window.requestAnimationFrame(function () {
         var load = window.load = new Loader(jsfiles, cssfiles);
