@@ -1,7 +1,8 @@
 {
   "name": "Eric Tiedeken Front End Web Developer / Designer",
   "short_name": "Tedaky",
-  "start_url": "/",
+  "start_url": ".",
+  "scope": "/",
   "display": "standalone",
   "background_color": "#fff",
   "lang": "en-US",
