@@ -1,0 +1,43 @@
+{
+  "name": "Eric Tiedeken Front End Web Developer / Designer",
+  "short_name": "Tedaky",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#fff",
+  "lang": "en-US",
+  "orientation": "any",
+  "theme_color": "#1a77d4",
+  "description": "Eric Tiedeken, Front End Web Developer and Designer specializing in development and performance.",
+  "icons": [
+    {
+      "src": "images/favicon.ico",
+      "sizes": "16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "images/logo.png",
+      "sizes": "60x60",
+      "type": "image/png"
+    },
+    {
+      "src": "images/logo96.png",
+      "sizes": "96x96",
+      "type": "image/png"
+    },
+    {
+      "src": "images/logo144.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    },
+    {
+      "src": "images/logo192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "images/logo512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

@@ -215,4 +215,5 @@
     events.clickSubmenu();
     events.window();
     events.clickMenuItem();
+    events.scrolling();
 })(window, document);

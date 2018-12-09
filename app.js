@@ -9,6 +9,7 @@ var regularRouter = require('./routes/regular');
 var ampRouter = require('./routes/amp');
 var angularjsRouter = require('./routes/angularjs');
 var es6Router = require('./routes/es6');
+var portfolio = require('./routes/portfolio');
 
 var app = express();
 
@@ -27,18 +28,13 @@ app.use(sassMiddleware({
   sourceMap: true
 }));
 
-app.use(function(req, res, next) {
-  res.header('Access-Control-Allow-Origin', '*');
-  res.header('Access-Control-Expose-Headers', 'AMP-Access-Control-Allow-Source-Origin');
-  res.header('AMP-Access-Control-Allow-Source-Origin', 'http://localhost:3000');
-  next();
-});
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', regularRouter);
 app.use('/amp/', ampRouter);
 app.use('/angularjs/', angularjsRouter);
 app.use('/es6/', es6Router);
+app.use('/portfolio/', portfolio);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
