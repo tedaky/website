@@ -1,9 +1,14 @@
 .profile
   & > .container
+    justify-content: center
     margin-bottom: 0
+    display: flex
 
 .profile-wrapper
+  box-sizing: border-box
+  max-width: 700px
   padding: 16px
+  width: 100%
   img
     max-width: 100%
   h1
@@ -71,8 +76,8 @@
     grid:
       gap: 0 32px
       template:
-        areas: "image me" "info info"
-        columns: 160px 1fr
+        areas: "me image" "info info"
+        columns: 1fr 160px
     .image
       grid-area: image
     .greeting
@@ -129,8 +134,8 @@
     grid:
       gap: 0 32px
       template:
-        areas: "image me" "image info"
-        columns: 170px 1fr
+        areas: "me image" "info image"
+        columns: 1fr 170px
     .info
       p
         &:nth-child(odd)
@@ -143,8 +148,8 @@
     grid:
       gap: 0 34px
       template:
-        areas: "image me" "image info" "image ."
-        columns: 210px 1fr
+        areas: "me image" "info image" ". image"
+        columns: 1fr 210px
     h1
       font-size: 38px
     .info
@@ -168,4 +173,4 @@
   .profile-wrapper
     grid:
       gap: 0 60px
-      template-columns: 210px 1fr
+      template-columns: 1fr 210px
