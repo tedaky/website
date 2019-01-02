@@ -43,11 +43,16 @@ var urlsToCache = [
   '/javascripts/es6/portfolio/events.js',
 
   // Portfolio Responses
-  '/javascripts/response/portfolio/source.1.json',
-  '/javascripts/response/portfolio/source.2.json',
-  '/javascripts/response/portfolio/source.3.json',
-  '/javascripts/response/portfolio/source.4.json',
-  '/javascripts/response/portfolio/source.5.json',
+  // '/javascripts/response/portfolio/source.1.json',
+  // '/javascripts/response/portfolio/source.2.json',
+  // '/javascripts/response/portfolio/source.3.json',
+  // '/javascripts/response/portfolio/source.4.json',
+  // '/javascripts/response/portfolio/source.5.json',
+  '/api/portfolio/getCollection/?collection=1',
+  '/api/portfolio/getCollection/?collection=2',
+  '/api/portfolio/getCollection/?collection=3',
+  '/api/portfolio/getCollection/?collection=4',
+  '/api/portfolio/getCollection/?collection=5',
 
   // Portfolio Images
   // Response 1
@@ -143,7 +148,7 @@ self.addEventListener('fetch', function(event) {
           }
         );
       })
-    );
+  );
 });
 
 self.addEventListener('activate', function(event) {

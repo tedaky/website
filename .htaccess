@@ -1,0 +1,9 @@
+Header set Access-Control-Allow-Origin "*"
+
+RewriteEngine On
+
+RewriteRule ^api/$ api/ [L]
+RewriteRule ^api/(.*) api/$1 [L]
+
+RewriteRule ^$ build/ [L]
+RewriteRule (.*) build/$1 [L]

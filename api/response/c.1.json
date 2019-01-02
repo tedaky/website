@@ -1,0 +1,38 @@
+{
+  "portfolio": [
+    {
+      "name": "Metal Plating",
+      "cover": "/images/portfolio/metal-plating-full.jpeg",
+      "description": "First project in Substance Designer. Use for metal plating. From the Substance Designer tutorial.",
+      "category": "Materials",
+      "set": [
+        "/images/portfolio/metal-plating-full.jpeg",
+        "/images/portfolio/metal-plating-maps.jpeg",
+        "/images/portfolio/metal-plating-surface.jpeg",
+        "/images/portfolio/metal-plating-nodes.jpeg"
+      ]
+    },
+    {
+      "name": "2D Sidescroller Game",
+      "cover": "/images/portfolio/2d-sidescroller-1.jpeg",
+      "description": "First game project using the game engine Torque Game Builder. Also referred to Torque2D. This is a sidescrolling space shooter game and one of my most favourite projects that I've worked on.",
+      "category": "Games",
+      "set": [
+        "/images/portfolio/2d-sidescroller-1.jpeg",
+        "/images/portfolio/2d-sidescroller-2.jpeg",
+        "/images/portfolio/2d-sidescroller-3.jpeg",
+        "/images/portfolio/2d-sidescroller-4.jpeg"
+      ]
+    },
+    {
+      "name": "Light Post",
+      "cover": "/images/portfolio/light-post.jpeg",
+      "description": "This light post is part of a 3D asset library that I created for my final graduation presentation. This light post was also used in the first person shooter project.",
+      "category": "3D",
+      "set": [
+        "/images/portfolio/light-post.jpeg"
+      ]
+    }
+  ],
+  "next": 2
+}
