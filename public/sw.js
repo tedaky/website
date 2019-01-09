@@ -2,7 +2,9 @@ var CACHE_NAME = 'my-site-cache-v1';
 var urlsToCache = [
   // Base
   '/',
-  '/es6',
+  '/?utm_source=pwa',
+  '/es6/',
+  '/es6/?utm_source=pwa',
 
   // Favicon
   '/images/favicon.ico',
