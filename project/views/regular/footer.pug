@@ -1,3 +1,6 @@
 script(async, src='/javascripts/regular/global/es6.js')
 script(type='text/javascript')
   include:uglify-js ../includes/javascript/sw.js
+script(async, src=`https://www.googletagmanager.com/gtag/js?id=${ga}`)
+script(type='text/javascript').
+  window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', '#{ga}');

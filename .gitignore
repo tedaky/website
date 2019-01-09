@@ -65,4 +65,7 @@ typings/
 *.css
 *.map
 
+# custom config
+ga.js
+
 .DS_Store
