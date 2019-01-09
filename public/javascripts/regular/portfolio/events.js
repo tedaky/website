@@ -59,6 +59,7 @@
             var portfolioContainer = document.querySelector('.portfolio');
             var tempHeight = this.getHeight(portfolioContainer);
             if (next > 0)
+                // this.etiedeken.ajax('GET', '/javascripts/response/portfolio/?source.' + next + '.json', function () {
                 this.etiedeken.ajax('GET', '/api/portfolio/getCollection/?collection=' + next, function () {
                     button.setAttribute('data-next', this.next);
                     self.append(this.portfolio);
