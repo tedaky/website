@@ -7,3 +7,58 @@
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
 </IfModule>
+
+<Files .htaccess>
+  <IfVersion < 2.4>
+    order allow,deny
+    deny from all
+  </IfVersion>
+  <IfVersion >= 2.4>
+    Require all denied
+  </IfVersion>
+</Files>
+<Files app.js>
+  <IfVersion < 2.4>
+    order allow,deny
+    deny from all
+  </IfVersion>
+  <IfVersion >= 2.4>
+    Require all denied
+  </IfVersion>
+</Files>
+<Files ga.js>
+  <IfVersion < 2.4>
+    order allow,deny
+    deny from all
+  </IfVersion>
+  <IfVersion >= 2.4>
+    Require all denied
+  </IfVersion>
+</Files>
+<Files ga.sample.js>
+  <IfVersion < 2.4>
+    order allow,deny
+    deny from all
+  </IfVersion>
+  <IfVersion >= 2.4>
+    Require all denied
+  </IfVersion>
+</Files>
+<Files package-lock.json>
+  <IfVersion < 2.4>
+    order allow,deny
+    deny from all
+  </IfVersion>
+  <IfVersion >= 2.4>
+    Require all denied
+  </IfVersion>
+</Files>
+<Files package.json>
+  <IfVersion < 2.4>
+    order allow,deny
+    deny from all
+  </IfVersion>
+  <IfVersion >= 2.4>
+    Require all denied
+  </IfVersion>
+</Files>
