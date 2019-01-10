@@ -9,7 +9,7 @@ var regularRouter = require('./routes/regular');
 var ampRouter = require('./routes/amp');
 var angularjsRouter = require('./routes/angularjs');
 var es6Router = require('./routes/es6');
-var portfolio = require('./routes/portfolio');
+var pwaRouter = require('./routes/pwa');
 
 var app = express();
 
@@ -34,7 +34,7 @@ app.use('/', regularRouter);
 app.use('/amp/', ampRouter);
 app.use('/angularjs/', angularjsRouter);
 app.use('/es6/', es6Router);
-app.use('/portfolio/', portfolio);
+app.use('/pwa/', pwaRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

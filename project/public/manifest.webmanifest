@@ -1,7 +1,7 @@
 {
   "name": "Eric Tiedeken Front End Web Developer / Designer",
   "short_name": "Tedaky",
-  "start_url": "./?utm_source=pwa",
+  "start_url": "/pwa/",
   "scope": "/",
   "display": "standalone",
   "background_color": "#eff0ef",

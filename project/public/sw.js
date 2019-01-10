@@ -5,6 +5,8 @@ var urlsToCache = [
   '/?utm_source=pwa',
   '/es6/',
   '/es6/?utm_source=pwa',
+  '/pwa/',
+  '/pwa/?utm_source=pwa',
 
   // Favicon
   '/images/favicon.ico',
