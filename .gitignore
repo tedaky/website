@@ -68,4 +68,8 @@ typings/
 # custom config
 ga.js
 
+# Automated Deploy
+initiate.sh
+work.sh
+
 .DS_Store

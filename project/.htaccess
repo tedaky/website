@@ -1,3 +1,7 @@
-PassengerAppRoot ./
-PassengerAppType node
-PassengerStartupFile bin/www
+RewriteEngine On
+
+RewriteBase /
+
+# If an existing asset or directory is requested go to it as it is
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
