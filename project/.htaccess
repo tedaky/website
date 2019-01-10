@@ -1,7 +1,9 @@
-RewriteEngine On
+<IfModule mod_rewrite.c>
+  RewriteEngine On
 
-RewriteBase /
+  RewriteBase /
 
-# If an existing asset or directory is requested go to it as it is
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
+  # If an existing asset or directory is requested go to it as it is
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+</IfModule>
