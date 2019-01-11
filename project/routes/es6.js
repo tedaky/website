@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var ga = require('../ga').ga;
+var ga = require('../ga/ga').ga;
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
