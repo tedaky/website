@@ -7,6 +7,12 @@
     {
       "type": "node",
       "request": "launch",
+      "name": "MySQL Database",
+      "program": "${workspaceFolder}/project/mysql/script.js"
+    },
+    {
+      "type": "node",
+      "request": "launch",
       "name": "Website NodeJS",
       "program": "${workspaceFolder}/project/bin/www"
     }

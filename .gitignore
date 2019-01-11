@@ -67,6 +67,8 @@ typings/
 
 # custom config
 ga.js
+mysql-connect.js
+createDB.sql
 
 # Automated Deploy
 initiate.sh
