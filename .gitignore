@@ -67,6 +67,7 @@ typings/
 
 # custom config
 ga.js
+birthdate.js
 
 # Automated Deploy
 initiate.sh
