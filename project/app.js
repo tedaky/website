@@ -5,11 +5,8 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var sassMiddleware = require('node-sass-middleware');
 
-var regularRouter = require('./routes/regular');
-var ampRouter = require('./routes/amp');
-var angularjsRouter = require('./routes/angularjs');
-var es6Router = require('./routes/es6');
-var pwaRouter = require('./routes/pwa');
+var homeRouter = require('./routes/home');
+var pageRouter = require('./routes/page');
 
 var app = express();
 
@@ -30,26 +27,15 @@ app.use(sassMiddleware({
 
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', regularRouter);
-app.use('/amp/', ampRouter);
-app.use('/angularjs/', angularjsRouter);
-app.use('/es6/', es6Router);
-app.use('/pwa/', pwaRouter);
+app.use('/', homeRouter);
+app.use(pageRouter);
 
+var errorRouter = require('./routes/error');
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
 });
-
-// error handler
-app.use(function(err, req, res, next) {
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
-
-  // render the error page
-  res.status(err.status || 500);
-  res.render('error/index');
-});
+// error Handler
+app.use(errorRouter);
 
 module.exports = app;
