@@ -23,6 +23,9 @@
   # RewriteRule (.*) project/$1 [L]
 </IfModule>
 
+<DirectoryMatch "/\.git">
+  Require all denied
+</DirectoryMatch>
 <Files .gitignore>
   Require all denied
 </Files>
