@@ -23,18 +23,20 @@
   # RewriteRule (.*) project/$1 [L]
 </IfModule>
 
-<DirectoryMatch "/\.git">
-  Require all denied
-</DirectoryMatch>
-<Files .gitignore>
-  Require all denied
-</Files>
-<Files .htaccess>
-  Require all denied
-</Files>
-<Files LICENSE>
-  Require all denied
-</Files>
-<Files README.md>
-  Require all denied
-</Files>
+# Server doesn't like these in htaccess.
+# These are located in vhost
+# <DirectoryMatch "/\.git">
+#   Require all denied
+# </DirectoryMatch>
+# <Files .gitignore>
+#   Require all denied
+# </Files>
+# <Files .htaccess>
+#   Require all denied
+# </Files>
+# <Files LICENSE>
+#   Require all denied
+# </Files>
+# <Files README.md>
+#   Require all denied
+# </Files>
