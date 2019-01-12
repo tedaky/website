@@ -23,40 +23,15 @@
   # RewriteRule (.*) project/$1 [L]
 </IfModule>
 
-# For whatever reason the production server doesn't like these here and instead are in VHost
-#<Files .gitignore>
-#  <IfVersion < 2.4>
-#    order allow,deny
-#    deny from all
-#  </IfVersion>
-#  <IfVersion >= 2.4>
-#    Require all denied
-#  </IfVersion>
-#</Files>
-#<Files .htaccess>
-#  <IfVersion < 2.4>
-#    order allow,deny
-#    deny from all
-#  </IfVersion>
-#  <IfVersion >= 2.4>
-#    Require all denied
-#  </IfVersion>
-#</Files>
-#<Files LICENSE>
-#  <IfVersion < 2.4>
-#    order allow,deny
-#    deny from all
-#  </IfVersion>
-#  <IfVersion >= 2.4>
-#    Require all denied
-#  </IfVersion>
-#</Files>
-#<Files README.md>
-#  <IfVersion < 2.4>
-#    order allow,deny
-#    deny from all
-#  </IfVersion>
-#  <IfVersion >= 2.4>
-#    Require all denied
-#  </IfVersion>
-#</Files>
+<Files .gitignore>
+  Require all denied
+</Files>
+<Files .htaccess>
+  Require all denied
+</Files>
+<Files LICENSE>
+  Require all denied
+</Files>
+<Files README.md>
+  Require all denied
+</Files>

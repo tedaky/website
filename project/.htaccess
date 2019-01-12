@@ -9,47 +9,17 @@
 </IfModule>
 
 <Files .htaccess>
-  <IfVersion < 2.4>
-    order allow,deny
-    deny from all
-  </IfVersion>
-  <IfVersion >= 2.4>
-    Require all denied
-  </IfVersion>
+  Require all denied
 </Files>
 <Files app.js>
-  <IfVersion < 2.4>
-    order allow,deny
-    deny from all
-  </IfVersion>
-  <IfVersion >= 2.4>
-    Require all denied
-  </IfVersion>
+  Require all denied
 </Files>
 <Files package-lock.json>
-  <IfVersion < 2.4>
-    order allow,deny
-    deny from all
-  </IfVersion>
-  <IfVersion >= 2.4>
-    Require all denied
-  </IfVersion>
+  Require all denied
 </Files>
 <Files package.json>
-  <IfVersion < 2.4>
-    order allow,deny
-    deny from all
-  </IfVersion>
-  <IfVersion >= 2.4>
-    Require all denied
-  </IfVersion>
+  Require all denied
 </Files>
 <Files README.md>
-  <IfVersion < 2.4>
-    order allow,deny
-    deny from all
-  </IfVersion>
-  <IfVersion >= 2.4>
-    Require all denied
-  </IfVersion>
+  Require all denied
 </Files>
