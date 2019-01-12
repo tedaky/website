@@ -69,6 +69,7 @@ typings/
 ga.js
 mysql-connect.js
 createDB.sql
+birthdate.js
 
 # Automated Deploy
 initiate.sh
