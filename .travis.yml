@@ -7,3 +7,6 @@ before_install:
   - cd project
   - cp ga/ga.sample.js ga/ga.js
   - cp extras/birthdate.sample.js extras/birthdate.js
+
+after_success:
+  - npm run coveralls
