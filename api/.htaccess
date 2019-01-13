@@ -13,3 +13,10 @@
   # If the requested resource doesn't exist, use index.html
   RewriteRule ^(.*)$ index.php [PT,L]
 </IfModule>
+
+<Files .htaccess>
+  Require all denied
+</Files>
+<Files README.md>
+  Require all denied
+</Files>
