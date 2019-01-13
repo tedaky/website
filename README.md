@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/tedaky/website.svg?branch=master)](https://travis-ci.org/tedaky/website)
 [![Coverage Status](https://coveralls.io/repos/github/tedaky/website/badge.svg?branch=master)](https://coveralls.io/github/tedaky/website?branch=master)
 
 
