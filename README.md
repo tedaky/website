@@ -1,3 +1,6 @@
+[![Coverage Status](https://coveralls.io/repos/github/tedaky/website/badge.svg?branch=master)](https://coveralls.io/github/tedaky/website?branch=master)
+
+
 # Website
 
 This project currently uses `nodejs` with `expressjs`. The `api` is currently based on `PHP`.
