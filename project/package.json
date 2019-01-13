@@ -20,7 +20,7 @@
   "scripts": {
     "start": "node ./bin/www",
     "test": "mocha *.spec.js **/*.spec.js",
-    "cover": "istanbul cover _mocha *.spec.js **/*.spec.js",
+    "cover": "istanbul cover _mocha -- *.spec.js **/*.spec.js",
     "coveralls": "npm run cover -- --report lcovonly -- -R spec && cat ./coverage/lcov.info | coveralls && rm -rf ./coverage"
   },
   "dependencies": {
