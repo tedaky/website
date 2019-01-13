@@ -3,7 +3,7 @@ var router = express.Router();
 var ga = require('../ga/ga').ga;
 var age = require('../extras/birthday').age;
 
-/* GET page page. */
+/* GET page. */
 router.get('/:page', function(req, res, next) {
   var params = {
     title: '',
