@@ -4,4 +4,6 @@ node_js:
   - 8
 
 before_install:
-  cd project
+  - cd project
+  - cp ga/ga.sample.js ga/ga.js
+  - cp extras/birthdate.sample.js extras/birthdate.js
