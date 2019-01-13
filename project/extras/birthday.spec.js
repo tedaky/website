@@ -8,15 +8,13 @@ describe('loading birthday', function() {
   beforeEach(function() {
     birthday = require('./birthday');
     today = new Date();
-    birthdayBefore = today.setDate(today.getDate() - 550);
-    birthdayAfter = today.setDate(today.getDate() - 364);
   });
-  it('responds to Birthday before Today\'s date', function birthdayBeforeNow() {
-    // Todo: correct the test
+  it('responds to Birthday being almost the next age', function birthdayBeforeNow() {
+    birthdayBefore = new Date(today.setMonth(today.getMonth() - 23));
     assert.equal(birthday(birthdayBefore), 1);
   });
-  it('responds to Birthday after Today\'s date', function birthdayBeforeNow() {
-    // Todo: correct the test
-    assert.equal(birthday(birthdayAfter), 2);
+  it('responds to Birthday being exact age', function birthdayBeforeNow() {
+    birthdayAfter = new Date(today.setMonth(today.getMonth() - 12));
+    assert.equal(birthday(birthdayAfter), 1);
   });
 });
