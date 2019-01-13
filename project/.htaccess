@@ -14,6 +14,9 @@
 <Files app.js>
   Require all denied
 </Files>
+<Files app.spec.js>
+  Require all denied
+</Files>
 <Files package-lock.json>
   Require all denied
 </Files>

@@ -34,6 +34,9 @@
 # <Files .htaccess>
 #   Require all denied
 # </Files>
+# <Files .travis.yml>
+#   Require all denied
+# </Files>
 # <Files LICENSE>
 #   Require all denied
 # </Files>
