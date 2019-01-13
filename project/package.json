@@ -19,8 +19,8 @@
   },
   "scripts": {
     "start": "node ./bin/www",
-    "test": "mocha *.spec.js",
-    "cover": "istanbul cover _mocha *.spec.js",
+    "test": "mocha **/*.spec.js",
+    "cover": "istanbul cover _mocha **/*.spec.js",
     "coveralls": "npm run cover -- --report lcovonly -- -R spec && cat ./coverage/lcov.info | coveralls && rm -rf ./coverage"
   },
   "dependencies": {

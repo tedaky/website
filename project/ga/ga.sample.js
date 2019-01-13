@@ -1,3 +1,1 @@
-module.exports = {
-  ga: 'UA-XXXXXXXX-X'
-};
+module.exports = 'UA-XXXXXXXX-X';

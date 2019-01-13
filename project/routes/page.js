@@ -1,7 +1,8 @@
 var express = require('express');
 var router = express.Router();
-var ga = require('../ga/ga').ga;
-var age = require('../extras/birthday').age;
+var ga = require('../ga/ga');
+var birthdate = require('../extras/birthdate');
+var age = require('../extras/birthday')(birthdate);
 
 /* GET page. */
 router.get('/:page', function(req, res, next) {
