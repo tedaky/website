@@ -3,6 +3,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Dependency Status](https://david-dm.org/tedaky/website.svg)](https://david-dm.org/tedaky/website)
 [![devDependencies Status](https://david-dm.org/tedaky/website/dev-status.svg)](https://david-dm.org/tedaky/website?type=dev)
+[![Release](https://img.shields.io/github/release/tedaky/website.svg)](https://github.com/tedaky/website/releases/latest)
 
 # Website
 
