@@ -5,6 +5,7 @@
 [![devDependencies Status](https://david-dm.org/tedaky/website/dev-status.svg)](https://david-dm.org/tedaky/website?type=dev)
 [![Release](https://img.shields.io/github/release/tedaky/website.svg)](https://github.com/tedaky/website/releases/latest)
 [![Website](https://img.shields.io/website-up-down-green-red/https/www.etiedeken.com.svg?label=website)](https://www.etiedeken.com/)
+[![Last Commit](https://img.shields.io/github/last-commit/tedaky/website.svg)](https://github.com/tedaky/website/graphs/commit-activity)
 
 # Website
 
