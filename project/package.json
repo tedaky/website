@@ -25,9 +25,9 @@
   },
   "dependencies": {
     "cookie-parser": "~1.4.3",
-    "debug": "~3.1.0",
-    "express": "~4.16.0",
-    "http-errors": "~1.6.2",
+    "debug": "^3.2.6",
+    "express": "^4.16.4",
+    "http-errors": "^1.7.1",
     "jstransformer": "^1.0.0",
     "jstransformer-clean-css": "^2.1.0",
     "jstransformer-sass": "^1.0.0",
