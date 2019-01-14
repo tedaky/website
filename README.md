@@ -4,14 +4,11 @@
 [![Dependency Status](https://david-dm.org/tedaky/website.svg)](https://david-dm.org/tedaky/website)
 [![devDependencies Status](https://david-dm.org/tedaky/website/dev-status.svg)](https://david-dm.org/tedaky/website?type=dev)
 [![Release](https://img.shields.io/github/release/tedaky/website.svg)](https://github.com/tedaky/website/releases/latest)
+[![Website](https://img.shields.io/website-up-down-green-red/https/www.etiedeken.com.svg?label=website)](https://www.etiedeken.com/)
 
 # Website
 
 This project currently uses `nodejs` with `expressjs`. The `api` is currently based on `PHP`.
-
-## URL
-
-My Website built with this project [https://www.etiedeken.com](https://www.etiedeken.com)
 
 ## Deploy
 
