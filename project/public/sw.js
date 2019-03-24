@@ -21,6 +21,7 @@ var urlsToCache = [
   '/images/versions/javascript-es6.png',
   '/images/versions/reactjs.png',
   // Experience
+  '/images/experience/haworth.png',
   '/images/experience/encore.png',
   '/images/experience/b507.png',
   '/images/experience/valusoft_cosmi.png',
